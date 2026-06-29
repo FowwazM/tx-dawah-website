@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Dawah - Landing Page Concepts</title>
+<meta name="description" content="Internal gallery of landing-page design concepts for Texas Dawah.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=League+Spartan:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0e1a; --panel:#141826; --panel-2:#1b2030; --ink:#eef1f6; --muted:#9aa3b8;
+    --gold:#e7c66b; --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.18);
+    --ease:cubic-bezier(.23,1,.32,1); --maxw:1320px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Quicksand',sans-serif;font-size:16px;
+    line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
+  .serif{font-family:'Yeseva One',serif}
+  .caps{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.14em}
+
+  /* header */
+  header{padding:clamp(2.5rem,6vh,4.5rem) 0 2rem;border-bottom:1px solid var(--line);
+    background:radial-gradient(110% 120% at 50% -20%,#161d3e,var(--bg) 60%)}
+  .badge{display:inline-flex;align-items:center;gap:.5rem;font-family:'League Spartan',sans-serif;
+    text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;font-weight:600;color:var(--gold);
+    border:1px solid var(--line-2);border-radius:999px;padding:.45rem .9rem;margin-bottom:1.4rem}
+  .badge .dot{width:34px;height:34px;color:var(--gold)}
+  header h1{font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.01em;max-width:20ch}
+  header h1 .it{color:var(--gold)}
+  header p{color:var(--muted);max-width:62ch;margin-top:1rem;font-size:1.05rem}
+  .meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1.8rem;color:var(--muted);font-size:.9rem}
+  .meta b{color:var(--ink);font-weight:600}
+  .master{margin-top:1.9rem;display:flex;align-items:center;gap:1rem 1.2rem;flex-wrap:wrap}
+  .master-label{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.14em;
+    font-size:.72rem;font-weight:600;color:var(--muted)}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;background:var(--panel);
+    border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:.45rem .8rem;
+    font-family:'League Spartan',sans-serif;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;
+    transition:border-color .2s ease,background .2s ease}
+  .chip:hover{border-color:var(--line-2)}
+  .chip.active{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 18%,var(--panel))}
+  .chip .cs{width:26px;height:13px;border-radius:999px;border:1px solid var(--line-2);
+    background:linear-gradient(90deg,var(--a) 0 40%,var(--b) 40% 72%,var(--c) 72% 100%)}
+
+  /* grid */
+  .grid{display:flex;flex-wrap:wrap;gap:30px;justify-content:center;padding:clamp(2.5rem,6vh,4.5rem) 0}
+  .card{width:384px;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .4s var(--ease),border-color .3s var(--ease),box-shadow .4s var(--ease)}
+  .card:hover{transform:translateY(-6px);border-color:var(--line-2);box-shadow:0 30px 60px rgba(0,0,0,.5)}
+  .thumb{position:relative;width:384px;height:252px;overflow:hidden;background:#0a0a12;border-bottom:1px solid var(--line)}
+  .thumb iframe{position:absolute;top:0;left:0;width:1280px;height:840px;border:0;
+    transform:scale(.3);transform-origin:top left;pointer-events:none}
+  .thumb .num{position:absolute;top:12px;left:14px;z-index:3;font-family:'Yeseva One',serif;
+    font-size:1.1rem;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6);background:rgba(0,0,0,.35);
+    backdrop-filter:blur(4px);border-radius:8px;padding:.1rem .55rem}
+  .thumb .open-ov{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;
+    background:rgba(8,10,20,.55);opacity:0;transition:opacity .3s var(--ease)}
+  .card:hover .open-ov{opacity:1}
+  .open-ov .pill{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.1em;
+    font-size:.8rem;font-weight:700;color:#15183a;background:var(--gold);padding:.7rem 1.3rem;border-radius:999px}
+  .body{padding:1.4rem 1.5rem 1.6rem;display:flex;flex-direction:column;flex:1}
+  .body h2{font-family:'Yeseva One',serif;font-size:1.45rem;line-height:1.1}
+  .body .tagline{color:var(--muted);font-size:.78rem;font-family:'League Spartan',sans-serif;
+    text-transform:uppercase;letter-spacing:.12em;margin-top:.35rem}
+  .body p{color:var(--muted);font-size:.93rem;margin-top:.8rem;flex:1}
+  .sw{display:flex;gap:7px;margin-top:1.1rem}
+  .sw span{width:24px;height:24px;border-radius:6px;border:1px solid rgba(255,255,255,.18)}
+  .row{display:flex;align-items:center;justify-content:space-between;margin-top:1.3rem}
+  .open{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.8rem;
+    font-weight:600;color:var(--gold);display:inline-flex;align-items:center;gap:.4em}
+  .open .arr{transition:transform .25s var(--ease)} .card:hover .open .arr{transform:translateX(3px)}
+  .tone{font-size:.72rem;color:var(--muted);font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.1em}
+
+  footer{border-top:1px solid var(--line);padding:2.5rem 0 3.5rem;color:var(--muted);font-size:.88rem}
+  footer .fg{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+  footer b{color:var(--ink)}
+  .note{margin-top:1.2rem;max-width:75ch;font-size:.85rem}
+
+  @media (max-width:520px){.card,.thumb{width:100%}.thumb{height:auto;aspect-ratio:1280/840}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="badge">
+      <svg class="dot" viewBox="0 0 64 64" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="39" r="18.5" stroke="currentColor" stroke-width="1.4" opacity="0.8"/>
+        <path d="M31 7c7.2 3.3-3.6 11.4 3 16.5 6.4 5 -4.4 9.7 1.4 15.2 4 3.8 9.4 2.3 12-1.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M31 7c-1.6 1.9-1.4 4.2 .4 6.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+        <rect x="26.4" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 29.1 42.9)" fill="currentColor"/>
+        <rect x="33.6" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 36.3 42.9)" fill="currentColor"/>
+      </svg>
+      Texas Dawah · Design Console
+    </span>
+    <h1 class="serif">Eight directions, <span class="it">one brand</span>.</h1>
+    <p>Landing-page concepts for Texas Dawah, each built from the same identity (calligraphic logo, Islamic geometry, Yeseva One + League Spartan + Quicksand) expressed through a different palette and layout language. Click any concept to open the full, standalone page.</p>
+    <div class="meta">
+      <span><b>8</b> standalone concepts</span>
+      <span><b>5</b> dark · <b>3</b> light</span>
+      <span>Realistic placeholder copy throughout</span>
+      <span>Nav: Mission, Committee, Course, Blog, Donate</span>
+    </div>
+    <div class="master">
+      <span class="master-label">Preview all eight in</span>
+      <div class="chips" id="masterChips">
+        <button class="chip active" type="button" data-pal="native">Native</button>
+        <button class="chip" type="button" data-pal="midnight"><span class="cs" style="--a:#0d1230;--b:#e7c66b;--c:#9bb4e8"></span>Navy</button>
+        <button class="chip" type="button" data-pal="olive"><span class="cs" style="--a:#1d2416;--b:#cdb968;--c:#8a946f"></span>Olive</button>
+        <button class="chip" type="button" data-pal="cream"><span class="cs" style="--a:#f6f1e1;--b:#c1851f;--c:#4f7e6e"></span>Cream</button>
+        <button class="chip" type="button" data-pal="mocha"><span class="cs" style="--a:#362116;--b:#d8ad7c;--c:#b06a45"></span>Mocha</button>
+        <button class="chip" type="button" data-pal="aubergine"><span class="cs" style="--a:#1f0f24;--b:#e3c071;--c:#c79bd6"></span>Aubergine</button>
+        <button class="chip" type="button" data-pal="geometric"><span class="cs" style="--a:#072d2b;--b:#e7c66b;--c:#46b89a"></span>Teal</button>
+        <button class="chip" type="button" data-pal="interfaith"><span class="cs" style="--a:#e7d3c8;--b:#9c5c41;--c:#7d4631"></span>Rose</button>
+        <button class="chip" type="button" data-pal="minimal"><span class="cs" style="--a:#f4f1ea;--b:#0c5440;--c:#bfa15a"></span>Bone</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="grid">
+
+    <!-- 1 -->
+    <article class="card">
+      <div class="thumb">
+        <span class="num">01</span>
+        <a class="open-ov" href="landing-options/option-1-midnight.html" target="_blank" rel="noopener"><span class="pill">Open</span></a>
+        <iframe data-native="midnight" src="landing-options/option-1-midnight.html?palette=native" loading="lazy" title="Option 1 Midnight" tabindex="-1" scrolling="no"></iframe>
+      </div>
+      <div class="body">
+        <h2>Midnight</h2>
+        <div class="tagline">Navy + Gold · Flagship</div>
+        <p>Cinematic editorial dark, built on the official navy-and-gold lockup. Centered hero, bento programs.</p>
+        <div class="sw"><span style="background:#0d1230"></span><span style="background:#e7c66b"></span><span style="background:#9bb4e8"></span><span style="background:#eef1fb"></span></div>
+        <div class="row"><span class="tone">Dark</span><a class="open" href="landing-options/option-1-midnight.html" target="_blank" rel="noopener">Open full page <span class="arr">&rsaquo;</span></a></div>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="card">
+      <div class="thumb">
+        <span class="num">02</span>
+        <a class="open-ov" href="landing-options/option-2-olive.html" target="_blank" rel="noopener"><span class="pill">Open</span></a>
+        <iframe data-native="olive" src="landing-options/option-2-olive.html?palette=native" loading="lazy" title="Option 2 Olive" tabindex="-1" scrolling="no"></iframe>
+      </div>
+      <div class="body">
+        <h2>Olive Manuscript</h2>
+        <div class="tagline">Deep Olive + Sage</div>
+        <p>Scholarly and calm, the most editorial of the set. Asymmetric split hero, manuscript rhythm.</p>
+        <div class="sw"><span style="background:#1d2416"></span><span style="background:#cdb968"></span><span style="background:#8a946f"></span><span style="background:#ebeed6"></span></div>
+        <div class="row"><span class="tone">Dark</span><a class="open" href="landing-options/option-2-olive.html" target="_blank" rel="noopener">Open full page <span class="arr">&rsaquo;</span></a></div>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="card">
+      <div class="thumb">
+        <span class="num">03</span>
+        <a class="open-ov" href="landing-options/option-3-cream-sage.html" target="_blank" rel="noopener"><span class="pill">Open</span></a>
+        <iframe data-native="cream" src="landing-options/option-3-cream-sage.html?palette=native" loading="lazy" title="Option 3 Cream and Sage" tabindex="-1" scrolling="no"></iframe>
+      </div>
+      <div class="body">
+        <h2>Cream &amp; Sage</h2>
+        <div class="tagline">Light · Off-white + Sage</div>
+        <p>Warm and welcoming light mode with folk-color accents. Script hero, horizontal-scroll programs.</p>
+        <div class="sw"><span style="background:#f6f1e1"></span><span style="background:#4f7e6e"></span><span style="background:#c1851f"></span><span style="background:#cf5d42"></span></div>
+        <div class="row"><span class="tone">Light</span><a class="open" href="landing-options/option-3-cream-sage.html" target="_blank" rel="noopener">Open full page <span class="arr">&rsaquo;</span></a></div>
+      </div>
+    </article>
+
+    <!-- 4 -->
+    <article class="card">
+      <div class="thumb">
+        <span class="num">04</span>
+        <a class="open-ov" href="landing-options/option-4-mocha.html" target="_blank" rel="noopener"><span class="pill">Open</span></a>
+        <iframe data-native="mocha" src="landing-options/option-4-mocha.html?palette=native" loading="lazy" title="Option 4 Mocha" tabindex="-1" scrolling="no"></iframe>
+      </div>
+      <div class="body">
+        <h2>Mocha Warmth</h2>
+        <div class="tagline">Mocha Brown + Tan</div>
+        <p>Cozy, earthy hospitality. Photo-background hero, feature-plus-list programs.</p>
+        <div class="sw"><span style="background:#362116"></span><span style="background:#d8ad7c"></span><span style="background:#b06a45"></span><span style="background:#f1e3d4"></span></div>
+        <div class="row"><span class="tone">Dark</span><a class="open" href="landing-options/option-4-mocha.html" target="_blank" rel="noopener">Open full page <span class="arr">&rsaquo;</span></a></div>
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="card">
+      <div class="thumb">
+        <span class="num">05</span>
+        <a class="open-ov" href="landing-options/option-5-aubergine.html" target="_blank" rel="noopener"><span class="pill">Open</span></a>
+        <iframe data-native="aubergine" src="landing-options/option-5-aubergine.html?palette=native" loading="lazy" title="Option 5 Aubergine" tabindex="-1" scrolling="no"></iframe>
+      </div>
+      <div class="body">
+        <h2>Aubergine Nights</h2>
+        <div class="tagline">Plum + Lilac + Gold</div>
+        <p>Refined evening elegance. Offset hero, an elegant numbered index of programs.</p>
+        <div class="sw"><span style="background:#1f0f24"></span><span style="background:#e3c071"></span><span style="background:#c79bd6"></span><span style="background:#f3e7f1"></span></div>
+        <div class="row"><span class="tone">Dark</span><a class="open" href="landing-options/option-5-aubergine.html" target="_blank" rel="noopener">Open full page <span class="arr">&rsaquo;</span></a></div>
+      </div>
+    </article>
+
+    <!-- 6 -->
+    <article class="card">
+      <div class="thumb">
+        <span class="num">06</span>
+        <a class="open-ov" href="landing-options/option-6-geometric.html" target="_blank" rel="noopener"><span class="pill">Open</span></a>
+        <iframe data-native="geometric" src="landing-options/option-6-geometric.html?palette=native" loading="lazy" title="Option 6 Geometric" tabindex="-1" scrolling="no"></iframe>
+      </div>
+      <div class="body">
+        <h2>Geometric</h2>
+        <div class="tagline">Deep Teal + Gold · Kinetic</div>
+        <p>Bold and pattern-forward. Islamic geometry as the hero centerpiece, more motion.</p>
+        <div class="sw"><span style="background:#072d2b"></span><span style="background:#e7c66b"></span><span style="background:#46b89a"></span><span style="background:#e8f3ee"></span></div>
+        <div class="row"><span class="tone">Dark</span><a class="open" href="landing-options/option-6-geometric.html" target="_blank" rel="noopener">Open full page <span class="arr">&rsaquo;</span></a></div>
+      </div>
+    </article>
+
+    <!-- 7 -->
+    <article class="card">
+      <div class="thumb">
+        <span class="num">07</span>
+        <a class="open-ov" href="landing-options/option-7-interfaith.html" target="_blank" rel="noopener"><span class="pill">Open</span></a>
+        <iframe data-native="interfaith" src="landing-options/option-7-interfaith.html?palette=native" loading="lazy" title="Option 7 Interfaith" tabindex="-1" scrolling="no"></iframe>
+      </div>
+      <div class="body">
+        <h2>Interfaith</h2>
+        <div class="tagline">Dusty Rose + Terracotta · Photo-led</div>
+        <p>Warm photojournalistic magazine. The most image-forward direction, light with dark photo bands.</p>
+        <div class="sw"><span style="background:#e7d3c8"></span><span style="background:#9c5c41"></span><span style="background:#211a17"></span><span style="background:#f1e7df"></span></div>
+        <div class="row"><span class="tone">Light + dark bands</span><a class="open" href="landing-options/option-7-interfaith.html" target="_blank" rel="noopener">Open full page <span class="arr">&rsaquo;</span></a></div>
+      </div>
+    </article>
+
+    <!-- 8 -->
+    <article class="card">
+      <div class="thumb">
+        <span class="num">08</span>
+        <a class="open-ov" href="landing-options/option-8-minimal.html" target="_blank" rel="noopener"><span class="pill">Open</span></a>
+        <iframe data-native="minimal" src="landing-options/option-8-minimal.html?palette=native" loading="lazy" title="Option 8 Minimal" tabindex="-1" scrolling="no"></iframe>
+      </div>
+      <div class="body">
+        <h2>Minimal Mihrab</h2>
+        <div class="tagline">Bone + Deep Emerald</div>
+        <p>Serene and ultra-minimal, art-gallery quiet. The mihrab arch as the recurring motif.</p>
+        <div class="sw"><span style="background:#f4f1ea"></span><span style="background:#0c5440"></span><span style="background:#bfa15a"></span><span style="background:#16130f"></span></div>
+        <div class="row"><span class="tone">Light</span><a class="open" href="landing-options/option-8-minimal.html" target="_blank" rel="noopener">Open full page <span class="arr">&rsaquo;</span></a></div>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <span><b>Texas Dawah</b> landing-page concepts · for design review</span>
+      <span>Fonts: Yeseva One · League Spartan · Quicksand · Kaushan Script · Amiri</span>
+    </div>
+    <p class="note">All copy and figures are realistic placeholders for design review, not final content. Imagery is treated placeholder photography. Each concept is a single self-contained HTML file under <b>landing-options/</b>. Previews above are live, scaled renders; open any concept for the full experience.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips=[].slice.call(document.querySelectorAll('#masterChips .chip'));
+  var frames=[].slice.call(document.querySelectorAll('.thumb iframe'));
+  var current='native';
+  function send(f){try{
+    var pal=(current==='native')?(f.dataset.native||'midnight'):current;
+    if(f.contentWindow) f.contentWindow.postMessage({txdPalette:pal},'*');
+  }catch(e){}}
+  function apply(key){
+    current=key;
+    chips.forEach(function(c){c.classList.toggle('active',c.dataset.pal===key)});
+    frames.forEach(send);
+    [].slice.call(document.querySelectorAll('a.open, a.open-ov')).forEach(function(a){
+      var base=(a.getAttribute('href')||'').split('?')[0];
+      a.setAttribute('href', key==='native'?base:base+'?palette='+key);
+    });
+  }
+  chips.forEach(function(c){c.addEventListener('click',function(){apply(c.dataset.pal)})});
+  frames.forEach(function(f){f.addEventListener('load',function(){send(f)})});
+})();
+</script>
+</body>
+</html>

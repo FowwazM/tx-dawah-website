@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="midnight">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Dawah - Option 1: Midnight</title>
+<meta name="description" content="Texas Dawah - a student-led community sharing the message of Islam with wisdom and building bridges across faiths in Austin, Texas.">
+<script>document.documentElement.className += ' js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=League+Spartan:wght@400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&family=Kaushan+Script&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+<style id="txd-palettes">
+[data-palette="midnight"]{--p-bg:#0d1230;--p-surface:#161d44;--p-surface-2:#1d2662;--p-ink:#eef1fb;--p-muted:#aab4dc;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#15183a;--p-accent-2:#9bb4e8;--p-accent-3:#9bb4e8;--p-line:rgba(155,180,232,.16);--p-line-2:rgba(155,180,232,.30);--p-band:#090d24;--p-band-ink:#eef1fb;--p-overlay:rgba(13,18,48,.6)}
+[data-palette="olive"]{--p-bg:#1d2416;--p-surface:#28311e;--p-surface-2:#323d26;--p-ink:#ebeed6;--p-muted:#b3bb95;--p-accent:#cdb968;--p-accent-deep:#b6a24f;--p-accent-ink:#1d2416;--p-accent-2:#8a946f;--p-accent-3:#8a946f;--p-line:rgba(235,238,214,.14);--p-line-2:rgba(235,238,214,.26);--p-band:#161c10;--p-band-ink:#ebeed6;--p-overlay:rgba(29,36,22,.6)}
+[data-palette="cream"]{--p-bg:#f6f1e1;--p-surface:#fffdf7;--p-surface-2:#efe8d4;--p-ink:#24302a;--p-muted:#54604f;--p-accent:#c1851f;--p-accent-deep:#9f6e16;--p-accent-ink:#22150a;--p-accent-2:#4f7e6e;--p-accent-3:#cf5d42;--p-line:rgba(36,48,42,.14);--p-line-2:rgba(36,48,42,.26);--p-band:#3a5e52;--p-band-ink:#f4efe0;--p-overlay:rgba(36,48,42,.34)}
+[data-palette="mocha"]{--p-bg:#362116;--p-surface:#48301f;--p-surface-2:#5a3c27;--p-ink:#f1e3d4;--p-muted:#c9ab93;--p-accent:#d8ad7c;--p-accent-deep:#c0925f;--p-accent-ink:#2a1810;--p-accent-2:#b06a45;--p-accent-3:#b06a45;--p-line:rgba(241,227,212,.14);--p-line-2:rgba(241,227,212,.26);--p-band:#251610;--p-band-ink:#f1e3d4;--p-overlay:rgba(40,24,16,.58)}
+[data-palette="aubergine"]{--p-bg:#1f0f24;--p-surface:#2e1834;--p-surface-2:#3a1f42;--p-ink:#f3e7f1;--p-muted:#c6a6cb;--p-accent:#e3c071;--p-accent-deep:#cda74f;--p-accent-ink:#1c0c20;--p-accent-2:#c79bd6;--p-accent-3:#c79bd6;--p-line:rgba(243,231,241,.13);--p-line-2:rgba(243,231,241,.26);--p-band:#170a1b;--p-band-ink:#f3e7f1;--p-overlay:rgba(31,15,36,.6)}
+[data-palette="geometric"]{--p-bg:#072d2b;--p-surface:#0d3c39;--p-surface-2:#124a46;--p-ink:#e8f3ee;--p-muted:#8fc1b4;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#07221f;--p-accent-2:#46b89a;--p-accent-3:#46b89a;--p-line:rgba(232,243,238,.14);--p-line-2:rgba(232,243,238,.26);--p-band:#04201e;--p-band-ink:#e8f3ee;--p-overlay:rgba(7,45,43,.6)}
+[data-palette="interfaith"]{--p-bg:#e7d3c8;--p-surface:#f1e3da;--p-surface-2:#ddc6b8;--p-ink:#2b211c;--p-muted:#7a6253;--p-accent:#9c5c41;--p-accent-deep:#7d4631;--p-accent-ink:#f7efe9;--p-accent-2:#7d4631;--p-accent-3:#9c5c41;--p-line:rgba(43,33,28,.15);--p-line-2:rgba(43,33,28,.26);--p-band:#211a17;--p-band-ink:#f1e7df;--p-overlay:rgba(43,28,20,.42)}
+[data-palette="minimal"]{--p-bg:#f4f1ea;--p-surface:#ffffff;--p-surface-2:#ebe7dc;--p-ink:#16130f;--p-muted:#6b6457;--p-accent:#0c5440;--p-accent-deep:#0a4435;--p-accent-ink:#f4f1ea;--p-accent-2:#bfa15a;--p-accent-3:#0c5440;--p-line:rgba(22,19,15,.12);--p-line-2:rgba(22,19,15,.22);--p-band:#0c5440;--p-band-ink:#f4f1ea;--p-overlay:rgba(12,40,33,.4)}
+</style>
+<style>
+  :root{
+    --bg:var(--p-bg); --bg-2:var(--p-surface); --surface:var(--p-surface); --surface-2:var(--p-surface-2);
+    --ink:var(--p-ink); --muted:var(--p-muted); --gold:var(--p-accent); --gold-deep:var(--p-accent-deep);
+    --blue:var(--p-accent-2); --line:var(--p-line); --line-strong:var(--p-line-2);
+    --accent-ink:var(--p-accent-ink); --band:var(--p-band); --band-ink:var(--p-band-ink); --overlay:var(--p-overlay);
+    --shadow:0 24px 60px rgba(0,0,0,.45);
+    --ease:cubic-bezier(.23,1,.32,1);
+    --maxw:1240px; --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Quicksand',sans-serif; font-weight:400; font-size:17px; line-height:1.7;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
+  .serif{font-family:'Yeseva One',serif;font-weight:400}
+  .caps{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.14em}
+  .script{font-family:'Kaushan Script',cursive}
+  .eyebrow{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.26em;
+    font-size:.74rem;font-weight:600;color:var(--gold)}
+  section{position:relative}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:.55em;font-family:'League Spartan',sans-serif;
+    font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.86rem;
+    padding:.95em 1.6em;border-radius:999px;border:1.5px solid transparent;cursor:pointer;
+    transition:transform .16s var(--ease),background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease)}
+  .btn:active{transform:scale(.97)}
+  .btn-gold{background:var(--gold);color:var(--accent-ink);border-color:var(--gold)}
+  .btn-gold:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+  .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+  .btn .arr{transition:transform .25s var(--ease)}
+  .btn:hover .arr{transform:translateX(3px)}
+
+  /* ---------- logo ---------- */
+  .logo{display:inline-flex;align-items:center;gap:.6rem}
+  .logo .dawah-mark{width:34px;height:34px;color:var(--gold)}
+  .logo-type{display:flex;flex-direction:column;line-height:.9}
+  .logo-word{font-family:'Yeseva One',serif;font-size:1.5rem;color:var(--gold)}
+  .logo-tx{font-family:'League Spartan',sans-serif;font-weight:600;text-transform:uppercase;
+    letter-spacing:.36em;font-size:.6rem;color:var(--blue);margin-top:2px}
+
+  /* ---------- nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:color-mix(in srgb,var(--p-bg) 80%,transparent);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .nav-links{display:flex;align-items:center;gap:2.1rem}
+  .nav-links a.link{font-family:'League Spartan',sans-serif;font-weight:500;text-transform:uppercase;
+    letter-spacing:.1em;font-size:.82rem;color:var(--muted);transition:color .2s var(--ease);position:relative}
+  .nav-links a.link::after{content:"";position:absolute;left:0;bottom:-6px;height:1.5px;width:0;
+    background:var(--gold);transition:width .25s var(--ease)}
+  .nav-links a.link:hover{color:var(--ink)}
+  .nav-links a.link:hover::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:1rem}
+  .nav-cta .btn{padding:.7em 1.25em}
+  .hamburger{display:none;background:none;border:1px solid var(--line-strong);border-radius:10px;
+    width:44px;height:44px;color:var(--ink);cursor:pointer;align-items:center;justify-content:center}
+  .hamburger svg{width:22px;height:22px}
+  .mobile-menu{display:none}
+
+  /* ---------- geometric pattern layer ---------- */
+  .geo{position:absolute;inset:0;pointer-events:none;color:var(--blue);opacity:.10;z-index:0}
+  .geo svg{width:100%;height:100%}
+
+  /* ---------- hero ---------- */
+  .hero{min-height:100dvh;display:flex;flex-direction:column;justify-content:center;
+    padding:clamp(2rem,6vh,5rem) 0 clamp(3rem,7vh,6rem);overflow:hidden;
+    background:radial-gradient(120% 90% at 50% -10%,var(--surface-2) 0%,var(--bg) 60%)}
+  .hero-inner{position:relative;z-index:2;text-align:center;max-width:980px;margin-inline:auto}
+  .hero .emblem{width:84px;height:84px;color:var(--gold);margin:0 auto 1.6rem}
+  .hero .emblem .dawah-mark{width:100%;height:100%}
+  .hero h1{font-size:clamp(2.7rem,6.6vw,5.4rem);line-height:1.02;letter-spacing:-.018em;
+    text-wrap:balance;margin:.2em 0 .55rem}
+  .hero h1 .accent{color:var(--gold);font-style:italic;display:inline-block}
+  .hero h1 .shadowed{position:relative}
+  .hero .lede{color:var(--muted);font-size:clamp(1.05rem,1.6vw,1.28rem);max-width:60ch;margin:1.3rem auto 0}
+  .hero .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.2rem}
+  .hero .scriptline{font-family:'Kaushan Script',cursive;color:var(--blue);font-size:clamp(1.5rem,2.6vw,2rem);
+    transform:rotate(-3deg);display:inline-block}
+
+  /* ---------- section heading ---------- */
+  .sec{padding:clamp(4.5rem,10vh,8rem) 0}
+  .sec-head{max-width:720px}
+  .sec-head h2{font-size:clamp(2rem,4.2vw,3.3rem);line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+  .sec-head p{color:var(--muted);margin-top:1rem;font-size:1.08rem}
+  .center{text-align:center;margin-inline:auto}
+
+  /* ---------- mission band ---------- */
+  .mission{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%);border-block:1px solid var(--line)}
+  .mission-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+  .mission-grid .big{font-family:'Yeseva One',serif;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.28;
+    text-wrap:balance}
+  .mission-grid .big em{color:var(--gold);font-style:italic}
+  .mission-aside{border-left:1px solid var(--line);padding-left:clamp(1.4rem,2.5vw,2.4rem)}
+  .stat{margin-bottom:1.8rem}
+  .stat .n{font-family:'Yeseva One',serif;font-size:2.6rem;color:var(--gold);line-height:1}
+  .stat .l{color:var(--muted);font-size:.95rem;margin-top:.2rem}
+
+  /* ---------- programs bento ---------- */
+  .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+    position:relative;transition:transform .5s var(--ease),border-color .3s var(--ease)}
+  .card:hover{transform:translateY(-4px);border-color:var(--line-strong)}
+  .card .pad{padding:clamp(1.4rem,2.4vw,2rem)}
+  .card h3{font-family:'Yeseva One',serif;font-size:1.45rem;margin-bottom:.5rem}
+  .card p{color:var(--muted);font-size:.98rem}
+  .card .tag{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.16em;
+    font-size:.68rem;color:var(--gold);font-weight:600;margin-bottom:.9rem;display:block}
+  .c-wide{grid-column:span 4} .c-tall{grid-column:span 2;grid-row:span 2}
+  .c-half{grid-column:span 3} .c-third{grid-column:span 2}
+  .card.media{min-height:240px;display:flex;align-items:flex-end}
+  .card.media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:grayscale(1) contrast(1.06) brightness(.5);transition:transform .7s var(--ease),filter .5s var(--ease);z-index:0}
+  .card.media::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg,transparent,var(--overlay)),
+    radial-gradient(120% 80% at 20% 0,color-mix(in srgb,var(--accent) 12%,transparent),transparent 60%)}
+  .card.media:hover img{transform:scale(1.05);filter:grayscale(.85) contrast(1.08) brightness(.58)}
+  .card.media .pad{position:relative;z-index:2;background:linear-gradient(0deg,var(--bg),transparent)}
+  .card.media .tag{color:var(--blue)}
+
+  /* ---------- course feature ---------- */
+  .course{background:
+    radial-gradient(90% 120% at 100% 0,color-mix(in srgb,var(--accent) 13%,transparent),transparent 55%),var(--bg-2);
+    border-block:1px solid var(--line)}
+  .course-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  .course .pill{display:inline-block;font-family:'League Spartan',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;color:var(--accent-ink);background:var(--gold);
+    padding:.45em 1em;border-radius:999px;margin-bottom:1.2rem}
+  .course h2{font-size:clamp(2.1rem,4.4vw,3.4rem);line-height:1.05;letter-spacing:-.01em}
+  .course h2 .it{font-style:italic;color:var(--gold)}
+  .course p{color:var(--muted);margin:1.1rem 0 1.8rem;max-width:46ch}
+  .course-visual{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line)}
+  .course-visual img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3) contrast(1.05) brightness(.85)}
+  .course-visual .ovl{position:absolute;inset:0;
+    background:linear-gradient(140deg,transparent,var(--overlay))}
+  .course-visual .ar{position:absolute;left:0;right:0;bottom:0;padding:2rem;text-align:center}
+  .course-visual .ar .a{font-family:'Amiri',serif;font-size:2.2rem;color:var(--gold);direction:rtl}
+  .course-visual .ar .t{color:var(--ink);margin-top:.4rem;font-size:.95rem}
+
+  /* ---------- blog ---------- */
+  .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:3rem}
+  .post{border-top:1px solid var(--line-strong);padding-top:1.4rem;transition:transform .4s var(--ease)}
+  .post:hover{transform:translateY(-3px)}
+  .post .k{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.14em;
+    font-size:.7rem;color:var(--blue);font-weight:600}
+  .post h3{font-family:'Yeseva One',serif;font-size:1.45rem;margin:.7rem 0 .6rem;line-height:1.2}
+  .post p{color:var(--muted);font-size:.97rem}
+  .post .more{display:inline-flex;gap:.4em;margin-top:1rem;color:var(--gold);font-family:'League Spartan',sans-serif;
+    text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;font-weight:600}
+  .post .more .arr{transition:transform .25s var(--ease)}
+  .post:hover .more .arr{transform:translateX(3px)}
+
+  /* ---------- community quote ---------- */
+  .community{background:var(--bg-2);border-block:1px solid var(--line);overflow:hidden}
+  .community-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .community-photo{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:5/4;border:1px solid var(--line)}
+  .community-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3) contrast(1.05) brightness(.8)}
+  .quote .mark{font-family:'Yeseva One',serif;color:var(--gold);font-size:3.2rem;line-height:.6;display:block;margin-bottom:.6rem}
+  .quote blockquote{font-family:'Yeseva One',serif;font-size:clamp(1.4rem,2.5vw,2rem);line-height:1.3;text-wrap:balance}
+  .quote .by{margin-top:1.4rem;color:var(--muted)}
+  .quote .by b{color:var(--ink);font-weight:600;font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:.95rem}
+
+  /* ---------- donate band ---------- */
+  .donate{text-align:center;padding:clamp(5rem,12vh,9rem) 0;overflow:hidden;
+    background:radial-gradient(100% 120% at 50% 120%,var(--surface-2),var(--bg))}
+  .donate .emblem{width:64px;height:64px;color:var(--gold);margin:0 auto 1.4rem}
+  .donate h2{font-size:clamp(2.2rem,5vw,4rem);line-height:1.03;letter-spacing:-.015em;max-width:16ch;margin-inline:auto;text-wrap:balance}
+  .donate p{color:var(--muted);max-width:50ch;margin:1.2rem auto 2.2rem}
+  .donate .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:clamp(3rem,6vh,4.5rem) 0 2.5rem;background:var(--bg)}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem}
+  .foot-col h4{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.16em;
+    font-size:.74rem;color:var(--muted);margin-bottom:1.1rem;font-weight:600}
+  .foot-col a{display:block;color:var(--muted);font-size:.95rem;margin-bottom:.65rem;transition:color .2s var(--ease)}
+  .foot-col a:hover{color:var(--gold)}
+  .foot-about p{color:var(--muted);font-size:.95rem;margin-top:1rem;max-width:34ch}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+    margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+
+  /* ---------- reveal (progressive enhancement: visible by default, JS hides then reveals) ---------- */
+  .reveal{transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .js .reveal{opacity:0;transform:translateY(18px)}
+  .js .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .js .reveal{opacity:1;transform:none;transition:none}
+    .card,.post,.card.media img,.btn,.nav-links a.link::after{transition:none!important}
+  }
+
+  /* ---------- palette switcher ---------- */
+  .txd-pal{position:relative;font-family:'League Spartan',sans-serif;z-index:60}
+  .txd-pal-btn{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;background:color-mix(in srgb,var(--p-ink) 7%,transparent);
+    border:1px solid var(--p-line-2);color:var(--p-ink);border-radius:999px;padding:.5rem .8rem;font-size:.7rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:.1em;transition:border-color .2s ease,background .2s ease}
+  .txd-pal-btn:hover{border-color:var(--p-accent)}
+  .txd-pal-sw{width:32px;height:13px;border-radius:999px;display:inline-block;border:1px solid var(--p-line-2);
+    background:linear-gradient(90deg,var(--p-bg) 0 33%,var(--p-accent) 33% 66%,var(--p-accent-2) 66% 100%)}
+  .txd-pal-cv{width:13px;height:13px;opacity:.7}
+  .txd-pal-menu{position:absolute;top:calc(100% + 10px);right:0;min-width:252px;max-width:calc(100vw - 32px);
+    background:var(--p-surface);border:1px solid var(--p-line-2);border-radius:14px;padding:.45rem;
+    box-shadow:0 24px 60px rgba(0,0,0,.4);opacity:0;visibility:hidden;transform:translateY(-8px);
+    transition:opacity .2s ease,transform .2s ease,visibility .2s ease;max-height:74vh;overflow:auto}
+  .txd-pal.open .txd-pal-menu{opacity:1;visibility:visible;transform:none}
+  .txd-pal-opt{display:flex;align-items:center;gap:.7rem;width:100%;text-align:left;cursor:pointer;background:none;border:0;
+    color:var(--p-ink);padding:.55rem .6rem;border-radius:9px;font-size:.82rem;font-weight:600;font-family:'Quicksand',sans-serif}
+  .txd-pal-opt:hover{background:color-mix(in srgb,var(--p-ink) 9%,transparent)}
+  .txd-pal-opt[aria-selected="true"]{background:color-mix(in srgb,var(--p-accent) 20%,transparent)}
+  .txd-pal-opt .sw{width:30px;height:18px;border-radius:5px;flex:none;border:1px solid var(--p-line-2);
+    background:linear-gradient(90deg,var(--a) 0 50%,var(--b) 50% 80%,var(--c) 80% 100%)}
+  .txd-pal-opt .nm{display:flex;flex-direction:column;line-height:1.18}
+  .txd-pal-opt .nm small{opacity:.62;font-weight:500;font-size:.7rem}
+  @media (max-width:680px){.txd-pal-name{display:none}}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .mission-grid,.course-grid,.community-grid{grid-template-columns:1fr}
+    .mission-aside{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:2rem;
+      display:flex;gap:2.5rem;flex-wrap:wrap}
+    .stat{margin-bottom:0}
+    .community-photo,.course-visual{order:-1}
+    .posts{grid-template-columns:1fr 1fr}
+    .bento{grid-template-columns:repeat(4,1fr)}
+    .c-wide{grid-column:span 4}.c-tall{grid-column:span 2;grid-row:auto}.c-half{grid-column:span 2}.c-third{grid-column:span 2}
+  }
+  @media (max-width:680px){
+    body{font-size:16px}
+    .nav-links{display:none}
+    .nav-cta .btn{display:none}
+    .hamburger{display:inline-flex}
+    .mobile-menu{display:block;position:fixed;inset:72px 0 auto 0;background:var(--bg-2);
+      border-bottom:1px solid var(--line);padding:1.2rem clamp(20px,5vw,48px) 1.8rem;z-index:49;
+      transform:translateY(-12px);opacity:0;visibility:hidden;transition:all .25s var(--ease)}
+    .mobile-menu.open{transform:none;opacity:1;visibility:visible}
+    .mobile-menu a{display:block;padding:.7rem 0;font-family:'League Spartan',sans-serif;text-transform:uppercase;
+      letter-spacing:.1em;font-size:.95rem;color:var(--ink);border-bottom:1px solid var(--line)}
+    .mobile-menu .btn{margin-top:1.1rem;width:100%;justify-content:center}
+    .bento{grid-template-columns:1fr}
+    .c-wide,.c-tall,.c-half,.c-third{grid-column:span 1;grid-row:auto}
+    .posts{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ======================= NAV ======================= -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html" aria-label="Texas Dawah home">
+      <svg class="dawah-mark" viewBox="0 0 64 64" role="img" aria-label="Texas Dawah" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="39" r="18.5" stroke="currentColor" stroke-width="1.4" opacity="0.8"/>
+        <path d="M31 7c7.2 3.3-3.6 11.4 3 16.5 6.4 5 -4.4 9.7 1.4 15.2 4 3.8 9.4 2.3 12-1.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M31 7c-1.6 1.9-1.4 4.2 .4 6.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+        <rect x="26.4" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 29.1 42.9)" fill="currentColor"/>
+        <rect x="33.6" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 36.3 42.9)" fill="currentColor"/>
+      </svg>
+      <span class="logo-type"><span class="logo-word">dawah</span><span class="logo-tx">Texas</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="link" href="#mission">Mission</a>
+      <a class="link" href="#committee">Committee</a>
+      <a class="link" href="#course">Course</a>
+      <a class="link" href="#blog">Blog</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="txd-pal" data-txd-pal>
+        <button class="txd-pal-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Switch color palette">
+          <span class="txd-pal-sw" aria-hidden="true"></span>
+          <span class="txd-pal-name">Palette</span>
+          <svg class="txd-pal-cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="txd-pal-menu" role="listbox" aria-label="Color palette"></div>
+      </div>
+      <a class="btn btn-gold" href="#donate">Support the dawah</a>
+    </div>
+    <button class="hamburger" id="ham" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mob">
+    <a href="#mission">Mission</a><a href="#committee">Committee</a>
+    <a href="#course">Course</a><a href="#blog">Blog</a>
+    <a class="btn btn-gold" href="#donate">Support the dawah</a>
+  </div>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero">
+  <div class="geo" aria-hidden="true">
+    <svg><defs><pattern id="khatam1" width="88" height="88" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        <rect x="22" y="22" width="44" height="44" transform="rotate(45 44 44)"/>
+        <rect x="22" y="22" width="44" height="44"/>
+        <rect x="-8" y="-8" width="16" height="16" transform="rotate(45 0 0)"/>
+        <rect x="80" y="-8" width="16" height="16" transform="rotate(45 88 0)"/>
+        <rect x="-8" y="80" width="16" height="16" transform="rotate(45 0 88)"/>
+        <rect x="80" y="80" width="16" height="16" transform="rotate(45 88 88)"/>
+      </g></pattern></defs>
+      <rect width="100%" height="100%" fill="url(#khatam1)"/></svg>
+  </div>
+  <div class="wrap hero-inner">
+    <div class="emblem reveal">
+      <svg class="dawah-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="39" r="18.5" stroke="currentColor" stroke-width="1.4" opacity="0.8"/>
+        <path d="M31 7c7.2 3.3-3.6 11.4 3 16.5 6.4 5 -4.4 9.7 1.4 15.2 4 3.8 9.4 2.3 12-1.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M31 7c-1.6 1.9-1.4 4.2 .4 6.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+        <rect x="26.4" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 29.1 42.9)" fill="currentColor"/>
+        <rect x="33.6" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 36.3 42.9)" fill="currentColor"/>
+      </svg>
+    </div>
+    <p class="eyebrow reveal">Sharing Islam in the heart of Texas</p>
+    <h1 class="serif reveal">An invitation to <span class="accent">the truth</span>.</h1>
+    <p class="lede reveal">A student-led community sharing the message of Islam with wisdom, and building bridges across faiths in Austin.</p>
+    <div class="cta-row reveal">
+      <a class="btn btn-gold" href="#donate">Support the dawah <span class="arr">&rsaquo;</span></a>
+      <a class="btn btn-ghost" href="#mission">Our mission</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= MISSION ======================= -->
+<section class="sec mission" id="mission">
+  <div class="wrap mission-grid">
+    <div class="reveal">
+      <p class="eyebrow" style="color:var(--blue)">Who we are</p>
+      <p class="big" style="margin-top:1rem">We invite people to Islam the way it was meant to be shared, with <em>knowledge, patience,</em> and beautiful character, right here on the streets and campuses of Austin.</p>
+      <p style="color:var(--muted);margin-top:1.4rem;max-width:54ch">From weekly tabling on the Drag to interfaith dinners and a free course on the evidence for Islam, everything we do begins with a sincere conversation.</p>
+    </div>
+    <aside class="mission-aside reveal">
+      <div class="stat"><div class="n">2,400+</div><div class="l">conversations on campus last year</div></div>
+      <div class="stat"><div class="n">38</div><div class="l">interfaith guests hosted at our table</div></div>
+      <div class="stat"><div class="n">100%</div><div class="l">of programs free and open to all</div></div>
+      <p style="color:var(--muted);font-size:.82rem">Figures shown are illustrative placeholders.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ======================= PROGRAMS (BENTO) ======================= -->
+<section class="sec" id="programs">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">What we do</p>
+      <h2 class="serif">Many ways into one conversation.</h2>
+      <p>Each program is a doorway. Some begin with a book, some with a meal, some with a hard question. All of them begin with people.</p>
+    </div>
+    <div class="bento" style="margin-top:3rem">
+      <article class="card c-wide media reveal">
+        <img src="https://picsum.photos/seed/austin-campus-evening-walk/900/600" alt="Evening light over a university campus walkway">
+        <div class="pad"><span class="tag">Weekly on campus</span><h3 class="serif">Dawah tabling on the Drag</h3><p>Open conversations, free books, and honest answers every week at West Mall.</p></div>
+      </article>
+      <article class="card c-tall reveal">
+        <div class="pad"><span class="tag">Learn to invite</span><h3 class="serif">Dawah training</h3><p>A weekly workshop where students learn to share Islam with confidence and care. No experience needed.</p>
+          <p style="color:var(--blue);margin-top:1.2rem" class="caps" >Every Thursday, 8 PM</p></div>
+      </article>
+      <article class="card c-third reveal">
+        <div class="pad"><span class="tag">Bridges</span><h3 class="serif">Interfaith iftars</h3><p>Breaking bread with neighbors of every faith.</p></div>
+      </article>
+      <article class="card c-third reveal">
+        <div class="pad"><span class="tag">Read together</span><h3 class="serif">Book club</h3><p>Monthly deep reads on faith, doubt, and meaning.</p></div>
+      </article>
+      <article class="card c-half media reveal">
+        <img src="https://picsum.photos/seed/warm-candlelight-table-glow/900/500" alt="Warm candlelight across a gathering table">
+        <div class="pad"><span class="tag">Baking bread, building bridges</span><h3 class="serif">Community dinners</h3></div>
+      </article>
+      <article class="card c-half reveal">
+        <div class="pad"><span class="tag">Guest scholars</span><h3 class="serif">Lectures and Q&amp;A</h3><p>Visiting imams and scholars on the questions people actually ask, from "What did Jesus really say?" to the meaning of life.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= COURSE FEATURE ======================= -->
+<section class="sec course" id="course">
+  <div class="wrap course-grid">
+    <div class="reveal">
+      <span class="pill">Now completely free</span>
+      <h2 class="serif">Why Islam Is <span class="it">True</span>.</h2>
+      <p>A clear, six-part course on the evidence behind the message: the Qur'an, the prophethood, and the case for belief. Built for the curious and the questioning alike.</p>
+      <a class="btn btn-gold" href="#course">Start the free course <span class="arr">&rsaquo;</span></a>
+    </div>
+    <div class="course-visual reveal">
+      <img src="https://picsum.photos/seed/open-quran-light/800/1000" alt="An open Qur'an in soft light">
+      <div class="ovl"></div>
+      <div class="ar"><div class="a">اقْرَأْ</div><div class="t">Six self-paced lessons. Begin whenever you are ready.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BLOG ======================= -->
+<section class="sec" id="blog">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow" style="color:var(--blue)">From the blog</p>
+      <h2 class="serif">Answers, honestly given.</h2>
+      <p>Common questions, deep dives, and the conversations we keep having at the table.</p>
+    </div>
+    <div class="posts">
+      <article class="post reveal">
+        <span class="k">Frequently asked</span>
+        <h3>If God is merciful, why is there suffering?</h3>
+        <p>One of the oldest questions, taken seriously rather than waved away.</p>
+        <a class="more" href="#blog">Read the answer <span class="arr">&rsaquo;</span></a>
+      </article>
+      <article class="post reveal">
+        <span class="k">Deep dive</span>
+        <h3>What the Qur'an says about Jesus, son of Mary</h3>
+        <p>A look at the figure both traditions revere, and where they part ways.</p>
+        <a class="more" href="#blog">Read the deep dive <span class="arr">&rsaquo;</span></a>
+      </article>
+      <article class="post reveal">
+        <span class="k">Getting started</span>
+        <h3>So you want to learn about Islam. Start here.</h3>
+        <p>A short, no-pressure map for anyone curious about the faith.</p>
+        <a class="more" href="#blog">Read the guide <span class="arr">&rsaquo;</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= COMMUNITY QUOTE ======================= -->
+<section class="sec community" id="committee">
+  <div class="wrap community-grid">
+    <div class="community-photo reveal">
+      <img src="https://picsum.photos/seed/interfaith-conversation/900/720" alt="Two people in warm conversation across a table">
+    </div>
+    <div class="quote reveal">
+      <span class="mark">&ldquo;</span>
+      <blockquote>I came to the table to argue. I left with a friend, a book, and more questions than I started with.</blockquote>
+      <p class="by">Visitor at our West Mall table<br><b>Daniel R., Austin</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DONATE ======================= -->
+<section class="sec donate" id="donate">
+  <div class="geo" aria-hidden="true" style="opacity:.08">
+    <svg><rect width="100%" height="100%" fill="url(#khatam1)"/></svg>
+  </div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="emblem reveal">
+      <svg class="dawah-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="39" r="18.5" stroke="currentColor" stroke-width="1.4" opacity="0.8"/>
+        <path d="M31 7c7.2 3.3-3.6 11.4 3 16.5 6.4 5 -4.4 9.7 1.4 15.2 4 3.8 9.4 2.3 12-1.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M31 7c-1.6 1.9-1.4 4.2 .4 6.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+        <rect x="26.4" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 29.1 42.9)" fill="currentColor"/>
+        <rect x="33.6" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 36.3 42.9)" fill="currentColor"/>
+      </svg>
+    </div>
+    <h2 class="serif reveal">Every conversation is funded by someone who cared.</h2>
+    <p class="reveal">Your support keeps the books free, the table open, and the course available to anyone who asks. Be the reason the next conversation happens.</p>
+    <div class="cta-row reveal">
+      <a class="btn btn-gold" href="#donate">Support the dawah <span class="arr">&rsaquo;</span></a>
+      <a class="btn btn-ghost" href="#programs">Volunteer with us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col foot-about">
+        <a class="logo" href="index.html" aria-label="Texas Dawah home">
+          <svg class="dawah-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="39" r="18.5" stroke="currentColor" stroke-width="1.4" opacity="0.8"/>
+            <path d="M31 7c7.2 3.3-3.6 11.4 3 16.5 6.4 5 -4.4 9.7 1.4 15.2 4 3.8 9.4 2.3 12-1.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M31 7c-1.6 1.9-1.4 4.2 .4 6.2" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+            <rect x="26.4" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 29.1 42.9)" fill="currentColor"/>
+            <rect x="33.6" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 36.3 42.9)" fill="currentColor"/>
+          </svg>
+          <span class="logo-type"><span class="logo-word">dawah</span><span class="logo-tx">Texas</span></span>
+        </a>
+        <p>Inviting to the way of your Lord with wisdom and beautiful character.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="#mission">Mission</a><a href="#committee">Committee</a>
+        <a href="#course">Free course</a><a href="#blog">Blog</a>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <a href="#">Instagram</a><a href="#">YouTube</a><a href="#">Email us</a>
+      </div>
+      <div class="foot-col">
+        <h4>Visit</h4>
+        <a href="#">1906 Nueces St<br>Austin, TX 78705</a>
+        <a href="#donate" style="color:var(--gold)">Support the dawah</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Texas Dawah. A student-led organization.</span>
+      <span>Built with sincerity in Austin, Texas.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  (function(){
+    var ham=document.getElementById('ham'),mob=document.getElementById('mob');
+    if(ham){ham.addEventListener('click',function(){
+      var open=mob.classList.toggle('open');
+      ham.setAttribute('aria-expanded',open);
+    });
+    mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mob.classList.remove('open');ham.setAttribute('aria-expanded',false);});});}
+  })();
+  // Scroll reveal (IntersectionObserver, reduced-motion safe)
+  (function(){
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if(reduce||!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){
+        var el=en.target;var sibs=[].slice.call(el.parentNode.querySelectorAll(':scope > .reveal'));
+        var i=sibs.indexOf(el);el.style.transitionDelay=(i>0?Math.min(i*55,330):0)+'ms';
+        el.classList.add('in');io.unobserve(el);}});
+    },{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e)});
+  })();
+  // Palette switcher
+  (function(){
+    var P=[
+      {k:'midnight',n:'Midnight',d:'Navy + Gold',c:['#0d1230','#e7c66b','#9bb4e8']},
+      {k:'olive',n:'Olive Manuscript',d:'Deep Olive + Sage',c:['#1d2416','#cdb968','#8a946f']},
+      {k:'cream',n:'Cream & Sage',d:'Off-white + Sage',c:['#f6f1e1','#c1851f','#4f7e6e']},
+      {k:'mocha',n:'Mocha Warmth',d:'Mocha + Tan',c:['#362116','#d8ad7c','#b06a45']},
+      {k:'aubergine',n:'Aubergine Nights',d:'Plum + Lilac',c:['#1f0f24','#e3c071','#c79bd6']},
+      {k:'geometric',n:'Geometric',d:'Teal + Gold',c:['#072d2b','#e7c66b','#46b89a']},
+      {k:'interfaith',n:'Interfaith',d:'Dusty Rose',c:['#e7d3c8','#9c5c41','#7d4631']},
+      {k:'minimal',n:'Minimal Mihrab',d:'Bone + Emerald',c:['#f4f1ea','#0c5440','#bfa15a']}
+    ];
+    var root=document.documentElement, KEY='txd-palette';
+    var NATIVE=root.getAttribute('data-palette')||'midnight';
+    var valid=function(k){return P.some(function(p){return p.k===k})};
+    var wraps=[].slice.call(document.querySelectorAll('[data-txd-pal]'));
+    function label(k){var p=P.filter(function(x){return x.k===k})[0]||P[0];return p.n}
+    function render(cur){wraps.forEach(function(w){
+      var nm=w.querySelector('.txd-pal-name'); if(nm) nm.textContent=label(cur);
+      var menu=w.querySelector('.txd-pal-menu');
+      if(menu && !menu.dataset.built){P.forEach(function(p){
+        var b=document.createElement('button'); b.type='button'; b.className='txd-pal-opt';
+        b.setAttribute('role','option'); b.dataset.pal=p.k;
+        b.innerHTML='<span class="sw" style="--a:'+p.c[0]+';--b:'+p.c[1]+';--c:'+p.c[2]+'"></span><span class="nm">'+p.n+'<small>'+p.d+'</small></span>';
+        b.addEventListener('click',function(){set(p.k,true);close();}); menu.appendChild(b);
+      }); menu.dataset.built='1';}
+      [].slice.call(w.querySelectorAll('.txd-pal-opt')).forEach(function(o){o.setAttribute('aria-selected',o.dataset.pal===cur?'true':'false');});
+    });}
+    function set(k,persist){if(!valid(k))k=NATIVE; root.setAttribute('data-palette',k);
+      if(persist){try{localStorage.setItem(KEY,k)}catch(e){}} render(k);}
+    function openW(w){w.classList.add('open');var b=w.querySelector('.txd-pal-btn');if(b)b.setAttribute('aria-expanded','true')}
+    function close(){wraps.forEach(function(w){w.classList.remove('open');var b=w.querySelector('.txd-pal-btn');if(b)b.setAttribute('aria-expanded','false')})}
+    wraps.forEach(function(w){var btn=w.querySelector('.txd-pal-btn');
+      if(btn)btn.addEventListener('click',function(e){e.stopPropagation();var o=w.classList.contains('open');close();if(!o)openW(w);});});
+    document.addEventListener('click',function(e){if(!e.target.closest('[data-txd-pal]'))close()});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+    window.addEventListener('message',function(e){var d=e&&e.data;if(d&&d.txdPalette){set(d.txdPalette,false)}});
+    var params=new URLSearchParams(location.search), q=params.get('palette'), initial;
+    if(q==='native'){initial=NATIVE} else if(q&&valid(q)){initial=q}
+    else{var st;try{st=localStorage.getItem(KEY)}catch(e){} initial=(st&&valid(st))?st:NATIVE}
+    set(initial,false);
+  })();
+</script>
+</body>
+</html>
