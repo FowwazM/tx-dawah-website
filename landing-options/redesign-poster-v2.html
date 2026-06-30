@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="olive">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Dawah - Redesign: Poster Stack</title>
+<meta name="description" content="Texas Dawah, an invitation to the truth. A deck of full-screen posters: who we are, what we run, and where to begin. Austin, Texas.">
+<script>document.documentElement.className += ' js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=League+Spartan:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Kaushan+Script&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+<style id="txd-palettes">
+[data-palette="midnight"]{--p-bg:#0d1230;--p-surface:#161d44;--p-surface-2:#1d2662;--p-ink:#eef1fb;--p-muted:#aab4dc;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#15183a;--p-accent-2:#9bb4e8;--p-accent-3:#9bb4e8;--p-line:rgba(155,180,232,.16);--p-line-2:rgba(155,180,232,.30);--p-band:#090d24;--p-band-ink:#eef1fb;--p-overlay:rgba(13,18,48,.6)}
+[data-palette="olive"]{--p-bg:#1d2416;--p-surface:#28311e;--p-surface-2:#323d26;--p-ink:#ebeed6;--p-muted:#b3bb95;--p-accent:#cdb968;--p-accent-deep:#b6a24f;--p-accent-ink:#1d2416;--p-accent-2:#8a946f;--p-accent-3:#8a946f;--p-line:rgba(235,238,214,.14);--p-line-2:rgba(235,238,214,.26);--p-band:#161c10;--p-band-ink:#ebeed6;--p-overlay:rgba(29,36,22,.6)}
+[data-palette="cream"]{--p-bg:#f6f1e1;--p-surface:#fffdf7;--p-surface-2:#efe8d4;--p-ink:#24302a;--p-muted:#54604f;--p-accent:#c1851f;--p-accent-deep:#9f6e16;--p-accent-ink:#22150a;--p-accent-2:#4f7e6e;--p-accent-3:#cf5d42;--p-line:rgba(36,48,42,.14);--p-line-2:rgba(36,48,42,.26);--p-band:#3a5e52;--p-band-ink:#f4efe0;--p-overlay:rgba(36,48,42,.34)}
+[data-palette="mocha"]{--p-bg:#362116;--p-surface:#48301f;--p-surface-2:#5a3c27;--p-ink:#f1e3d4;--p-muted:#c9ab93;--p-accent:#d8ad7c;--p-accent-deep:#c0925f;--p-accent-ink:#2a1810;--p-accent-2:#b06a45;--p-accent-3:#b06a45;--p-line:rgba(241,227,212,.14);--p-line-2:rgba(241,227,212,.26);--p-band:#251610;--p-band-ink:#f1e3d4;--p-overlay:rgba(40,24,16,.58)}
+[data-palette="aubergine"]{--p-bg:#1f0f24;--p-surface:#2e1834;--p-surface-2:#3a1f42;--p-ink:#f3e7f1;--p-muted:#c6a6cb;--p-accent:#e3c071;--p-accent-deep:#cda74f;--p-accent-ink:#1c0c20;--p-accent-2:#c79bd6;--p-accent-3:#c79bd6;--p-line:rgba(243,231,241,.13);--p-line-2:rgba(243,231,241,.26);--p-band:#170a1b;--p-band-ink:#f3e7f1;--p-overlay:rgba(31,15,36,.6)}
+[data-palette="geometric"]{--p-bg:#072d2b;--p-surface:#0d3c39;--p-surface-2:#124a46;--p-ink:#e8f3ee;--p-muted:#8fc1b4;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#07221f;--p-accent-2:#46b89a;--p-accent-3:#46b89a;--p-line:rgba(232,243,238,.14);--p-line-2:rgba(232,243,238,.26);--p-band:#04201e;--p-band-ink:#e8f3ee;--p-overlay:rgba(7,45,43,.6)}
+[data-palette="interfaith"]{--p-bg:#e7d3c8;--p-surface:#f1e3da;--p-surface-2:#ddc6b8;--p-ink:#2b211c;--p-muted:#7a6253;--p-accent:#9c5c41;--p-accent-deep:#7d4631;--p-accent-ink:#f7efe9;--p-accent-2:#7d4631;--p-accent-3:#9c5c41;--p-line:rgba(43,33,28,.15);--p-line-2:rgba(43,33,28,.26);--p-band:#211a17;--p-band-ink:#f1e7df;--p-overlay:rgba(43,28,20,.42)}
+[data-palette="minimal"]{--p-bg:#f4f1ea;--p-surface:#ffffff;--p-surface-2:#ebe7dc;--p-ink:#16130f;--p-muted:#6b6457;--p-accent:#0c5440;--p-accent-deep:#0a4435;--p-accent-ink:#f4f1ea;--p-accent-2:#bfa15a;--p-accent-3:#0c5440;--p-line:rgba(22,19,15,.12);--p-line-2:rgba(22,19,15,.22);--p-band:#0c5440;--p-band-ink:#f4f1ea;--p-overlay:rgba(12,40,33,.4)}
+</style>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--ease:cubic-bezier(.23,1,.32,1);--ox:.062em;--oy:.072em}
+  html{scroll-snap-type:y mandatory;scroll-behavior:smooth;background:var(--p-bg)}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--p-bg);color:var(--p-ink);
+    font-family:'Quicksand',system-ui,sans-serif;font-weight:500;font-size:16px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .sp{font-family:'League Spartan',sans-serif}
+  .ys{font-family:'Yeseva One',serif;font-weight:400}
+  .ar{font-family:'Amiri',serif}
+  .ks{font-family:'Kaushan Script',cursive}
+
+  /* ============ poster sheet : a single quiet title-slug over a calm field ============ */
+  .poster{position:relative;min-height:100svh;
+    display:grid;grid-template-rows:auto minmax(0,1fr);
+    scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden;
+    padding:clamp(3rem,6vh,4.4rem) clamp(1.3rem,5vw,3.6rem) clamp(2.4rem,5vh,3.4rem)}
+  /* reserve a right gutter for the fixed pager */
+  @media (min-width:681px){.poster{padding-right:max(6.2rem,clamp(1.3rem,5vw,3.6rem))}}
+  .ground{position:absolute;inset:0;width:100%;height:100%;
+    color:color-mix(in srgb,var(--p-ink) 7%,transparent);pointer-events:none;z-index:0}
+  .inner{position:relative;z-index:3;grid-row:2;align-self:center;width:100%;max-width:1180px;margin-inline:auto;min-width:0}
+
+  /* runhead : the one structural slug per poster (numeral + title + hair rule) */
+  .runhead{grid-row:1;position:relative;z-index:3;align-self:start;
+    display:flex;align-items:baseline;gap:1rem;min-width:0;
+    font-family:'League Spartan',sans-serif;padding-bottom:.7rem;border-bottom:1px solid var(--p-line-2)}
+  .runhead .rh-l{display:inline-flex;align-items:baseline;gap:.7rem;min-width:0}
+  .runhead .rh-n{font-weight:800;color:var(--p-accent);font-size:.95rem;letter-spacing:.04em}
+  .runhead .rh-s{font-weight:700;text-transform:uppercase;letter-spacing:.24em;font-size:.72rem;color:var(--p-ink);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  /* labels */
+  .meta{font-family:'League Spartan',sans-serif;text-transform:uppercase;font-weight:600;
+    letter-spacing:.2em;font-size:clamp(.62rem,1.5vw,.8rem);color:var(--p-muted)}
+  .meta b{color:var(--p-accent-deep)}
+
+  /* ============ offset-shadow display word (brand signature) ============ */
+  .bw{display:inline-grid;line-height:.84;font-family:'Yeseva One',serif}
+  .bw>span{grid-area:1/1;display:block}
+  .bw .sh{color:var(--shc,var(--p-band));transform:translate(var(--ox),var(--oy))}
+  .bw .fc{color:var(--fcc,var(--p-ink))}
+  .bw.spk{font-family:'League Spartan',sans-serif;font-weight:900;text-transform:uppercase;
+    letter-spacing:-.01em;line-height:.86}
+
+  /* ============ buttons : one soft link + one solid action, used consistently ============ */
+  /* P1 flip link (soft, navigational) */
+  .flip{display:inline-flex;align-items:center;gap:.7rem;font-family:'League Spartan',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;color:var(--p-accent);
+    border-bottom:2px solid var(--p-accent);padding:.55rem .1rem .45rem;transition:gap .25s var(--ease),color .2s var(--ease)}
+  .flip svg{width:15px;height:15px;transition:transform .3s var(--ease)}
+  .flip:hover{gap:1.05rem;color:var(--p-accent-deep)} .flip:hover svg{transform:translateY(3px)}
+  .flip:active{transform:translateY(1px)}
+
+  /* solid action form, shared across panels 2-4 */
+  .btn{display:inline-flex;align-items:center;gap:.7rem;cursor:pointer;
+    font-family:'League Spartan',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.14em;
+    font-size:.82rem;color:var(--p-accent-ink);background:var(--p-accent);padding:1rem 1.7rem;
+    transition:background .2s var(--ease),transform .12s var(--ease)}
+  .btn svg{width:17px;height:17px}
+  .btn:hover{background:var(--p-accent-deep)}
+  .btn:active{transform:translateY(1px) scale(.99)}
+
+  /* ============ PANEL 1 : mission (composed title sheet) ============ */
+  .p-mission{text-align:center}
+  .p-mission .inner{max-width:1120px}
+  .p-mission .emblem{width:clamp(46px,7vw,70px);height:auto;color:var(--p-accent);margin:0 auto 1.5rem}
+  .p-mission .head{margin:.4rem 0 1.5rem}
+  .p-mission .pre{display:block;margin-bottom:.7rem;font-family:'League Spartan',sans-serif;
+    text-transform:uppercase;font-weight:600;letter-spacing:.3em;
+    font-size:clamp(.68rem,1.5vw,.84rem);color:var(--p-accent-2)}
+  .p-mission .hero{font-size:clamp(4.2rem,21vw,15.5rem)}
+  .p-mission .lede{max-width:52ch;margin:0 auto;color:var(--p-muted);
+    font-size:clamp(1rem,1.7vw,1.22rem);line-height:1.6;text-wrap:balance}
+  .p-mission .lede b{color:var(--p-ink);font-weight:600}
+  .p-mission .act{margin-top:2.4rem;display:flex;justify-content:center}
+
+  /* ============ PANEL 2 : the lineup (full-field index sheet) ============ */
+  .p-lineup .inner{max-width:1180px;align-self:stretch;display:flex;flex-direction:column;
+    justify-content:center;gap:clamp(1.1rem,3vh,2.1rem)}
+  .p-lineup .wmk{position:absolute;top:auto;bottom:-6%;right:-6%;width:min(42vw,460px);height:auto;
+    color:color-mix(in srgb,var(--p-accent) 9%,transparent);z-index:1;pointer-events:none}
+  .p-lineup .top{display:flex;align-items:flex-end;flex-wrap:wrap;gap:.6rem 1.6rem;margin-bottom:.2rem}
+  .p-lineup .title{font-size:clamp(3.1rem,10.5vw,7.6rem)}
+  .p-lineup .sub{max-width:34ch}
+  .lineup-list{border-top:1px solid var(--p-line-2);width:100%}
+  .row{display:grid;grid-template-columns:1fr auto;gap:.4rem 1.4rem;align-items:baseline;
+    padding:clamp(.8rem,1.9vh,1.15rem) 0;border-bottom:1px solid var(--p-line)}
+  .row .nm{font-family:'League Spartan',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.01em;
+    font-size:clamp(1.3rem,3.6vw,2.35rem);line-height:1;color:var(--p-ink)}
+  .row .nm .i{font-family:'League Spartan',sans-serif;font-weight:600;color:var(--p-accent);font-size:.5em;
+    letter-spacing:.1em;margin-right:.7em;vertical-align:.18em}
+  .row .wh{font-family:'League Spartan',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+    font-size:clamp(.64rem,1.5vw,.82rem);color:var(--p-muted);text-align:right;white-space:nowrap}
+  .row .wh b{color:var(--p-accent-deep)}
+  .row:hover .nm{color:var(--p-accent)}
+  .p-lineup .act{margin-top:1.7rem;display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}
+
+  /* ============ PANEL 3 : course (split) ============ */
+  .p-course .inner{max-width:1180px;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.12fr);
+    gap:clamp(2rem,6vw,5.4rem);align-items:center}
+  .p-course .left{position:relative;text-align:center;padding-right:clamp(1rem,3vw,2.6rem)}
+  .p-course .left::after{content:"";position:absolute;top:6%;bottom:6%;right:0;width:1px;
+    background:linear-gradient(var(--p-line) 0%,var(--p-line-2) 50%,var(--p-line) 100%)}
+  .p-course .iqra{font-family:'Amiri',serif;color:var(--p-accent);direction:rtl;
+    font-size:clamp(4.5rem,17vw,11.5rem);line-height:1}
+  .p-course .iqra-t{font-family:'League Spartan',sans-serif;text-transform:uppercase;font-weight:600;
+    letter-spacing:.26em;font-size:.66rem;color:var(--p-muted);margin-top:.5rem}
+  .p-course .right{min-width:0}
+  .p-course .free{display:inline-block;font-family:'Kaushan Script',cursive;color:var(--p-accent-3);
+    font-size:clamp(1.5rem,3.6vw,2.1rem);transform:rotate(-4deg);margin-bottom:.2rem}
+  .p-course .title{font-size:clamp(2.5rem,7.2vw,5.4rem);margin:.15rem 0 1rem}
+  .p-course .desc{max-width:46ch;color:var(--p-muted);font-size:clamp(1rem,1.6vw,1.16rem);line-height:1.6;margin-bottom:1.1rem}
+  .p-course .desc b{color:var(--p-ink);font-weight:600}
+  .p-course .crow{display:flex;align-items:center;gap:1.3rem;flex-wrap:wrap;margin-top:1.6rem}
+
+  /* ============ PANEL 4 : support (field) + colophon footer ============ */
+  .p-support{grid-template-rows:auto minmax(0,1fr) auto}
+  .p-support .inner{max-width:1120px;margin-inline:auto;text-align:center}
+  .p-support .close{padding:0;text-align:center}
+  .p-support .emblem{width:clamp(40px,6vw,60px);height:auto;color:var(--p-accent);margin:0 auto 1.3rem}
+  .p-support .title{font-size:clamp(2.9rem,9vw,7.4rem);margin-bottom:1.3rem}
+  .p-support .line{max-width:50ch;margin:0 auto 1.8rem;color:var(--p-muted);
+    font-size:clamp(1rem,1.7vw,1.2rem);line-height:1.6;text-wrap:balance}
+  .p-support .line b{color:var(--p-ink);font-weight:600}
+  .p-support .act{display:flex;justify-content:center}
+  .p-support .pfoot{grid-row:3;align-self:end}
+  .pfoot{border-top:1px solid var(--p-line-2);padding-top:1.3rem;
+    display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1rem 1.4rem;align-items:start}
+  .pfoot .brand{display:flex;align-items:center;gap:.65rem;color:var(--p-ink)}
+  .pfoot .brand svg{width:30px;height:30px;color:var(--p-accent)}
+  .pfoot .brand b{font-family:'League Spartan',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.92rem}
+  .pfoot h4{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.2em;font-weight:700;
+    font-size:.6rem;color:var(--p-muted);margin-bottom:.6rem}
+  .pfoot .col a,.pfoot .col span{display:block;color:var(--p-ink);padding:.16rem 0;font-size:.92rem}
+  .pfoot .col a{transition:color .18s var(--ease)} .pfoot .col a:hover{color:var(--p-accent)}
+  .pfoot .end{grid-column:1/-1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-top:.9rem;
+    border-top:1px solid var(--p-line);padding-top:.9rem;
+    font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.6rem;color:var(--p-muted)}
+
+  /* ============ fixed chrome ============ */
+  .brandmark{position:fixed;top:clamp(1rem,2.6vh,1.7rem);left:clamp(1.1rem,3vw,2.2rem);z-index:55;
+    display:inline-flex;align-items:center;gap:.55rem;color:var(--p-ink)}
+  .brandmark svg{width:26px;height:26px;color:var(--p-accent)}
+  .brandmark b{font-family:'League Spartan',sans-serif;font-weight:800;text-transform:uppercase;
+    letter-spacing:.14em;font-size:.74rem}
+  @media (max-width:560px){.brandmark b{display:none}}
+
+  .pager{position:fixed;right:clamp(.8rem,2.4vw,1.6rem);top:50%;transform:translateY(-50%);z-index:55;
+    display:flex;flex-direction:column;align-items:flex-end;gap:.2rem}
+  .pg{display:flex;align-items:center;flex-direction:row-reverse;gap:.6rem;padding:.4rem .2rem;cursor:pointer;
+    font-family:'League Spartan',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--p-muted);transition:color .2s var(--ease)}
+  .pg .rn{font-size:.7rem;width:1.4rem;text-align:left;opacity:.7;transition:opacity .2s var(--ease)}
+  .pg .tk{width:14px;height:2px;background:currentColor;opacity:.45;transition:width .3s var(--ease),opacity .2s var(--ease)}
+  .pg .lb{font-size:.6rem;letter-spacing:.16em;opacity:0;transform:translateX(5px);
+    transition:opacity .2s var(--ease),transform .25s var(--ease);white-space:nowrap}
+  .pg:hover{color:var(--p-ink)} .pg:hover .lb{opacity:.85;transform:none}
+  .pg[aria-current="true"]{color:var(--p-accent)}
+  .pg[aria-current="true"] .rn{opacity:1}
+  .pg[aria-current="true"] .tk{width:30px;opacity:1}
+  @media (max-width:680px){
+    .pager{right:auto;left:50%;bottom:.7rem;top:auto;transform:translateX(-50%);flex-direction:row;align-items:center;gap:.1rem}
+    .pg{padding:.4rem .35rem;flex-direction:column;gap:.25rem}
+    .pg .lb{display:none} .pg .tk{width:9px;height:9px;border-radius:50%}
+    .pg[aria-current="true"] .tk{width:11px;height:11px}
+  }
+
+  .palwrap{position:fixed;top:clamp(1rem,2.6vh,1.7rem);right:clamp(1.1rem,3vw,2.2rem);z-index:60}
+
+  /* ============ reveal / print-in (JS only) ============ */
+  .js .ground{opacity:0}
+  .poster.is-on .ground{animation:gin 1.2s ease forwards}
+  @keyframes gin{to{opacity:1}}
+
+  .js .bw .fc{clip-path:inset(0 0 103% 0)}
+  .js .bw .sh{opacity:0;transform:translate(0,0)}
+  .poster.is-on .bw .fc{animation:pfFace .92s var(--ease) forwards}
+  .poster.is-on .bw .sh{animation:pfSh .82s var(--ease) .06s forwards}
+  @keyframes pfFace{from{clip-path:inset(0 0 103% 0)}to{clip-path:inset(0 0 -4% 0)}}
+  @keyframes pfSh{from{opacity:0;transform:translate(0,0)}to{opacity:1;transform:translate(var(--ox),var(--oy))}}
+
+  .js .pr{opacity:0;transform:translateY(16px)}
+  .poster.is-on .pr{animation:up .72s var(--ease) both;animation-delay:var(--d,.18s)}
+  @keyframes up{to{opacity:1;transform:none}}
+
+  .js .pr-row{opacity:0;transform:translateX(-18px)}
+  .poster.is-on .pr-row{animation:slin .66s var(--ease) both;animation-delay:var(--d,.2s)}
+  @keyframes slin{to{opacity:1;transform:none}}
+
+  @media (prefers-reduced-motion:reduce){
+    .js .ground,.js .pr,.js .pr-row,.js .bw .fc,.js .bw .sh{
+      opacity:1!important;transform:none!important;clip-path:none!important;animation:none!important}
+    .js .bw .sh{transform:translate(var(--ox),var(--oy))!important}
+  }
+
+  /* ============ palette switcher (copied verbatim, framed to fit) ============ */
+  .txd-pal{position:relative;font-family:'League Spartan',sans-serif;z-index:60}
+  .txd-pal-btn{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;background:color-mix(in srgb,var(--p-bg) 72%,transparent);
+    border:1px solid var(--p-line-2);color:var(--p-muted);padding:.4rem .65rem;font-size:.6rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.14em;transition:border-color .2s ease,color .2s ease;backdrop-filter:blur(6px)}
+  .txd-pal-btn:hover{border-color:var(--p-accent);color:var(--p-ink)}
+  .txd-pal-sw{width:28px;height:11px;display:inline-block;border:1px solid var(--p-line-2);
+    background:linear-gradient(90deg,var(--p-bg) 0 33%,var(--p-accent) 33% 66%,var(--p-accent-2) 66% 100%)}
+  .txd-pal-cv{width:11px;height:11px;opacity:.7}
+  .txd-pal-menu{position:absolute;top:calc(100% + 7px);right:0;min-width:244px;max-width:calc(100vw - 32px);
+    background:var(--p-surface);border:1px solid var(--p-ink);padding:.35rem;
+    box-shadow:0 20px 46px rgba(0,0,0,.34);opacity:0;visibility:hidden;transform:translateY(-6px);
+    transition:opacity .18s ease,transform .18s ease,visibility .18s ease;max-height:74vh;overflow:auto}
+  .txd-pal.open .txd-pal-menu{opacity:1;visibility:visible;transform:none}
+  .txd-pal-opt{display:flex;align-items:center;gap:.7rem;width:100%;text-align:left;cursor:pointer;background:none;border:0;
+    color:var(--p-ink);padding:.5rem .55rem;font-size:.8rem;font-family:'League Spartan',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+  .txd-pal-opt:hover{background:color-mix(in srgb,var(--p-ink) 8%,transparent)}
+  .txd-pal-opt[aria-selected="true"]{background:color-mix(in srgb,var(--p-accent) 18%,transparent)}
+  .txd-pal-opt .sw{width:28px;height:16px;flex:none;border:1px solid var(--p-line-2);
+    background:linear-gradient(90deg,var(--a) 0 50%,var(--b) 50% 80%,var(--c) 80% 100%)}
+  .txd-pal-opt .nm{display:flex;flex-direction:column;line-height:1.2}
+  .txd-pal-opt .nm small{opacity:.6;font-size:.58rem;letter-spacing:.08em;margin-top:2px}
+
+  /* tighten for short viewports */
+  @media (max-height:680px){
+    .poster{padding-top:clamp(3rem,7vh,4rem);padding-bottom:clamp(2rem,5vh,3rem)}
+    .p-mission .lede{display:none}
+  }
+  @media (max-width:820px){
+    .p-course .inner{grid-template-columns:1fr;gap:1.4rem;align-content:center}
+    .p-course .left{display:flex;align-items:center;justify-content:center;gap:1rem;padding-right:0}
+    .p-course .left::after{display:none}
+    .p-course .iqra{font-size:clamp(3.4rem,18vw,5rem)}
+    .p-course .iqra-t{margin-top:0}
+    .pfoot{grid-template-columns:1fr 1fr}
+    .pfoot .brand{grid-column:1/-1}
+  }
+  @media (max-width:560px){
+    .row{grid-template-columns:1fr}
+    .row .wh{text-align:left}
+  }
+
+  /* ---- responsive ---- */
+  @media (max-width:900px){
+    .p-lineup .wmk{bottom:-4%;right:-10%;width:min(56vw,380px)}
+  }
+  @media (max-width:680px){
+    .poster{padding-bottom:clamp(3.4rem,8vh,4.2rem)}   /* clear the fixed bottom pager */
+    .runhead{gap:.55rem;padding-bottom:.6rem}
+    .runhead .rh-n{font-size:.82rem}
+    .runhead .rh-s{letter-spacing:.16em;font-size:.66rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== symbols ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 64 64">
+    <circle cx="32" cy="39" r="18.5" stroke="currentColor" stroke-width="1.4" fill="none" opacity="0.8"/>
+    <path d="M31 7c7.2 3.3-3.6 11.4 3 16.5 6.4 5 -4.4 9.7 1.4 15.2 4 3.8 9.4 2.3 12-1.2" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M31 7c-1.6 1.9-1.4 4.2 .4 6.2" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+    <rect x="26.4" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 29.1 42.9)" fill="currentColor"/>
+    <rect x="33.6" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 36.3 42.9)" fill="currentColor"/>
+  </symbol>
+  <!-- 8-point-star geometric tile -->
+  <symbol id="startile" viewBox="0 0 120 120">
+    <g fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="38" y="38" width="44" height="44"/>
+      <rect x="38" y="38" width="44" height="44" transform="rotate(45 60 60)"/>
+      <rect x="-22" y="-22" width="44" height="44"/>
+      <rect x="-22" y="-22" width="44" height="44" transform="rotate(45 0 0)"/>
+      <rect x="98" y="-22" width="44" height="44"/>
+      <rect x="98" y="-22" width="44" height="44" transform="rotate(45 120 0)"/>
+      <rect x="-22" y="98" width="44" height="44"/>
+      <rect x="-22" y="98" width="44" height="44" transform="rotate(45 0 120)"/>
+      <rect x="98" y="98" width="44" height="44"/>
+      <rect x="98" y="98" width="44" height="44" transform="rotate(45 120 120)"/>
+      <rect x="52.5" y="-7.5" width="15" height="15" transform="rotate(45 60 0)"/>
+      <rect x="-7.5" y="52.5" width="15" height="15" transform="rotate(45 0 60)"/>
+      <rect x="112.5" y="52.5" width="15" height="15" transform="rotate(45 120 60)"/>
+      <rect x="52.5" y="112.5" width="15" height="15" transform="rotate(45 60 120)"/>
+      <circle cx="60" cy="60" r="5.2"/>
+    </g>
+  </symbol>
+  <!-- clean single 8-point star (decorative accent) -->
+  <symbol id="star8" viewBox="0 0 120 120">
+    <g fill="none" stroke="currentColor" stroke-width="1.6">
+      <rect x="16" y="16" width="88" height="88"/>
+      <rect x="16" y="16" width="88" height="88" transform="rotate(45 60 60)"/>
+      <rect x="34" y="34" width="52" height="52"/>
+      <rect x="34" y="34" width="52" height="52" transform="rotate(45 60 60)"/>
+      <circle cx="60" cy="60" r="7"/>
+    </g>
+  </symbol>
+  <symbol id="caret" viewBox="0 0 24 24"><path d="M5 8l7 8 7-8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="heart" viewBox="0 0 24 24"><path d="M12 20S3.5 14.2 3.5 8.6A4.6 4.6 0 0 1 12 6a4.6 4.6 0 0 1 8.5 2.6C20.5 14.2 12 20 12 20Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- ===== fixed chrome ===== -->
+<a class="brandmark" href="#panel1" aria-label="Texas Dawah, to the top">
+  <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg><b>Texas Dawah</b>
+</a>
+
+<nav class="pager" aria-label="Posters">
+  <a class="pg" href="#panel1" data-go="1" aria-current="true"><span class="rn">i</span><span class="tk"></span><span class="lb">Mission</span></a>
+  <a class="pg" href="#panel2" data-go="2"><span class="rn">ii</span><span class="tk"></span><span class="lb">The lineup</span></a>
+  <a class="pg" href="#panel3" data-go="3"><span class="rn">iii</span><span class="tk"></span><span class="lb">The course</span></a>
+  <a class="pg" href="#panel4" data-go="4"><span class="rn">iv</span><span class="tk"></span><span class="lb">Support</span></a>
+</nav>
+
+<div class="palwrap">
+  <div class="txd-pal" data-txd-pal>
+    <button class="txd-pal-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Switch color palette">
+      <span class="txd-pal-sw" aria-hidden="true"></span><span class="txd-pal-name">Palette</span>
+      <svg class="txd-pal-cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="txd-pal-menu" role="listbox" aria-label="Color palette"></div>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ PANEL 1 : MISSION ============ -->
+<section class="poster p-mission" id="panel1" aria-label="Mission">
+  <svg class="ground" aria-hidden="true">
+    <defs><pattern id="sp1" width="120" height="120" patternUnits="userSpaceOnUse"><use href="#startile" width="120" height="120"/></pattern></defs>
+    <rect width="100%" height="100%" fill="url(#sp1)"/>
+  </svg>
+  <div class="runhead pr" style="--d:.04s">
+    <span class="rh-l"><span class="rh-n">i</span><span class="rh-s">Mission</span></span>
+  </div>
+  <div class="inner">
+    <svg class="emblem pr" style="--d:.05s" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>
+    <div class="head">
+      <span class="pre pr" style="--d:.16s">An invitation to the</span>
+      <h1 class="bw ys hero" style="--fcc:var(--p-ink);--shc:var(--p-band)">
+        <span class="sh" aria-hidden="true">truth</span><span class="fc">truth</span>
+      </h1>
+    </div>
+    <p class="lede pr" style="--d:.34s">A student-led Muslim community sharing the message of Islam with wisdom and beautiful character. <b>The table is open to everyone, and free.</b></p>
+    <div class="act pr" style="--d:.46s">
+      <a class="flip" href="#panel2">See what we do <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#caret"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PANEL 2 : THE LINEUP ============ -->
+<section class="poster p-lineup" id="panel2" aria-label="The lineup">
+  <svg class="ground" aria-hidden="true">
+    <defs><pattern id="sp2" width="120" height="120" patternUnits="userSpaceOnUse"><use href="#startile" width="120" height="120"/></pattern></defs>
+    <rect width="100%" height="100%" fill="url(#sp2)"/>
+  </svg>
+  <svg class="wmk pr" style="--d:.5s" viewBox="0 0 120 120" aria-hidden="true"><use href="#star8" width="120" height="120"/></svg>
+  <div class="runhead pr" style="--d:.04s">
+    <span class="rh-l"><span class="rh-n">ii</span><span class="rh-s">The Lineup</span></span>
+  </div>
+  <div class="inner">
+    <div class="top">
+      <h2 class="bw spk title" style="--fcc:var(--p-accent);--shc:var(--p-band)">
+        <span class="sh" aria-hidden="true">The lineup</span><span class="fc">The lineup</span>
+      </h2>
+      <p class="meta sub pr" style="--d:.3s">Free and open. Every week in term, across Austin.</p>
+    </div>
+    <div class="lineup-list">
+      <div class="row pr-row" style="--d:.34s">
+        <div class="nm"><span class="i sp">01</span>Dawah tabling</div>
+        <div class="wh">Weekly &middot; <b>West Mall, the Drag</b></div>
+      </div>
+      <div class="row pr-row" style="--d:.42s">
+        <div class="nm"><span class="i sp">02</span>Dawah training</div>
+        <div class="wh">Thu 8 PM &middot; <b>1906 Nueces</b></div>
+      </div>
+      <div class="row pr-row" style="--d:.5s">
+        <div class="nm"><span class="i sp">03</span>Interfaith iftars</div>
+        <div class="wh">Each Ramadan &middot; <b>Nueces Mosque</b></div>
+      </div>
+      <div class="row pr-row" style="--d:.58s">
+        <div class="nm"><span class="i sp">04</span>Book club &amp; lectures</div>
+        <div class="wh">Monthly &middot; <b>On campus, guest scholars</b></div>
+      </div>
+    </div>
+    <div class="act pr" style="--d:.66s">
+      <a class="btn" href="#panel4">Get involved</a>
+      <span class="meta">No experience needed. Just show up.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PANEL 3 : THE COURSE ============ -->
+<section class="poster p-course" id="panel3" aria-label="The free course">
+  <svg class="ground" aria-hidden="true">
+    <defs><pattern id="sp3" width="120" height="120" patternUnits="userSpaceOnUse"><use href="#startile" width="120" height="120"/></pattern></defs>
+    <rect width="100%" height="100%" fill="url(#sp3)"/>
+  </svg>
+  <div class="runhead pr" style="--d:.04s">
+    <span class="rh-l"><span class="rh-n">iii</span><span class="rh-s">The Course</span></span>
+  </div>
+  <div class="inner">
+    <div class="left">
+      <div class="iqra ar pr" style="--d:.12s">اقْرَأْ</div>
+      <div class="iqra-t pr" style="--d:.2s">Iqra &middot; Read</div>
+    </div>
+    <div class="right">
+      <span class="free pr" style="--d:.16s">now free</span>
+      <h2 class="bw spk title" style="--fcc:var(--p-ink);--shc:var(--p-band)">
+        <span class="sh" aria-hidden="true">Why Islam is true</span><span class="fc">Why Islam is true</span>
+      </h2>
+      <p class="meta pr" style="--d:.3s">Six lessons &middot; Self-paced &middot; <b>No cost, no catch</b></p>
+      <p class="desc pr" style="--d:.38s">A clear walk through the evidence behind the message: the Qur'an, the prophethood, and the case for belief. <b>Built for the curious and the questioning alike.</b></p>
+      <div class="crow pr" style="--d:.46s">
+        <a class="btn" href="#panel3">Start the free course</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PANEL 4 : SUPPORT + FOOTER ============ -->
+<section class="poster p-support" id="panel4" aria-label="Support and contact">
+  <svg class="ground" aria-hidden="true">
+    <defs><pattern id="sp4" width="120" height="120" patternUnits="userSpaceOnUse"><use href="#startile" width="120" height="120"/></pattern></defs>
+    <rect width="100%" height="100%" fill="url(#sp4)"/>
+  </svg>
+  <div class="runhead pr" style="--d:.04s">
+    <span class="rh-l"><span class="rh-n">iv</span><span class="rh-s">Support</span></span>
+  </div>
+  <div class="inner">
+    <div class="close">
+      <svg class="emblem pr" style="--d:.05s" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>
+      <h2 class="bw ys title" style="--fcc:var(--p-ink);--shc:var(--p-band)">
+        <span class="sh" aria-hidden="true">Keep the table open</span><span class="fc">Keep the table open</span>
+      </h2>
+      <p class="line pr" style="--d:.3s">Every book at the table, every seat in the course, is given freely by someone who once sat where you are sitting now. <b>Be the reason the next conversation happens.</b></p>
+      <div class="act pr" style="--d:.42s">
+        <a class="btn" href="#panel4">Support the dawah <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <footer class="pfoot pr" style="--d:.5s">
+      <div class="brand"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg><b>Texas Dawah</b></div>
+      <div class="col">
+        <h4>Find us</h4>
+        <span>1906 Nueces St</span>
+        <span>Austin, TX 78705</span>
+      </div>
+      <div class="col">
+        <h4>Follow</h4>
+        <a href="#panel4">Instagram</a>
+        <a href="#panel4">YouTube</a>
+        <a href="#panel4">Write to us</a>
+      </div>
+      <div class="end">
+        <span>&copy; 2026 Texas Dawah &middot; A student work, offered freely</span>
+        <span>Set &amp; kept in Austin, Texas</span>
+      </div>
+  </footer>
+</section>
+
+</main>
+
+<script>
+  /* ---- print-in reveal + pager sync via IntersectionObserver ---- */
+  (function(){
+    var posters=[].slice.call(document.querySelectorAll('.poster'));
+    var pgs=[].slice.call(document.querySelectorAll('.pg'));
+    function activate(id){
+      pgs.forEach(function(p){p.setAttribute('aria-current', p.getAttribute('href')==='#'+id ? 'true':'false');});
+    }
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            e.target.classList.add('is-on');
+            if(e.intersectionRatio>=0.5) activate(e.target.id);
+          }
+        });
+      },{threshold:[0.5,0.9]});
+      posters.forEach(function(p){io.observe(p);});
+    } else {
+      posters.forEach(function(p){p.classList.add('is-on');});
+    }
+    /* ensure first poster prints immediately on load */
+    if(posters[0]) posters[0].classList.add('is-on');
+  })();
+</script>
+
+<script>
+  /* ---- palette switcher (copied verbatim from redesign-index.html) ---- */
+  (function(){
+    var P=[
+      {k:'midnight',n:'Midnight',d:'Navy + Gold',c:['#0d1230','#e7c66b','#9bb4e8']},
+      {k:'olive',n:'Olive Manuscript',d:'Deep Olive + Sage',c:['#1d2416','#cdb968','#8a946f']},
+      {k:'cream',n:'Cream & Sage',d:'Off-white + Sage',c:['#f6f1e1','#c1851f','#4f7e6e']},
+      {k:'mocha',n:'Mocha Warmth',d:'Mocha + Tan',c:['#362116','#d8ad7c','#b06a45']},
+      {k:'aubergine',n:'Aubergine Nights',d:'Plum + Lilac',c:['#1f0f24','#e3c071','#c79bd6']},
+      {k:'geometric',n:'Geometric',d:'Teal + Gold',c:['#072d2b','#e7c66b','#46b89a']},
+      {k:'interfaith',n:'Interfaith',d:'Dusty Rose',c:['#e7d3c8','#9c5c41','#7d4631']},
+      {k:'minimal',n:'Minimal Mihrab',d:'Bone + Emerald',c:['#f4f1ea','#0c5440','#bfa15a']}
+    ];
+    var root=document.documentElement, KEY='txd-palette';
+    var NATIVE=root.getAttribute('data-palette')||'olive';
+    var valid=function(k){return P.some(function(p){return p.k===k})};
+    var wraps=[].slice.call(document.querySelectorAll('[data-txd-pal]'));
+    function label(k){var p=P.filter(function(x){return x.k===k})[0]||P[0];return p.n}
+    function render(cur){wraps.forEach(function(w){
+      var nm=w.querySelector('.txd-pal-name'); if(nm) nm.textContent=label(cur);
+      var menu=w.querySelector('.txd-pal-menu');
+      if(menu && !menu.dataset.built){P.forEach(function(p){
+        var b=document.createElement('button'); b.type='button'; b.className='txd-pal-opt';
+        b.setAttribute('role','option'); b.dataset.pal=p.k;
+        b.innerHTML='<span class="sw" style="--a:'+p.c[0]+';--b:'+p.c[1]+';--c:'+p.c[2]+'"></span><span class="nm">'+p.n+'<small>'+p.d+'</small></span>';
+        b.addEventListener('click',function(){set(p.k,true);close();}); menu.appendChild(b);
+      }); menu.dataset.built='1';}
+      [].slice.call(w.querySelectorAll('.txd-pal-opt')).forEach(function(o){o.setAttribute('aria-selected',o.dataset.pal===cur?'true':'false');});
+    });}
+    function set(k,persist){if(!valid(k))k=NATIVE; root.setAttribute('data-palette',k);
+      if(persist){try{localStorage.setItem(KEY,k)}catch(e){}} render(k);}
+    function openW(w){w.classList.add('open');var b=w.querySelector('.txd-pal-btn');if(b)b.setAttribute('aria-expanded','true')}
+    function close(){wraps.forEach(function(w){w.classList.remove('open');var b=w.querySelector('.txd-pal-btn');if(b)b.setAttribute('aria-expanded','false')})}
+    wraps.forEach(function(w){var btn=w.querySelector('.txd-pal-btn');
+      if(btn)btn.addEventListener('click',function(e){e.stopPropagation();var o=w.classList.contains('open');close();if(!o)openW(w);});});
+    document.addEventListener('click',function(e){if(!e.target.closest('[data-txd-pal]'))close()});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+    window.addEventListener('message',function(e){var d=e&&e.data;if(d&&d.txdPalette){set(d.txdPalette,false)}});
+    var params=new URLSearchParams(location.search), q=params.get('palette'), initial;
+    if(q==='native'){initial=NATIVE} else if(q&&valid(q)){initial=q}
+    else{var st;try{st=localStorage.getItem(KEY)}catch(e){} initial=(st&&valid(st))?st:NATIVE}
+    set(initial,false);
+  })();
+</script>
+</body>
+</html>
