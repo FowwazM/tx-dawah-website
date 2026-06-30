@@ -21,7 +21,7 @@
 </style>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  :root{--maxw:1060px;--ease:cubic-bezier(.23,1,.32,1)}
+  :root{--maxw:1320px;--ease:cubic-bezier(.23,1,.32,1)}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   body{background:var(--p-bg);color:var(--p-ink);
@@ -68,7 +68,7 @@
 
   /* section heads */
   .sec{padding:clamp(2.4rem,6vh,4rem) 0}
-  .sec-num{display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid var(--p-ink);padding-bottom:.7rem;margin-bottom:1.6rem}
+  .sec-num{display:flex;align-items:baseline;flex-wrap:wrap;gap:.3rem 1rem;border-bottom:1px solid var(--p-ink);padding-bottom:.7rem;margin-bottom:1.6rem}
   .sec-num .sg{font-family:'League Spartan',sans-serif;font-weight:700;color:var(--p-accent);font-size:1.1rem;letter-spacing:.04em}
   .sec-num h2{font-family:'League Spartan',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
     font-size:clamp(1.1rem,2.4vw,1.5rem);color:var(--p-ink)}
@@ -136,6 +136,64 @@
   .ledger .leader{flex:1;border-bottom:1px dotted var(--p-line-2);transform:translateY(-.28em);min-width:1rem}
   .ledger .lv{font-family:'League Spartan',sans-serif;font-weight:700;color:var(--p-accent);font-variant-numeric:tabular-nums;letter-spacing:.02em}
   .ledger .foot{font-size:.8rem;color:var(--p-muted);margin-top:.9rem;font-style:italic}
+
+  /* ===== full-width ledger spread : left section rail + active right margin ===== */
+  .led{display:grid;column-gap:clamp(1.3rem,2.6vw,2.3rem);row-gap:clamp(1rem,2.4vh,1.6rem)}
+  .led>*{min-width:0}
+  .led .sec-num{grid-column:1/-1;margin-bottom:0}
+  .led-rail,.led-body,.led-bodywide,.led-meta{grid-column:1/-1}
+  @media (min-width:900px){
+    .led{grid-template-columns:[rail]clamp(98px,11vw,148px) [body]minmax(0,1fr) [meta]minmax(196px,300px);align-items:start}
+    .led-rail{grid-column:rail;align-self:stretch;border-right:1px solid var(--p-line);padding-right:clamp(.9rem,1.3vw,1.4rem)}
+    .led-body{grid-column:body}
+    .led-bodywide{grid-column:body/-1}
+    .led-meta{grid-column:meta;align-self:stretch;border-left:1px solid var(--p-line);padding-left:clamp(.9rem,1.3vw,1.4rem)}
+  }
+  @media (max-width:899px){
+    .led-rail{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem .9rem;padding-bottom:.8rem;border-bottom:1px solid var(--p-line)}
+    .led-meta{margin-top:1.3rem;padding-top:1.1rem;border-top:1px solid var(--p-line)}
+  }
+  .rail-fol{font-family:'League Spartan',sans-serif;font-weight:800;font-size:clamp(2rem,3.4vw,3rem);line-height:.85;
+    color:var(--p-accent);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .rail-lab{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.58rem;font-weight:700;color:var(--p-muted)}
+  .rail-note{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.6rem;font-weight:600;color:var(--p-ink);line-height:1.7}
+  .rail-foot{font-family:'Quicksand',sans-serif;font-size:.74rem;color:var(--p-muted);font-style:italic;line-height:1.5;letter-spacing:0;text-transform:none}
+  @media (min-width:900px){.rail-lab{margin-top:.55rem}.rail-note{margin-top:.95rem}.rail-foot{margin-top:1rem}}
+  @media (max-width:899px){.rail-fol{font-size:1.5rem}.rail-foot{flex-basis:100%}}
+  .meta-h{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.6rem;font-weight:700;color:var(--p-muted);margin-bottom:1rem}
+  .spec{display:grid;gap:.8rem}
+  .spec>div{display:grid;gap:.2rem;padding-bottom:.8rem;border-bottom:1px solid var(--p-line)}
+  .spec>div:last-child{border-bottom:0;padding-bottom:0}
+  .spec dt{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.58rem;font-weight:700;color:var(--p-muted)}
+  .spec dd{font-family:'League Spartan',sans-serif;font-weight:600;color:var(--p-ink);font-size:.95rem;letter-spacing:.01em}
+  .pullq{font-family:'League Spartan',sans-serif;font-weight:600;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.3;color:var(--p-ink);letter-spacing:.01em}
+  .pullq::before{content:"";display:block;width:26px;height:2px;background:var(--p-accent);margin-bottom:.9rem}
+  .meta-note{color:var(--p-muted);font-size:.95rem;line-height:1.6;margin-top:1.1rem}
+  .course-h{font-family:'League Spartan',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.01em;
+    font-size:clamp(1.6rem,3.6vw,2.6rem);color:var(--p-ink);line-height:1}
+  .course-iqra{font-family:'Amiri',serif;color:var(--p-accent);font-size:1.4rem;margin-left:.4em;direction:rtl}
+  .course-p{color:var(--p-muted);margin:.95rem 0 1.4rem;max-width:56ch;font-size:1.04rem;line-height:1.6}
+  .led-bodywide .ledger{max-width:none}
+  /* masthead spread : title block + register imprint */
+  .mast-spread{display:grid;gap:clamp(1.6rem,4vw,3rem);margin-top:1.4rem}
+  .mast-spread>*{min-width:0}
+  .mast-main .title{margin-top:0}
+  @media (min-width:900px){
+    .mast-spread{grid-template-columns:minmax(0,1fr) minmax(228px,300px);align-items:stretch}
+    .mast-imprint{border-left:1px solid var(--p-line-2);padding-left:clamp(1.4rem,2vw,2.3rem)}
+  }
+  @media (max-width:899px){.mast-imprint{border-top:1px solid var(--p-line);padding-top:1.2rem;margin-top:.4rem}}
+  .imp-h{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.18em;font-size:.62rem;font-weight:700;
+    color:var(--p-muted);padding-bottom:.7rem;border-bottom:1px solid var(--p-ink);margin-bottom:.2rem}
+  .toc a{display:flex;align-items:baseline;gap:.7rem;padding:.62rem 0;border-bottom:1px dotted var(--p-line-2);
+    font-family:'League Spartan',sans-serif;transition:color .15s var(--ease)}
+  .toc a:hover .tt{color:var(--p-accent)}
+  .toc .tn{font-weight:700;color:var(--p-accent);font-variant-numeric:tabular-nums;width:1.3rem;flex:none}
+  .toc .tt{color:var(--p-ink);font-weight:600;font-size:.96rem}
+  .toc .tm{margin-left:auto;text-transform:uppercase;letter-spacing:.1em;font-size:.58rem;font-weight:600;color:var(--p-muted);white-space:nowrap}
+  .imp-stamp{margin-top:1.1rem;display:flex;align-items:center;font-family:'League Spartan',sans-serif;text-transform:uppercase;
+    letter-spacing:.14em;font-size:.62rem;font-weight:700;color:var(--p-accent)}
+  .imp-mark{width:16px;height:16px;color:var(--p-accent);margin-right:.5em;flex:none}
 
   /* colophon */
   .colophon{border-top:2px solid var(--p-ink);margin-top:clamp(2.5rem,6vh,4rem);
@@ -221,8 +279,22 @@
       <span class="ar">دعوة</span>
       <span>An open register of the work</span>
     </div>
-    <h1 class="title">Texas<br>Dawah</h1>
-    <p class="lede">A student-led community sharing the message of Islam in Austin, with knowledge and beautiful character. <b>Everything below is open to everyone, and free.</b></p>
+    <div class="mast-spread">
+      <div class="mast-main">
+        <h1 class="title">Texas<br>Dawah</h1>
+        <p class="lede">A student-led community sharing the message of Islam in Austin, with knowledge and beautiful character. <b>Everything below is open to everyone, and free.</b></p>
+      </div>
+      <aside class="mast-imprint">
+        <div class="imp-h">In this register</div>
+        <nav class="toc" aria-label="Sections">
+          <a href="#programme"><span class="tn mono-num">1</span><span class="tt">The Programme</span><span class="tm">Weekly</span></a>
+          <a href="#course"><span class="tn mono-num">2</span><span class="tt">The Course</span><span class="tm">Six parts</span></a>
+          <a href="#writings"><span class="tn mono-num">3</span><span class="tt">The Writings</span><span class="tm">From the blog</span></a>
+          <a href="#numbers"><span class="tn mono-num">4</span><span class="tt">In Numbers</span><span class="tm">Last year</span></a>
+        </nav>
+        <div class="imp-stamp"><svg class="imp-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>Free &amp; open to all</div>
+      </aside>
+    </div>
     <div class="botline">
       <span>Who we are &middot; What we run &middot; Where to begin</span>
       <span>Free &amp; open to all</span>
@@ -232,18 +304,33 @@
 
 <!-- statement -->
 <section class="statement">
-  <div class="wrap">
-    <div class="statement-cols">
+  <div class="wrap led">
+    <div class="led-rail">
+      <div class="rail-fol mono-num">00</div>
+      <div class="rail-lab">Preface</div>
+      <div class="rail-note">Austin,<br>Texas</div>
+    </div>
+    <div class="led-body statement-cols">
       <p>Texas Dawah began with a handful of students who believed the truth is best offered, never imposed. We set a table on the Drag, opened our books, and started answering the questions people actually carry: about God, about Jesus, about suffering and meaning.</p>
       <p>We are not here to win arguments. We are here to be the reason someone, between classes, looked closer at Islam and found mercy in it. Every program is a different door into the same conversation, and you are welcome at the table whatever you believe.</p>
     </div>
+    <aside class="led-meta">
+      <p class="pullq">We are not here to win arguments.</p>
+      <p class="meta-note">You are welcome at the table whatever you believe.</p>
+    </aside>
   </div>
 </section>
 
 <!-- 1. programme -->
 <section class="sec" id="programme">
-  <div class="wrap">
+  <div class="wrap led">
     <div class="sec-num"><span class="sg">§1</span><h2>The Programme</h2><span class="rt">Running weekly, in term</span></div>
+    <div class="led-rail">
+      <div class="rail-fol mono-num">01</div>
+      <div class="rail-lab">Section</div>
+      <div class="rail-note">Weekly,<br>in term</div>
+    </div>
+    <div class="led-bodywide">
     <table class="tt">
       <thead><tr><th>Programme</th><th>When</th><th>Where</th><th>Open to</th></tr></thead>
       <tbody>
@@ -273,47 +360,71 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </section>
 
 <!-- 2. course -->
 <section class="sec" id="course">
-  <div class="wrap">
+  <div class="wrap led">
     <div class="sec-num"><span class="sg">§2</span><h2>The Course</h2><span class="rt">Self-paced, six parts</span></div>
-    <div class="entry">
-      <span class="ref">Ref.<br>WIT&middot;01</span>
-      <div>
-        <h3>Why Islam Is True<span class="iqra ar">اقْرَأْ</span></h3>
-        <p>A clear walk through the evidence behind the message: the Qur'an, the prophethood, and the case for belief. Built for the curious and the questioning alike.</p>
-        <div class="terms">Enrollment <b>Free</b> &nbsp;·&nbsp; Format <b>Six lessons, self-paced</b> &nbsp;·&nbsp; Prerequisite <b>None</b></div>
-      </div>
-      <div class="act"><a class="rect-btn" href="#course">Enrol now <span class="x">&rarr;</span></a></div>
+    <div class="led-rail">
+      <div class="rail-fol mono-num">02</div>
+      <div class="rail-lab">Section</div>
+      <div class="rail-note">Ref WIT&middot;01<br>Self-paced</div>
     </div>
+    <div class="led-body">
+      <h3 class="course-h">Why Islam Is True<span class="course-iqra ar">اقْرَأْ</span></h3>
+      <p class="course-p">A clear walk through the evidence behind the message: the Qur'an, the prophethood, and the case for belief. Built for the curious and the questioning alike.</p>
+      <a class="rect-btn" href="#course">Enrol now <span class="x">&rarr;</span></a>
+    </div>
+    <aside class="led-meta">
+      <div class="meta-h">Terms</div>
+      <dl class="spec">
+        <div><dt>Enrollment</dt><dd>Free</dd></div>
+        <div><dt>Format</dt><dd>Six lessons, self-paced</dd></div>
+        <div><dt>Prerequisite</dt><dd>None</dd></div>
+      </dl>
+    </aside>
   </div>
 </section>
 
 <!-- 3. writings -->
 <section class="sec" id="writings">
-  <div class="wrap">
+  <div class="wrap led">
     <div class="sec-num"><span class="sg">§3</span><h2>The Writings</h2><span class="rt">Selected, from the blog</span></div>
-    <div class="index">
-      <a class="row" href="#writings"><span class="n mono-num">01</span><span class="t">If God is merciful, why is there suffering?</span><span class="leader"></span><span class="kind">Question</span></a>
-      <a class="row" href="#writings"><span class="n mono-num">02</span><span class="t">What the Qur'an says about Jesus, son of Mary</span><span class="leader"></span><span class="kind">Deep dive</span></a>
-      <a class="row" href="#writings"><span class="n mono-num">03</span><span class="t">So you want to learn about Islam. Begin here.</span><span class="leader"></span><span class="kind">Primer</span></a>
+    <div class="led-rail">
+      <div class="rail-fol mono-num">03</div>
+      <div class="rail-lab">Section</div>
+      <div class="rail-note">From the blog<br>03 entries</div>
+    </div>
+    <div class="led-bodywide">
+      <div class="index">
+        <a class="row" href="#writings"><span class="n mono-num">01</span><span class="t">If God is merciful, why is there suffering?</span><span class="leader"></span><span class="kind">Question</span></a>
+        <a class="row" href="#writings"><span class="n mono-num">02</span><span class="t">What the Qur'an says about Jesus, son of Mary</span><span class="leader"></span><span class="kind">Deep dive</span></a>
+        <a class="row" href="#writings"><span class="n mono-num">03</span><span class="t">So you want to learn about Islam. Begin here.</span><span class="leader"></span><span class="kind">Primer</span></a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- 4. in numbers -->
 <section class="sec" id="numbers">
-  <div class="wrap">
+  <div class="wrap led">
     <div class="sec-num"><span class="sg">§4</span><h2>In Numbers</h2><span class="rt">Last academic year</span></div>
-    <div class="ledger">
-      <div class="lrow"><span class="ll">Conversations at the table</span><span class="leader"></span><span class="lv">2,400+</span></div>
-      <div class="lrow"><span class="ll">Interfaith guests hosted</span><span class="leader"></span><span class="lv">38</span></div>
-      <div class="lrow"><span class="ll">Programmes run each week</span><span class="leader"></span><span class="lv">4</span></div>
-      <div class="lrow"><span class="ll">Cost to attend, ever</span><span class="leader"></span><span class="lv">Nothing</span></div>
-      <p class="foot">Figures are illustrative placeholders.</p>
+    <div class="led-rail">
+      <div class="rail-fol mono-num">04</div>
+      <div class="rail-lab">Section</div>
+      <div class="rail-note">Last<br>academic year</div>
+      <p class="rail-foot">Figures are illustrative placeholders.</p>
+    </div>
+    <div class="led-bodywide">
+      <div class="ledger">
+        <div class="lrow"><span class="ll">Conversations at the table</span><span class="leader"></span><span class="lv">2,400+</span></div>
+        <div class="lrow"><span class="ll">Interfaith guests hosted</span><span class="leader"></span><span class="lv">38</span></div>
+        <div class="lrow"><span class="ll">Programmes run each week</span><span class="leader"></span><span class="lv">4</span></div>
+        <div class="lrow"><span class="ll">Cost to attend, ever</span><span class="leader"></span><span class="lv">Nothing</span></div>
+      </div>
     </div>
   </div>
 </section>

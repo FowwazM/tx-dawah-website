@@ -193,9 +193,9 @@
   .ms-head .ln{display:block;overflow:hidden}
   .ms-head .ln:nth-child(2){color:var(--p-accent);padding-left:clamp(0px,4vw,2.4ch)}
   .ms-head .ln:nth-child(3){color:var(--p-accent-2)}
-  .ms-body{margin-top:clamp(2rem,5vh,3.2rem);max-width:54ch;font-size:clamp(1.08rem,1.7vw,1.32rem);
+  .ms-body{max-width:50ch;font-size:clamp(1.08rem,1.7vw,1.32rem);
     line-height:1.6;color:var(--p-ink)}
-  .ms-body+.ms-body{margin-top:1.1rem;color:var(--p-muted)}
+  .ms-body+.ms-body{color:var(--p-muted)}
 
   /* ============ MARQUEE ============ */
   .marquee{overflow:hidden;border-block:1px solid var(--p-line-2);background:var(--p-band);color:var(--p-band-ink);
@@ -210,11 +210,13 @@
 
   /* ============ PROGRAMS (radial / orbital) ============ */
   .programs{position:relative;overflow:hidden;padding:clamp(5rem,12vh,9rem) 0 clamp(5rem,12vh,9rem)}
-  .programs-head{text-align:center;margin-bottom:clamp(2rem,5vh,3.5rem)}
-  .programs-head .sec-label{justify-content:center}
+  .programs-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem 2.4rem;
+    flex-wrap:wrap;margin-bottom:clamp(2rem,5vh,3.5rem);position:relative;z-index:2}
+  .programs-head .ph-lead{max-width:26ch;min-width:0}
+  .programs-head .sec-label{justify-content:flex-start}
   .programs-head h2{font-family:'League Spartan',sans-serif;font-weight:800;text-transform:uppercase;
     letter-spacing:-.01em;font-size:clamp(2rem,5.4vw,4rem);line-height:1}
-  .prog-cluster{position:relative;width:min(900px,94vw);height:min(700px,98vw);margin:0 auto}
+  .prog-cluster{position:relative;z-index:2;width:min(900px,94vw);height:min(700px,98vw);margin:0 auto}
   .prog-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0}
   .prog-lines line{stroke:var(--p-line-2);stroke-width:.4;stroke-dasharray:2.4 2.4}
   .prog-hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;
@@ -245,16 +247,17 @@
   }
 
   /* ============ QUOTE ============ */
-  .quote{position:relative;overflow:hidden;padding:clamp(5rem,12vh,9rem) 0;text-align:center}
-  .quote blockquote{position:relative;z-index:2;max-width:24ch;margin:0 auto;
-    font-family:'Yeseva One',serif;font-size:clamp(1.7rem,4.6vw,3.4rem);line-height:1.18;color:var(--p-ink)}
-  .quote .qm{display:block;font-family:'Yeseva One',serif;font-size:3em;line-height:0;height:.5em;color:var(--p-accent);opacity:.7}
-  .quote cite{display:block;margin-top:1.8rem;font-family:'League Spartan',sans-serif;font-style:normal;
-    text-transform:uppercase;letter-spacing:.2em;font-size:.68rem;font-weight:600;color:var(--p-accent)}
+  .quote{position:relative;overflow:hidden;padding:clamp(5rem,12vh,9rem) 0}
+  .quote blockquote{font-family:'Yeseva One',serif;font-size:clamp(1.7rem,4.4vw,3.3rem);line-height:1.2;
+    color:var(--p-ink);max-width:24ch}
+  .quote .qm{font-family:'Yeseva One',serif;font-size:clamp(3.2rem,7vw,5rem);line-height:.6;color:var(--p-accent);opacity:.75}
+  .quote cite{font-family:'League Spartan',sans-serif;font-style:normal;
+    text-transform:uppercase;letter-spacing:.2em;font-size:.66rem;font-weight:600;color:var(--p-accent)}
 
   /* ============ COURSE (portal) ============ */
-  .course{position:relative;overflow:hidden;padding:clamp(5rem,12vh,9rem) 0;text-align:center}
-  .portal{position:relative;width:min(620px,92vw);margin:0 auto;aspect-ratio:1/1;display:grid;place-items:center}
+  .course{position:relative;overflow:hidden;padding:clamp(5rem,12vh,9rem) 0}
+  .course .sec-label{justify-content:flex-start}
+  .portal{position:relative;width:min(500px,92vw);margin:0 auto;aspect-ratio:1/1;display:grid;place-items:center}
   .portal-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
   .portal-svg .pr{fill:none;stroke:var(--p-accent);stroke-linejoin:round}
   .portal-svg .pr-1{opacity:.5;stroke-width:1}
@@ -265,18 +268,23 @@
   .portal-spin.rev{animation:spinRev 90s linear infinite}
   @keyframes spinRev{to{transform:rotate(-360deg)}}
   @media (prefers-reduced-motion:reduce){.portal-spin,.portal-spin.rev{animation:none}}
-  .portal-in{position:relative;z-index:2;padding:clamp(1.6rem,6vw,3.6rem);max-width:32ch;
-    background:radial-gradient(closest-side, color-mix(in srgb,var(--p-bg) 82%,transparent) 0%, color-mix(in srgb,var(--p-bg) 52%,transparent) 58%, transparent 100%)}
+  .portal-in{position:relative;z-index:2;text-align:center;padding:clamp(1.4rem,5vw,2.6rem);
+    background:radial-gradient(closest-side, color-mix(in srgb,var(--p-bg) 80%,transparent) 0%, color-mix(in srgb,var(--p-bg) 42%,transparent) 60%, transparent 100%)}
   .portal-in .iqra{font-family:'Amiri',serif;font-size:clamp(3rem,9vw,5.4rem);line-height:1;color:var(--p-accent);direction:rtl}
-  .portal-in .ref{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.24em;
-    font-size:.66rem;font-weight:600;color:var(--p-accent-2);margin:1rem 0 .4rem}
-  .portal-in h2{font-family:'Yeseva One',serif;font-size:clamp(1.9rem,5vw,3.2rem);line-height:1.04;color:var(--p-ink)}
-  .portal-in p{margin:1rem auto 0;max-width:34ch;color:color-mix(in srgb,var(--p-ink) 80%,var(--p-muted));
-    font-size:clamp(.98rem,1.5vw,1.12rem);text-shadow:0 0 10px var(--p-bg)}
-  .portal-in .geo-btn{margin-top:1.8rem}
+  .course-apparatus{max-width:48ch;min-width:0}
+  .course-meta{display:flex;align-items:center;gap:.9rem;margin-bottom:1.1rem}
+  .course-meta .cx-index{font-size:clamp(1.7rem,2.4vw,2.2rem)}
+  .course-meta span{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.2em;
+    font-size:.62rem;font-weight:600;color:var(--p-muted)}
+  .course-apparatus .ref{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.24em;
+    font-size:.66rem;font-weight:600;color:var(--p-accent-2);margin:0 0 .5rem}
+  .course-apparatus h2{font-family:'Yeseva One',serif;font-size:clamp(1.9rem,5vw,3.2rem);line-height:1.04;color:var(--p-ink)}
+  .course-apparatus p{margin:1rem 0 0;max-width:42ch;color:color-mix(in srgb,var(--p-ink) 82%,var(--p-muted));
+    font-size:clamp(.98rem,1.5vw,1.12rem)}
+  .course-apparatus .geo-btn{margin-top:1.8rem}
 
   /* ============ WRITINGS ============ */
-  .writings{padding:clamp(5rem,12vh,9rem) 0}
+  .writings{position:relative;overflow:hidden;padding:clamp(5rem,12vh,9rem) 0}
   .writings-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;
     border-bottom:1px solid var(--p-line-2);padding-bottom:1.4rem;margin-bottom:1rem}
   .writings-head h2{font-family:'League Spartan',sans-serif;font-weight:800;text-transform:uppercase;
@@ -327,6 +335,69 @@
     font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.62rem;
     color:color-mix(in srgb,var(--p-band-ink) 60%,transparent)}
   @media (max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}.foot .about{grid-column:1/-1}}
+
+  /* ============ SIDE-SPACE: bleeding girih wheels + construction-line margins ============ */
+  /* girih wheels bleed into the side margins as living ornament (clipped by each section's overflow:hidden) */
+  .edge-geo{position:absolute;z-index:0;top:50%;width:min(72vmin,640px);aspect-ratio:1/1;pointer-events:none;opacity:.4}
+  .edge-geo .girih{width:100%;height:100%}
+  .edge-geo--r{right:0;transform:translate(46%,-50%)}
+  .edge-geo--l{left:0;transform:translate(-46%,-50%)}
+  .edge-geo--rb{right:0;top:auto;bottom:0;transform:translate(42%,40%)}
+  @media (max-width:900px){.edge-geo{opacity:.22;width:min(96vw,520px)}}
+
+  /* construction legend: kinetic margin metadata (dotted accent line + numeral, not a manuscript rail) */
+  .cx-margin{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:1rem;
+    padding-left:clamp(1rem,1.5vw,1.6rem);border-left:1px dotted color-mix(in srgb,var(--p-accent) 42%,transparent)}
+  .cx-index{font-family:'Yeseva One',serif;font-size:clamp(2rem,3.2vw,2.9rem);line-height:.85;color:var(--p-accent)}
+  .cx-label{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.26em;font-size:.64rem;font-weight:600;color:var(--p-muted)}
+  .cx-orn{width:30px;height:30px;color:var(--p-accent-2);opacity:.82}
+  .cx-ar{font-family:'Amiri',serif;font-size:1.9rem;color:var(--p-accent);direction:rtl;line-height:1}
+  .cx-note{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.6rem;font-weight:600;color:var(--p-muted);line-height:1.9}
+  .quote .wrap,.course .wrap,.writings .wrap{position:relative;z-index:2}
+
+  /* mission: asymmetric spread, widened two-column body, margin legend */
+  .ms-copy{margin-top:clamp(2rem,5vh,3.2rem);display:grid;gap:clamp(1.3rem,2.4vw,2rem)}
+  @media (min-width:700px){.ms-copy{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.6rem,3vw,3rem)}}
+  @media (min-width:900px){
+    .mission-inner{display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,22vw,300px);
+      column-gap:clamp(2rem,4vw,4rem);align-items:start}
+    .mission-inner>.sec-label,.mission-inner>.ms-head,.mission-inner>.ms-copy{grid-column:1}
+    .mission-aside{grid-column:2;grid-row:1/span 3;position:sticky;top:118px}
+  }
+  @media (max-width:899px){
+    .mission-aside{margin-top:clamp(1.8rem,4vh,2.6rem);flex-direction:row;flex-wrap:wrap;align-items:center;
+      gap:.7rem 1.4rem;padding-left:0;border-left:0;padding-top:1.2rem;
+      border-top:1px dotted color-mix(in srgb,var(--p-accent) 42%,transparent)}
+  }
+
+  /* programs: full-width head band with metadata */
+  .ph-meta{display:flex;align-items:center;gap:.9rem}
+  .ph-meta .cx-index{font-size:clamp(1.7rem,2.4vw,2.2rem)}
+  .ph-meta span{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.2em;
+    font-size:.62rem;font-weight:600;color:var(--p-muted);line-height:1.8}
+
+  /* quote: asymmetric pull-quote with margin attribution */
+  .quote-spread{display:grid;gap:clamp(1.2rem,3vw,2.4rem)}
+  .quote-aside{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem}
+  @media (min-width:820px){
+    .quote-spread{grid-template-columns:clamp(130px,16vw,210px) minmax(0,1fr);align-items:start}
+    .quote-aside{position:sticky;top:120px}
+  }
+
+  /* course: portal medallion + apparatus spread */
+  .course-spread{display:grid;gap:clamp(2rem,5vw,4rem);align-items:center;margin-top:clamp(1.6rem,4vh,2.6rem)}
+  @media (min-width:880px){.course-spread{grid-template-columns:minmax(0,1fr) minmax(0,1.02fr)}}
+
+  /* writings: section rail + edge geometry */
+  .writings-rail{display:flex;align-items:center;gap:1rem}
+  .writings-rail .cx-vlabel{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.3em;
+    font-size:.66rem;font-weight:600;color:var(--p-muted)}
+  @media (min-width:900px){
+    .writings .wrap{display:grid;grid-template-columns:clamp(116px,14vw,180px) minmax(0,1fr);
+      column-gap:clamp(2rem,4vw,3.4rem);align-items:start}
+    .writings-rail{flex-direction:column;align-items:flex-start;gap:1.2rem;position:sticky;top:120px}
+    .writings-rail .cx-vlabel{writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg)}
+  }
 
   /* ============ PALETTE SWITCHER ============ */
   .txd-pal{position:relative;font-family:'League Spartan',sans-serif;z-index:80}
@@ -470,8 +541,17 @@
       <span class="ln rv-mask"><i>with wisdom</i></span>
       <span class="ln rv-mask"><i>and beautiful character.</i></span>
     </h2>
-    <p class="ms-body rv-up">Texas Dawah is a student community at the University of Texas at Austin. We set a table on the Drag, open our books, and answer the questions people actually carry: about God, about Jesus, about suffering and meaning. The truth, we believe, is best offered, never imposed.</p>
-    <p class="ms-body rv-up">We are not here to win arguments. We are here to be the reason someone, one afternoon between classes, looked closer at Islam and found mercy in it. Whatever you believe, you are welcome at the table.</p>
+    <div class="ms-copy">
+      <p class="ms-body rv-up">Texas Dawah is a student community at the University of Texas at Austin. We set a table on the Drag, open our books, and answer the questions people actually carry: about God, about Jesus, about suffering and meaning. The truth, we believe, is best offered, never imposed.</p>
+      <p class="ms-body rv-up">We are not here to win arguments. We are here to be the reason someone, one afternoon between classes, looked closer at Islam and found mercy in it. Whatever you believe, you are welcome at the table.</p>
+    </div>
+    <aside class="mission-aside cx-margin rv-up" aria-hidden="true">
+      <span class="cx-index">01</span>
+      <span class="cx-label">Mission</span>
+      <svg class="cx-orn" viewBox="0 0 24 24"><use href="#star8"/></svg>
+      <span class="cx-ar">دعوة</span>
+      <span class="cx-note">Est. 2018<br>University of Texas<br>1906 Nueces St</span>
+    </aside>
   </div>
 </section>
 
@@ -486,8 +566,15 @@
 <!-- ============ PROGRAMS ============ -->
 <section class="programs" id="programs">
   <div class="wrap programs-head">
-    <span class="sec-label rv">What we run</span>
-    <h2 class="rv-up">Doors into the same conversation</h2>
+    <div class="ph-lead">
+      <span class="sec-label rv">What we run</span>
+      <h2 class="rv-up">Doors into the same conversation</h2>
+    </div>
+    <div class="ph-meta rv" aria-hidden="true">
+      <span class="cx-index">02</span>
+      <svg class="cx-orn" viewBox="0 0 24 24"><use href="#star8"/></svg>
+      <span>West Mall<br>Nueces St</span>
+    </div>
   </div>
   <div class="prog-cluster">
     <svg class="prog-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -542,41 +629,63 @@
 
 <!-- ============ QUOTE ============ -->
 <section class="quote">
+  <div class="edge-geo edge-geo--r" aria-hidden="true">
+    <svg class="girih" viewBox="0 0 600 600"><g class="spin">
+      <circle class="gd gd-c" cx="300" cy="300" r="290" pathLength="100"/>
+      <circle class="gd gd-c2" cx="300" cy="300" r="246" pathLength="100"/>
+      <path class="gd gd-star" d="M570,300 66.2,435 435,66.2 300,570 165,66.2 533.8,435 30,300 533.8,165 165,533.8 300,30 435,533.8 66.2,165 Z" pathLength="100"/>
+      <rect class="gd gd-in" x="222" y="222" width="156" height="156" pathLength="100"/>
+      <rect class="gd gd-in" x="222" y="222" width="156" height="156" transform="rotate(45 300 300)" pathLength="100"/>
+      <circle class="gd-dot" cx="300" cy="300" r="11"/>
+    </g></svg>
+  </div>
   <div class="wrap">
-    <blockquote class="rv-up">
-      <span class="qm" aria-hidden="true">&ldquo;</span>
-      I came to the table to argue. I left with a friend, a book, and more questions than I started with.
-      <cite>A visitor on the Drag</cite>
-    </blockquote>
+    <div class="quote-spread">
+      <div class="quote-aside rv">
+        <span class="qm" aria-hidden="true">&ldquo;</span>
+        <span class="cx-index" aria-hidden="true">03</span>
+        <cite>A visitor on the Drag</cite>
+      </div>
+      <blockquote class="rv-up">I came to the table to argue. I left with a friend, a book, and more questions than I started with.</blockquote>
+    </div>
   </div>
 </section>
 
 <!-- ============ COURSE (portal) ============ -->
 <section class="course" id="course">
   <div class="wrap">
-    <span class="sec-label rv" style="justify-content:center">The free course</span>
-    <div class="portal">
-      <svg class="portal-svg" viewBox="0 0 600 600" aria-hidden="true">
-        <g class="portal-spin">
-          <rect class="pr pr-1" x="60" y="60" width="480" height="480"/>
-          <rect class="pr pr-1" x="60" y="60" width="480" height="480" transform="rotate(45 300 300)"/>
-        </g>
-        <g class="portal-spin rev">
-          <rect class="pr pr-2" x="120" y="120" width="360" height="360"/>
-          <rect class="pr pr-2" x="120" y="120" width="360" height="360" transform="rotate(45 300 300)"/>
-        </g>
-        <circle class="pr pr-c" cx="300" cy="300" r="252"/>
-        <circle class="pr pr-c" cx="300" cy="300" r="186"/>
-        <g class="portal-spin">
-          <path class="pr pr-3" d="M510,300 138.6,394 414,138.6 300,510 186,138.6 461.4,394 90,300 461.4,206 186,461.4 300,90 414,461.4 138.6,206 Z"/>
-        </g>
-      </svg>
-      <div class="portal-in rv-scale">
-        <div class="iqra ar">اقْرَأْ</div>
-        <p class="ref">Course &middot; WIT 01</p>
-        <h2>Why Islam Is True</h2>
-        <p>A free six-part course walking through the evidence behind the message: the Qur'an, the prophethood, and the case for belief. Built for the curious and the questioning alike.</p>
-        <a class="geo-btn lg" href="#course"><span>Start the free course</span><span class="gb-dot d-l"></span><span class="gb-dot d-r"></span><svg class="gb-bd" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><rect x="1" y="1" width="98" height="98" pathLength="100"/></svg></a>
+    <span class="sec-label rv">The free course</span>
+    <div class="course-spread">
+      <div class="portal rv-scale">
+        <svg class="portal-svg" viewBox="0 0 600 600" aria-hidden="true">
+          <g class="portal-spin">
+            <rect class="pr pr-1" x="60" y="60" width="480" height="480"/>
+            <rect class="pr pr-1" x="60" y="60" width="480" height="480" transform="rotate(45 300 300)"/>
+          </g>
+          <g class="portal-spin rev">
+            <rect class="pr pr-2" x="120" y="120" width="360" height="360"/>
+            <rect class="pr pr-2" x="120" y="120" width="360" height="360" transform="rotate(45 300 300)"/>
+          </g>
+          <circle class="pr pr-c" cx="300" cy="300" r="252"/>
+          <circle class="pr pr-c" cx="300" cy="300" r="186"/>
+          <g class="portal-spin">
+            <path class="pr pr-3" d="M510,300 138.6,394 414,138.6 300,510 186,138.6 461.4,394 90,300 461.4,206 186,461.4 300,90 414,461.4 138.6,206 Z"/>
+          </g>
+        </svg>
+        <div class="portal-in">
+          <div class="iqra ar">اقْرَأْ</div>
+        </div>
+      </div>
+      <div class="course-apparatus">
+        <div class="course-meta rv" aria-hidden="true">
+          <span class="cx-index">04</span>
+          <svg class="cx-orn" viewBox="0 0 24 24"><use href="#star8"/></svg>
+          <span>Free &middot; Six parts</span>
+        </div>
+        <p class="ref rv">Course &middot; WIT 01</p>
+        <h2 class="rv-up">Why Islam Is True</h2>
+        <p class="rv-up">A free six-part course walking through the evidence behind the message: the Qur'an, the prophethood, and the case for belief. Built for the curious and the questioning alike.</p>
+        <a class="geo-btn lg rv-up" href="#course"><span>Start the free course</span><span class="gb-dot d-l"></span><span class="gb-dot d-r"></span><svg class="gb-bd" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><rect x="1" y="1" width="98" height="98" pathLength="100"/></svg></a>
       </div>
     </div>
   </div>
@@ -584,26 +693,43 @@
 
 <!-- ============ WRITINGS ============ -->
 <section class="writings" id="writings">
+  <div class="edge-geo edge-geo--rb" aria-hidden="true">
+    <svg class="girih" viewBox="0 0 600 600"><g class="spin">
+      <circle class="gd gd-c" cx="300" cy="300" r="290" pathLength="100"/>
+      <circle class="gd gd-c2" cx="300" cy="300" r="246" pathLength="100"/>
+      <path class="gd gd-star" d="M570,300 66.2,435 435,66.2 300,570 165,66.2 533.8,435 30,300 533.8,165 165,533.8 300,30 435,533.8 66.2,165 Z" pathLength="100"/>
+      <rect class="gd gd-in" x="222" y="222" width="156" height="156" pathLength="100"/>
+      <rect class="gd gd-in" x="222" y="222" width="156" height="156" transform="rotate(45 300 300)" pathLength="100"/>
+      <circle class="gd-dot" cx="300" cy="300" r="11"/>
+    </g></svg>
+  </div>
   <div class="wrap">
-    <div class="writings-head">
-      <h2 class="rv-up">From the blog</h2>
-      <span class="rt rv">Questions taken seriously</span>
+    <aside class="writings-rail rv" aria-hidden="true">
+      <span class="cx-index">05</span>
+      <span class="cx-vlabel">Writings</span>
+      <svg class="cx-orn" viewBox="0 0 24 24"><use href="#star8"/></svg>
+    </aside>
+    <div class="writings-list">
+      <div class="writings-head">
+        <h2 class="rv-up">From the blog</h2>
+        <span class="rt rv">Questions taken seriously</span>
+      </div>
+      <a class="writing rv-up" href="#writings">
+        <span class="wn">01</span>
+        <span><span class="wt">If God is merciful, why is there suffering?</span><span class="wk">A question taken seriously</span></span>
+        <svg class="warr" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="writing rv-up" href="#writings">
+        <span class="wn">02</span>
+        <span><span class="wt">What the Qur'an says about Jesus, son of Mary</span><span class="wk">A deep reading</span></span>
+        <svg class="warr" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="writing rv-up" href="#writings">
+        <span class="wn">03</span>
+        <span><span class="wt">So you want to learn about Islam. Begin here.</span><span class="wk">A gentle map for the curious</span></span>
+        <svg class="warr" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
-    <a class="writing rv-up" href="#writings">
-      <span class="wn">01</span>
-      <span><span class="wt">If God is merciful, why is there suffering?</span><span class="wk">A question taken seriously</span></span>
-      <svg class="warr" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-    <a class="writing rv-up" href="#writings">
-      <span class="wn">02</span>
-      <span><span class="wt">What the Qur'an says about Jesus, son of Mary</span><span class="wk">A deep reading</span></span>
-      <svg class="warr" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-    <a class="writing rv-up" href="#writings">
-      <span class="wn">03</span>
-      <span><span class="wt">So you want to learn about Islam. Begin here.</span><span class="wk">A gentle map for the curious</span></span>
-      <svg class="warr" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
   </div>
 </section>
 

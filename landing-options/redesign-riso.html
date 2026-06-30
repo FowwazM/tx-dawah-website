@@ -319,6 +319,49 @@
   .txd-pal-opt .nm{display:flex;flex-direction:column;line-height:1.2}
   .txd-pal-opt .nm small{opacity:.6;font-size:.56rem;letter-spacing:.08em;margin-top:2px}
 
+  /* ================= SIDE-SPACE: pinboard gutters (scraps, postmarks, tickets) =================
+     Mechanism for this zine: the outer gutters of otherwise-centred spreads become a pinboard
+     of torn scraps, postmark stamps and rotated tickets, so no spread floats centred in a void. */
+  .scrap{position:relative;background:var(--p-surface);color:var(--p-ink);border:2px solid var(--p-ink);
+    padding:.7rem .95rem;max-width:100%;
+    filter:drop-shadow(4px 6px 0 color-mix(in srgb,var(--p-ink) 16%,transparent))}
+  .scrap.band{background:var(--p-band);color:var(--p-band-ink)}
+  .scrap .st{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.15em;
+    font-weight:800;font-size:.62rem;color:var(--p-accent-deep);display:block}
+  .scrap.band .st{color:var(--p-accent)}
+  .scrap .sb{font-family:'Kaushan Script',cursive;font-size:1.16rem;line-height:1.04;display:block;margin-top:.1rem}
+  .scrap.band .sb{color:var(--p-band-ink)}
+  .ticket{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.13em;font-weight:800;
+    font-size:.62rem;color:var(--p-accent-ink);background:var(--p-accent);border:2px solid var(--p-ink);
+    padding:.45rem .75rem;display:inline-block;box-shadow:3px 3px 0 color-mix(in srgb,var(--p-ink) 28%,transparent)}
+  .postmark{width:116px;height:116px;color:var(--p-accent-3);display:inline-block}
+  .postmark svg{display:block;width:100%;height:100%}
+
+  /* QUOTE -> wide reader-mail spread; scraps work both gutters */
+  .quote-spread{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem;align-items:center}
+  .quote.q-mid{max-width:none;margin:0}
+  .q-aside{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:center;min-width:0}
+  .q-bigmark{font-family:'Kaushan Script',cursive;font-size:clamp(5rem,11vw,8.4rem);line-height:.55;
+    height:.55em;color:var(--p-accent-3);display:block;flex-basis:100%;text-align:center}
+  @media (min-width:880px){
+    .quote-spread{grid-template-columns:minmax(176px,.8fr) minmax(0,2.1fr) minmax(168px,.7fr);
+      gap:clamp(1.4rem,3vw,2.8rem)}
+    .q-aside{flex-direction:column}
+    .q-aside.l{align-items:flex-start;justify-content:center}
+    .q-aside.r{align-items:flex-end;justify-content:center;text-align:right}
+    .q-bigmark{text-align:left}
+  }
+
+  /* WRITINGS -> index card fills its column; a pinned scrap rail works the right gutter */
+  .writings-spread{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:1.5rem;align-items:start}
+  .writings.w-main{max-width:none}
+  .w-rail{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;min-width:0}
+  .w-rail .mark-svg{position:relative;z-index:1}
+  @media (min-width:900px){
+    .writings-spread{grid-template-columns:minmax(0,1fr) minmax(212px,286px);gap:clamp(1.5rem,3vw,2.8rem)}
+    .w-rail{flex-direction:column;align-items:flex-start;gap:1.3rem;position:sticky;top:88px}
+  }
+
   /* ---- reveal (rise) ---- */
   .js .rise{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
   .js .rise.in{opacity:1;transform:none}
@@ -594,20 +637,43 @@
 <section class="spread wrap" aria-label="A visitor's note">
   <span class="deco blob ink-2 op" style="width:170px;height:160px;top:0;left:6%" aria-hidden="true"></span>
   <span class="deco blob ink-1 op" style="width:150px;height:150px;bottom:0;right:8%;border-radius:50%" aria-hidden="true"></span>
-  <div class="rise">
-    <figure class="quote tilt" style="--r:-1deg">
-      <span class="marks" aria-hidden="true">&ldquo;</span>
-      <blockquote>I came to the table to <span class="hl">argue</span>. I left with a friend, a book, and more <span class="hl">questions</span> than I started with.</blockquote>
-      <cite>Hamza Sheikh <span>/ a visitor at West Mall</span></cite>
-    </figure>
+  <div class="quote-spread">
+    <div class="q-aside l rise" aria-hidden="true">
+      <span class="q-bigmark">&ldquo;</span>
+      <span class="ticket tilt" style="--r:-4deg">A visitor&rsquo;s note</span>
+    </div>
+    <div class="rise">
+      <figure class="quote q-mid tilt" style="--r:-1deg">
+        <blockquote>I came to the table to <span class="hl">argue</span>. I left with a friend, a book, and more <span class="hl">questions</span> than I started with.</blockquote>
+        <cite>Hamza Sheikh <span>/ a visitor at West Mall</span></cite>
+      </figure>
+    </div>
+    <div class="q-aside r rise" aria-hidden="true">
+      <span class="postmark tilt" style="--r:7deg">
+        <svg viewBox="0 0 118 118">
+          <defs><path id="pmArcQ" d="M59 59 m -44 0 a 44 44 0 1 1 88 0 a 44 44 0 1 1 -88 0"/></defs>
+          <circle cx="59" cy="59" r="50" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="59" cy="59" r="43" fill="none" stroke="currentColor" stroke-width="1"/>
+          <text font-family="League Spartan" font-weight="800" font-size="8.2" letter-spacing="2.3" fill="currentColor">
+            <textPath href="#pmArcQ" startOffset="0%">TEXAS DAWAH &middot; WEST MALL &middot; </textPath>
+          </text>
+          <use href="#geo-star" x="42" y="42" width="34" height="34"/>
+        </svg>
+      </span>
+      <div class="scrap tilt" style="--r:5deg">
+        <span class="st">West Mall</span>
+        <span class="sb">the Drag</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ============ WRITINGS ============ -->
 <section class="spread wrap" id="writings">
   <span class="deco halftone ht-acc3 op fade-l" style="width:240px;height:240px;top:30px;right:-50px;border-radius:50%" aria-hidden="true"></span>
-  <div class="rise">
-    <div class="writings tilt" style="--r:1deg">
+  <div class="writings-spread">
+    <div class="rise">
+    <div class="writings w-main tilt" style="--r:1deg">
       <span class="tape op" style="top:-13px;left:8%;transform:rotate(-4deg)" aria-hidden="true"></span>
       <div class="wh">
         <h3>From the blog</h3>
@@ -630,6 +696,29 @@
         <span class="arr" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
     </div>
+    </div>
+    <aside class="w-rail rise" aria-hidden="true">
+      <div class="scrap band tilt" style="--r:3deg">
+        <span class="st">Issue No. 6</span>
+        <span class="sb">Free, take one</span>
+      </div>
+      <span class="postmark tilt" style="--r:-6deg">
+        <svg viewBox="0 0 118 118">
+          <defs><path id="pmArcW" d="M59 59 m -44 0 a 44 44 0 1 1 88 0 a 44 44 0 1 1 -88 0"/></defs>
+          <circle cx="59" cy="59" r="50" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="59" cy="59" r="43" fill="none" stroke="currentColor" stroke-width="1"/>
+          <text font-family="League Spartan" font-weight="800" font-size="8.2" letter-spacing="2.3" fill="currentColor">
+            <textPath href="#pmArcW" startOffset="0%">FROM THE BLOG &middot; ISSUE No.6 &middot; </textPath>
+          </text>
+          <use href="#geo-star" x="42" y="42" width="34" height="34"/>
+        </svg>
+      </span>
+      <div class="scrap tilt" style="--r:-3deg">
+        <span class="st">From the blog</span>
+        <span class="sb">Pull up a chair</span>
+      </div>
+      <span class="mark-svg acc2" style="width:118px;height:38px;transform:scaleX(-1)" aria-hidden="true"><svg viewBox="0 0 120 60"><use href="#hl-arrow"/></svg></span>
+    </aside>
   </div>
 </section>
 

@@ -12,7 +12,7 @@
 <style id="txd-palettes">
 [data-palette="midnight"]{--p-bg:#0d1230;--p-surface:#161d44;--p-surface-2:#1d2662;--p-ink:#eef1fb;--p-muted:#aab4dc;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#15183a;--p-accent-2:#9bb4e8;--p-accent-3:#9bb4e8;--p-line:rgba(155,180,232,.16);--p-line-2:rgba(155,180,232,.30);--p-band:#090d24;--p-band-ink:#eef1fb;--p-overlay:rgba(13,18,48,.6)}
 [data-palette="olive"]{--p-bg:#1d2416;--p-surface:#28311e;--p-surface-2:#323d26;--p-ink:#ebeed6;--p-muted:#b3bb95;--p-accent:#cdb968;--p-accent-deep:#b6a24f;--p-accent-ink:#1d2416;--p-accent-2:#8a946f;--p-accent-3:#8a946f;--p-line:rgba(235,238,214,.14);--p-line-2:rgba(235,238,214,.26);--p-band:#161c10;--p-band-ink:#ebeed6;--p-overlay:rgba(29,36,22,.6)}
-[data-palette="cream"]{--p-bg:#f6f1e1;--p-surface:#fffdf7;--p-surface-2:#efe8d4;--p-ink:#24302a;--p-muted:#54604f;--p-accent:#c1851f;--p-accent-deep:#9f6e16;--p-accent-ink:#22150a;--p-accent-2:#4f7e6e;--p-accent-3:#cf5d42;--p-line:rgba(36,48,42,.14);--p-line-2:rgba(36,48,42,.26);--p-band:#3a5e52;--p-band-ink:#f4efe0;--p-overlay:rgba(36,48,42,.34)}
+[data-palette="cream"]{--p-bg:#f6f1e1;--p-surface:#fffdf7;--p-surface-2:#efe8d4;--p-ink:#24302a;--p-muted:#54604f;--p-accent:#c1851f;--p-accent-deep:#8a5e12;--p-accent-ink:#22150a;--p-accent-2:#4f7e6e;--p-accent-3:#cf5d42;--p-line:rgba(36,48,42,.14);--p-line-2:rgba(36,48,42,.26);--p-band:#3a5e52;--p-band-ink:#f4efe0;--p-overlay:rgba(36,48,42,.34)}
 [data-palette="mocha"]{--p-bg:#362116;--p-surface:#48301f;--p-surface-2:#5a3c27;--p-ink:#f1e3d4;--p-muted:#c9ab93;--p-accent:#d8ad7c;--p-accent-deep:#c0925f;--p-accent-ink:#2a1810;--p-accent-2:#b06a45;--p-accent-3:#b06a45;--p-line:rgba(241,227,212,.14);--p-line-2:rgba(241,227,212,.26);--p-band:#251610;--p-band-ink:#f1e3d4;--p-overlay:rgba(40,24,16,.58)}
 [data-palette="aubergine"]{--p-bg:#1f0f24;--p-surface:#2e1834;--p-surface-2:#3a1f42;--p-ink:#f3e7f1;--p-muted:#c6a6cb;--p-accent:#e3c071;--p-accent-deep:#cda74f;--p-accent-ink:#1c0c20;--p-accent-2:#c79bd6;--p-accent-3:#c79bd6;--p-line:rgba(243,231,241,.13);--p-line-2:rgba(243,231,241,.26);--p-band:#170a1b;--p-band-ink:#f3e7f1;--p-overlay:rgba(31,15,36,.6)}
 [data-palette="geometric"]{--p-bg:#072d2b;--p-surface:#0d3c39;--p-surface-2:#124a46;--p-ink:#e8f3ee;--p-muted:#8fc1b4;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#07221f;--p-accent-2:#46b89a;--p-accent-3:#46b89a;--p-line:rgba(232,243,238,.14);--p-line-2:rgba(232,243,238,.26);--p-band:#04201e;--p-band-ink:#e8f3ee;--p-overlay:rgba(7,45,43,.6)}
@@ -21,7 +21,7 @@
 </style>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  :root{--maxw:1180px;--col:62ch;--ease:cubic-bezier(.23,1,.32,1)}
+  :root{--page:1320px;--ease:cubic-bezier(.23,1,.32,1)}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   body{background:var(--p-bg);color:var(--p-ink);
@@ -33,15 +33,13 @@
   .gar{font-family:'EB Garamond',serif}
   .ar{font-family:'Amiri',serif}
   .spartan{font-family:'League Spartan',sans-serif}
-  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
-  .col{max-width:var(--col);margin-inline:auto}
+  .wrap{max-width:var(--page);margin-inline:auto;padding-inline:clamp(20px,5vw,56px)}
   .gold{color:var(--p-accent-deep)}
-  .smallcaps{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.22em;
-    font-size:.72rem;font-weight:600}
 
-  /* ornament colors via currentColor */
-  .orn{color:var(--p-accent)}
-  svg.ico{display:block}
+  /* a foliation rubric (replaces the centred tracked-caps kicker; lives in the margin rail) */
+  .foliation{display:flex;align-items:baseline;gap:.5rem;color:var(--p-accent-deep)}
+  .foliation .fn{font-family:'Yeseva One',serif;font-size:2.4rem;line-height:1}
+  .foliation .fl{font-family:'EB Garamond',serif;font-style:italic;font-size:1.05rem}
 
   /* ---------- masthead ---------- */
   .mast{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--p-bg) 88%,transparent);
@@ -57,7 +55,7 @@
   .mast nav a:hover{color:var(--p-ink)}
   @media (max-width:860px){.mast nav{display:none}}
 
-  /* ---------- title page / unwan ---------- */
+  /* ---------- title page / unwan (centred) ---------- */
   .titlepage{padding:clamp(2.5rem,7vh,5.5rem) 0 clamp(2rem,5vh,4rem);text-align:center;position:relative}
   .titlepage .frame{position:relative;max-width:740px;margin-inline:auto;padding:clamp(2rem,5vw,3.4rem) clamp(1.2rem,4vw,2.6rem) clamp(2.4rem,5vw,3.4rem)}
   .titlepage .frame::before,.titlepage .frame::after{content:"";position:absolute;inset:0;border:1px solid var(--p-accent);opacity:.55;pointer-events:none}
@@ -79,10 +77,12 @@
   .titlepage .sub{font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(1.15rem,2vw,1.4rem);
     color:var(--p-muted);max-width:44ch;margin:.6rem auto 0}
   .titlepage .begin{margin-top:2.2rem;display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;align-items:center}
+  .ayah{font-family:'Amiri',serif;font-size:clamp(1.3rem,2.4vw,1.7rem);color:var(--p-accent-deep);direction:rtl;line-height:1.7}
+  .ayah-t{font-family:'EB Garamond',serif;font-style:italic;color:var(--p-muted);font-size:1rem;margin-top:.2rem}
 
   /* illuminated link / button */
   .ill-btn{position:relative;display:inline-flex;align-items:center;gap:.6rem;font-family:'League Spartan',sans-serif;
-    text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;font-weight:600;color:var(--p-accent-deep);
+    text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:600;color:var(--p-accent-deep);
     padding:.85rem 1.5rem;border:1px solid var(--p-accent);background:transparent;cursor:pointer;
     transition:background .25s var(--ease),color .25s var(--ease)}
   .ill-btn::before,.ill-btn::after{content:"";position:absolute;width:6px;height:6px;border:1px solid var(--p-accent);background:var(--p-bg);transform:rotate(45deg)}
@@ -95,86 +95,106 @@
   .text-link:hover{color:var(--p-accent-deep)}
 
   /* ---------- divider ---------- */
-  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;color:var(--p-accent);margin:clamp(3rem,7vh,5rem) 0;opacity:.9}
-  .divider .ln{height:1px;width:min(160px,22vw);background:linear-gradient(90deg,transparent,var(--p-accent))}
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;color:var(--p-accent);margin:clamp(1.6rem,4vh,2.8rem) 0;opacity:.9}
+  .divider .ln{height:1px;width:min(220px,30vw);background:linear-gradient(90deg,transparent,var(--p-accent))}
   .divider .ln.r{background:linear-gradient(270deg,transparent,var(--p-accent))}
   .divider .ico{width:30px;height:30px}
 
-  /* ---------- folio sections ---------- */
-  .folio{padding:clamp(1.5rem,4vh,3rem) 0}
-  .folio-head{text-align:center;margin-bottom:2.2rem}
-  .folio-head .roman{font-family:'League Spartan',sans-serif;letter-spacing:.3em;font-size:.74rem;font-weight:600;
-    color:var(--p-accent-deep);text-transform:uppercase}
-  .folio-head h2{font-family:'Yeseva One',serif;font-size:clamp(2rem,4.5vw,3rem);color:var(--p-ink);margin-top:.5rem;line-height:1.1}
+  /* ---------- the codex grid : rail | text | marginalia ---------- */
+  .folio{padding:clamp(1.4rem,3.5vh,2.6rem) 0}
+  .folio-grid{display:grid;gap:clamp(1.4rem,3vw,2.6rem)}
+  .rail{display:flex;flex-direction:column;gap:1.3rem;align-items:flex-start}
+  .rail-orn{width:46px;height:46px;color:var(--p-accent);opacity:.85}
+  .folio-h{font-family:'Yeseva One',serif;font-size:clamp(1.9rem,3.6vw,2.9rem);color:var(--p-ink);line-height:1.08;margin-bottom:1.4rem}
+  .margin{font-family:'EB Garamond',serif}
+  .margin .ayah{margin-bottom:1rem}
+  .gloss{font-style:italic;color:var(--p-muted);font-size:1rem;line-height:1.65}
+  .gloss .gl{font-style:normal;color:var(--p-accent-deep)}
+  @media (min-width:900px){
+    .folio-grid{grid-template-columns:[rail]minmax(110px,150px) [body]minmax(0,1fr) [margin]minmax(210px,300px);align-items:start}
+    .rail{position:sticky;top:96px}
+    .body{grid-column:body}
+    .body.wide{grid-column:body / -1}
+    .margin{grid-column:margin;padding-top:.3rem;border-left:1px solid var(--p-line-2);padding-left:clamp(1rem,1.6vw,1.8rem)}
+    .margin .ayah{text-align:right}
+  }
+  @media (max-width:899px){
+    .rail{flex-direction:row;align-items:center;gap:1rem;margin-bottom:.4rem}
+    .rail-orn{width:34px;height:34px}
+    .margin{border-top:1px solid var(--p-line-2);padding-top:1rem;margin-top:1.4rem;max-width:62ch}
+  }
 
   /* invitation prose with drop cap */
-  .prose{font-size:1.22rem;line-height:1.85}
-  .prose p{margin-bottom:1.3rem;text-wrap:pretty}
+  .prose{font-size:1.2rem;line-height:1.85;max-width:64ch}
+  .prose p{margin-bottom:1.2rem;text-wrap:pretty}
   .prose .dropcap::first-letter{font-family:'Yeseva One',serif;float:left;font-size:4.4rem;line-height:.74;
     padding:.3rem .6rem .1rem .1rem;margin:.18rem .55rem 0 0;color:var(--p-accent-deep);
     border:1px solid var(--p-accent);background:color-mix(in srgb,var(--p-accent) 8%,transparent)}
-  .invitation{position:relative}
-  .margin-note{font-family:'EB Garamond',serif;font-style:italic;color:var(--p-muted);font-size:.96rem;line-height:1.6;
-    border-top:1px solid var(--p-line-2);padding-top:.7rem;margin-top:1.6rem}
-  .margin-note .lbl{display:block;font-family:'League Spartan',sans-serif;font-style:normal;text-transform:uppercase;
-    letter-spacing:.18em;font-size:.62rem;color:var(--p-accent-deep);margin-bottom:.35rem}
-  @media (min-width:980px){
-    .invitation{display:grid;grid-template-columns:1fr 240px;gap:clamp(2rem,5vw,4rem);align-items:start}
-    .margin-note{border-top:none;border-left:1px solid var(--p-line-2);padding:.2rem 0 .2rem 1.4rem;margin-top:.5rem}
-  }
 
-  /* works: illuminated list */
-  .works{max-width:880px;margin-inline:auto}
-  .work{display:grid;grid-template-columns:46px 1fr auto;gap:1.1rem;align-items:baseline;
-    padding:1.5rem 0;border-bottom:1px solid var(--p-line)}
-  .work:first-child{border-top:1px solid var(--p-line)}
-  .work .rose{grid-row:1/3;align-self:center;color:var(--p-accent);width:38px;height:38px}
+  /* works: a two-column illuminated ledger */
+  .works-grid{display:grid;gap:clamp(1.2rem,2.4vw,2.4rem) clamp(2rem,4vw,4rem)}
+  @media (min-width:760px){.works-grid{grid-template-columns:1fr 1fr}}
+  .work{display:grid;grid-template-columns:44px 1fr;gap:1rem;align-content:start;
+    padding:1.3rem 0 1.4rem;border-top:1px solid var(--p-line)}
+  .work .rose{grid-row:1/4;align-self:start;margin-top:.2rem;color:var(--p-accent);width:38px;height:38px}
   .work h3{font-family:'Yeseva One',serif;font-size:1.5rem;color:var(--p-ink);line-height:1.1}
-  .work .when{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.68rem;
-    color:var(--p-accent-deep);font-weight:600;text-align:right;white-space:nowrap}
-  .work p{grid-column:2/4;color:var(--p-muted);font-size:1.06rem;margin-top:.3rem;max-width:60ch}
-  @media (max-width:620px){.work{grid-template-columns:32px 1fr}.work .when{grid-column:2;text-align:left;margin-top:.2rem}.work .rose{width:28px;height:28px}.work p{grid-column:1/3}}
+  .work .when{font-family:'EB Garamond',serif;font-style:italic;font-size:1rem;color:var(--p-accent-deep);margin-top:.15rem}
+  .work p{color:var(--p-muted);font-size:1.04rem;margin-top:.45rem;line-height:1.6}
 
-  /* proof: mihrab arch */
-  .proof-arch{position:relative;max-width:620px;margin:0 auto;text-align:center;
+  /* proof: mihrab arch + course apparatus, side by side */
+  .proof-spread{display:grid;gap:clamp(1.8rem,4vw,3.4rem);align-items:center}
+  @media (min-width:820px){.proof-spread{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)}}
+  .proof-arch{position:relative;text-align:center;
     border:1.5px solid var(--p-accent);border-top-left-radius:50% 120px;border-top-right-radius:50% 120px;
-    padding:clamp(2.6rem,6vw,3.6rem) clamp(1.5rem,5vw,3rem) clamp(2.2rem,5vw,3rem);
+    padding:clamp(2.6rem,5vw,3.6rem) clamp(1.5rem,4vw,3rem) clamp(2.2rem,4vw,3rem);
     background:color-mix(in srgb,var(--p-accent) 5%,transparent)}
   .proof-arch::before{content:"";position:absolute;inset:7px;border:1px solid var(--p-accent);opacity:.35;
     border-top-left-radius:50% 110px;border-top-right-radius:50% 110px;pointer-events:none}
-  .proof-arch .iqra{font-family:'Amiri',serif;font-size:clamp(2.4rem,6vw,3.4rem);color:var(--p-accent-deep);line-height:1;direction:rtl}
-  .proof-arch h2{font-family:'Yeseva One',serif;font-size:clamp(1.9rem,4.4vw,2.8rem);color:var(--p-ink);margin:.7rem 0 .4rem}
-  .proof-arch .free{font-family:'EB Garamond',serif;font-style:italic;color:var(--p-accent-3);font-size:1.05rem}
-  .proof-arch p{color:var(--p-muted);max-width:46ch;margin:1rem auto 1.8rem;font-size:1.1rem}
+  .proof-arch .iqra{font-family:'Amiri',serif;font-size:clamp(2.4rem,5vw,3.4rem);color:var(--p-accent-deep);line-height:1;direction:rtl}
+  .proof-arch h3{font-family:'Yeseva One',serif;font-size:clamp(1.9rem,4vw,2.6rem);color:var(--p-ink);margin:.6rem 0 .3rem;line-height:1.05}
+  .proof-arch .free{font-family:'EB Garamond',serif;font-style:italic;color:var(--p-accent-deep);font-size:1.05rem}
+  .proof-aside .free-line{font-family:'EB Garamond',serif;font-style:italic;color:var(--p-accent-deep);font-size:1.15rem;margin-bottom:.5rem}
+  .proof-aside p{color:var(--p-muted);font-size:1.1rem;line-height:1.7;max-width:48ch}
+  .proof-parts{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem .7rem;margin:1.3rem 0 1.6rem}
+  .proof-parts li{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:.66rem;
+    font-weight:600;color:var(--p-accent-deep);border:1px solid var(--p-line-2);padding:.4rem .7rem}
 
-  /* writings index */
-  .writings{max-width:760px;margin-inline:auto}
-  .writing{display:flex;align-items:baseline;gap:1.2rem;padding:1.15rem 0;border-bottom:1px solid var(--p-line);
-    transition:padding-left .25s var(--ease)}
+  /* writings index : title with the rubric set out in the right margin */
+  .writing{display:grid;align-items:baseline;gap:.4rem 1.2rem;grid-template-columns:2.4rem 1fr;
+    padding:1.1rem 0;border-bottom:1px solid var(--p-line);transition:padding-left .25s var(--ease)}
+  .writing:first-child{border-top:1px solid var(--p-line)}
   .writing:hover{padding-left:.5rem}
-  .writing .wn{font-family:'Yeseva One',serif;color:var(--p-accent-deep);font-size:1.15rem;width:2.2rem;flex:none}
-  .writing .wt{font-family:'EB Garamond',serif;font-size:1.3rem;color:var(--p-ink);line-height:1.25}
-  .writing .wk{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.62rem;
-    color:var(--p-muted);margin-top:.25rem;display:block}
-  .writing .arrow{margin-left:auto;color:var(--p-accent);opacity:0;transition:opacity .2s var(--ease)}
+  .writing .wn{font-family:'Yeseva One',serif;color:var(--p-accent-deep);font-size:1.15rem}
+  .writing .wt{font-family:'EB Garamond',serif;font-size:1.32rem;color:var(--p-ink);line-height:1.25}
+  .writing .wk{font-family:'EB Garamond',serif;font-style:italic;font-size:1rem;color:var(--p-muted);grid-column:2}
+  .writing .arrow{color:var(--p-accent);opacity:0;transition:opacity .2s var(--ease);align-self:center}
   .writing:hover .arrow{opacity:1}
+  @media (min-width:760px){
+    .writing{grid-template-columns:2.6rem minmax(0,1fr) minmax(200px,260px) 24px;align-items:center}
+    .writing .wt{grid-column:2}
+    .writing .wk{grid-column:3;margin:0;text-align:left;padding-left:1.4rem;border-left:1px solid var(--p-line-2)}
+    .writing .arrow{grid-column:4}
+  }
 
-  /* colophon */
-  .colophon{text-align:center;padding:clamp(3.5rem,8vh,6rem) 0 clamp(2.5rem,5vh,3.5rem);
-    border-top:1px solid var(--p-line);margin-top:clamp(3rem,7vh,5rem);position:relative;background:var(--p-surface)}
-  .colophon .ico-lg{width:54px;height:54px;color:var(--p-accent);margin:0 auto 1.4rem}
-  .colophon .note{font-family:'EB Garamond',serif;font-style:italic;color:var(--p-muted);max-width:52ch;margin:0 auto 2rem;font-size:1.12rem;line-height:1.7}
-  .colophon .note .gold{font-style:normal}
-  .colophon .meta{display:flex;gap:1.5rem 2.5rem;justify-content:center;flex-wrap:wrap;color:var(--p-muted);font-size:.95rem;margin-top:2.2rem}
-  .colophon .meta a:hover{color:var(--p-accent-deep)}
-  .colophon .addr{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.68rem;color:var(--p-muted);margin-top:2.4rem;line-height:2}
+  /* colophon : a wide imprint */
+  .colophon{padding:clamp(3rem,7vh,5rem) 0 clamp(2.4rem,5vh,3.4rem);
+    border-top:1px solid var(--p-line);margin-top:clamp(2.2rem,5vh,3.6rem);background:var(--p-surface)}
+  .colophon-grid{display:grid;gap:clamp(1.8rem,4vw,3.5rem)}
+  @media (min-width:820px){.colophon-grid{grid-template-columns:minmax(0,1.3fr) auto auto;align-items:start}}
+  .colo-mark{display:flex;flex-direction:column;gap:1rem;max-width:46ch}
+  .colo-mark .ico-lg{width:48px;height:48px;color:var(--p-accent)}
+  .colo-mark .note{font-family:'EB Garamond',serif;font-style:italic;color:var(--p-muted);font-size:1.1rem;line-height:1.7}
+  .colo-mark .note .gold{font-style:normal}
+  .colo-mark .ill-btn{align-self:flex-start;margin-top:.4rem}
+  .colo-col h4{font-family:'EB Garamond',serif;font-style:italic;color:var(--p-accent-deep);font-size:1.05rem;margin-bottom:.7rem;font-weight:500}
+  .colo-col a{display:block;color:var(--p-muted);font-size:1rem;padding:.2rem 0;transition:color .2s var(--ease)}
+  .colo-col a:hover{color:var(--p-accent-deep)}
+  .colo-addr{font-family:'EB Garamond',serif;font-style:italic;color:var(--p-muted);font-size:.95rem;line-height:1.7}
 
   /* ---------- load illumination draw ---------- */
-  .js .draw{stroke-dasharray:var(--len,400);stroke-dashoffset:var(--len,400);animation:draw 2.4s var(--ease) forwards}
   .js .fadein{opacity:0;animation:fade 1.4s ease forwards .3s}
-  @keyframes draw{to{stroke-dashoffset:0}}
   @keyframes fade{to{opacity:1}}
-  @media (prefers-reduced-motion:reduce){.js .draw{animation:none;stroke-dashoffset:0}.js .fadein{animation:none;opacity:1}}
+  @media (prefers-reduced-motion:reduce){.js .fadein{animation:none;opacity:1}}
 
   /* ---------- palette switcher (discreet) ---------- */
   .txd-pal{position:relative;font-family:'League Spartan',sans-serif;z-index:60}
@@ -263,7 +283,7 @@
   </div>
 </header>
 
-<!-- ======== TITLE PAGE / UNWAN ======== -->
+<!-- ======== TITLE PAGE / UNWAN : wide asymmetric spread ======== -->
 <section class="titlepage">
   <div class="wrap">
     <div class="frame">
@@ -292,19 +312,23 @@
 
 <!-- ======== FOLIO I — INVITATION ======== -->
 <section class="folio" id="invitation">
-  <div class="wrap">
-    <div class="folio-head"><div class="roman">Folio I</div><h2 class="display">The Invitation</h2></div>
-    <div class="invitation col" style="max-width:920px">
+  <div class="wrap folio-grid">
+    <div class="rail">
+      <div class="foliation"><span class="fn">I</span><span class="fl">Folio</span></div>
+      <svg class="rail-orn" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
+    </div>
+    <div class="body">
+      <h2 class="folio-h">The Invitation</h2>
       <div class="prose">
         <p class="dropcap">Texas Dawah began with a handful of students at the University of Texas who believed something simple: that the truth is best offered, never forced. We set a table on the Drag, opened our books, and started answering the questions people actually carry, about God, about Jesus, about suffering and meaning and why any of it should matter.</p>
         <p>Years later the table is still there. So is the conviction behind it. We are not here to win arguments. We are here to be the reason someone, one afternoon between classes, felt the mercy of Islam for the first time, and decided to look closer.</p>
         <p>Everything we do begins with a conversation and ends, we hope, in understanding. You are welcome at the table, whatever you believe.</p>
       </div>
-      <aside class="margin-note">
-        <span class="lbl">In the margin</span>
-        The Prophet, peace be upon him, said: invite to the way of your Lord with wisdom and beautiful instruction. Wisdom is knowing what to say. Beautiful character is the reason anyone stays to listen.
-      </aside>
     </div>
+    <aside class="margin">
+      <p class="ayah ar">وَقُل رَّبِّ زِدْنِي عِلْمًا</p>
+      <p class="gloss"><span class="gl">In the margin.</span> The Prophet, peace be upon him, said: invite to the way of your Lord with wisdom and beautiful instruction. Wisdom is knowing what to say. Beautiful character is the reason anyone stays to listen.</p>
+    </aside>
   </div>
 </section>
 
@@ -312,33 +336,39 @@
 
 <!-- ======== FOLIO II — WORKS ======== -->
 <section class="folio" id="works">
-  <div class="wrap">
-    <div class="folio-head"><div class="roman">Folio II</div><h2 class="display">The Works</h2></div>
-    <div class="works">
-      <article class="work">
-        <svg class="rose ico" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
-        <h3 class="display">Dawah tabling</h3>
-        <span class="when">Every week, West Mall</span>
-        <p>Free books, cold water, and an honest answer to any question, in the busiest corner of campus.</p>
-      </article>
-      <article class="work">
-        <svg class="rose ico" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
-        <h3 class="display">Dawah training</h3>
-        <span class="when">Thursdays, 8 PM</span>
-        <p>A weekly circle where students learn to share Islam with confidence and care. No experience asked of you, only willingness.</p>
-      </article>
-      <article class="work">
-        <svg class="rose ico" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
-        <h3 class="display">Interfaith iftars</h3>
-        <span class="when">Each Ramadan</span>
-        <p>We break bread with neighbors of every faith, and let the table do what arguments cannot.</p>
-      </article>
-      <article class="work">
-        <svg class="rose ico" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
-        <h3 class="display">Book club &amp; lectures</h3>
-        <span class="when">Monthly, with guests</span>
-        <p>Slow reading on faith and doubt, and visiting scholars on the questions that keep people up at night.</p>
-      </article>
+  <div class="wrap folio-grid">
+    <div class="rail">
+      <div class="foliation"><span class="fn">II</span><span class="fl">Folio</span></div>
+      <svg class="rail-orn" viewBox="0 0 24 24" aria-hidden="true"><use href="#diamond"/></svg>
+    </div>
+    <div class="body wide">
+      <h2 class="folio-h">The Works</h2>
+      <div class="works-grid">
+        <article class="work">
+          <svg class="rose" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
+          <h3 class="display">Dawah tabling</h3>
+          <span class="when">Every week, on the West Mall</span>
+          <p>Free books, cold water, and an honest answer to any question, in the busiest corner of campus.</p>
+        </article>
+        <article class="work">
+          <svg class="rose" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
+          <h3 class="display">Dawah training</h3>
+          <span class="when">Thursdays, 8 PM</span>
+          <p>A weekly circle where students learn to share Islam with confidence and care. No experience asked of you, only willingness.</p>
+        </article>
+        <article class="work">
+          <svg class="rose" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
+          <h3 class="display">Interfaith iftars</h3>
+          <span class="when">Each Ramadan</span>
+          <p>We break bread with neighbors of every faith, and let the table do what arguments cannot.</p>
+        </article>
+        <article class="work">
+          <svg class="rose" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
+          <h3 class="display">Book club &amp; lectures</h3>
+          <span class="when">Monthly, with guests</span>
+          <p>Slow reading on faith and doubt, and visiting scholars on the questions that keep people up at night.</p>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -347,14 +377,28 @@
 
 <!-- ======== FOLIO III — PROOF ======== -->
 <section class="folio" id="proof">
-  <div class="wrap">
-    <div class="folio-head"><div class="roman">Folio III</div><h2 class="display">The Proof</h2></div>
-    <div class="proof-arch">
-      <div class="iqra ar">اقْرَأْ</div>
-      <h2 class="display">Why Islam Is True</h2>
-      <p class="free">A six-part course, now offered freely to all.</p>
-      <p>A clear walk through the evidence behind the message: the Qur'an, the prophethood, and the case for belief. Built for the curious and the questioning alike.</p>
-      <a class="ill-btn" href="#proof">Begin the course</a>
+  <div class="wrap folio-grid">
+    <div class="rail">
+      <div class="foliation"><span class="fn">III</span><span class="fl">Folio</span></div>
+      <svg class="rail-orn" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
+    </div>
+    <div class="body wide">
+      <div class="proof-spread">
+        <div class="proof-arch">
+          <div class="iqra ar">اقْرَأْ</div>
+          <h3 class="display">Why Islam Is True</h3>
+          <p class="free">A six-part course</p>
+        </div>
+        <div class="proof-aside">
+          <h2 class="folio-h" style="margin-bottom:.8rem">The Proof</h2>
+          <p class="free-line">Now offered freely to all.</p>
+          <p>A clear walk through the evidence behind the message: the Qur'an, the prophethood, and the case for belief. Built for the curious and the questioning alike.</p>
+          <ul class="proof-parts">
+            <li>The Qur'an</li><li>Prophethood</li><li>The case for belief</li><li>Six short parts</li>
+          </ul>
+          <a class="ill-btn" href="#proof">Begin the course</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -363,26 +407,44 @@
 
 <!-- ======== FOLIO IV — WRITINGS ======== -->
 <section class="folio" id="writings">
-  <div class="wrap">
-    <div class="folio-head"><div class="roman">Folio IV</div><h2 class="display">The Writings</h2></div>
-    <div class="writings">
-      <a class="writing" href="#writings"><span class="wn display">i</span><span><span class="wt gar">If God is merciful, why is there suffering?</span><span class="wk">A question taken seriously</span></span><svg class="arrow ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="writing" href="#writings"><span class="wn display">ii</span><span><span class="wt gar">What the Qur'an says about Jesus, son of Mary</span><span class="wk">A deep reading</span></span><svg class="arrow ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="writing" href="#writings"><span class="wn display">iii</span><span><span class="wt gar">So you want to learn about Islam. Begin here.</span><span class="wk">A gentle map for the curious</span></span><svg class="arrow ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <div class="wrap folio-grid">
+    <div class="rail">
+      <div class="foliation"><span class="fn">IV</span><span class="fl">Folio</span></div>
+      <svg class="rail-orn" viewBox="0 0 24 24" aria-hidden="true"><use href="#diamond"/></svg>
+    </div>
+    <div class="body wide">
+      <h2 class="folio-h">The Writings</h2>
+      <div class="writings">
+        <a class="writing" href="#writings"><span class="wn display">i</span><span class="wt gar">If God is merciful, why is there suffering?</span><span class="wk">A question taken seriously</span><svg class="arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="writing" href="#writings"><span class="wn display">ii</span><span class="wt gar">What the Qur'an says about Jesus, son of Mary</span><span class="wk">A deep reading</span><svg class="arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="writing" href="#writings"><span class="wn display">iii</span><span class="wt gar">So you want to learn about Islam. Begin here.</span><span class="wk">A gentle map for the curious</span><svg class="arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ======== COLOPHON ======== -->
 <footer class="colophon" id="support">
-  <div class="wrap col" style="max-width:640px">
-    <svg class="ico-lg" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>
-    <p class="note">This work is kept free by those who believe in it. Every book at the table, every seat in the course, is paid for by someone who once sat where you are sitting now. <span class="gold">Be the reason the next conversation happens.</span></p>
-    <a class="ill-btn" href="#support">Support this work</a>
-    <div class="meta">
-      <a href="#">Instagram</a><a href="#">YouTube</a><a href="#">Write to us</a>
+  <div class="wrap colophon-grid">
+    <div class="colo-mark">
+      <svg class="ico-lg" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>
+      <p class="note">This work is kept free by those who believe in it. Every book at the table, every seat in the course, is paid for by someone who once sat where you are sitting now. <span class="gold">Be the reason the next conversation happens.</span></p>
+      <a class="ill-btn" href="#support">Support this work</a>
     </div>
-    <div class="addr">Completed at 1906 Nueces Street, Austin, Texas<br>Texas Dawah &middot; a student work, offered freely</div>
+    <div class="colo-col">
+      <h4>The folio</h4>
+      <a href="#invitation">The Invitation</a>
+      <a href="#works">The Works</a>
+      <a href="#proof">The Proof</a>
+      <a href="#writings">The Writings</a>
+    </div>
+    <div class="colo-col">
+      <h4>Find us</h4>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">Write to us</a>
+      <div class="colo-addr" style="margin-top:1rem">1906 Nueces Street<br>Austin, Texas<br>A student work, offered freely</div>
+    </div>
   </div>
 </footer>
 

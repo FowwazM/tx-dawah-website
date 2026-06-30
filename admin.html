@@ -99,7 +99,7 @@
       Texas Dawah · Design Console
     </span>
     <h1 class="serif">Eight design languages, <span class="it">one invitation</span>.</h1>
-    <p>Eight landing pages for Texas Dawah, each a structurally distinct artifact built from the same identity (calligraphic logo, Islamic geometry, Yeseva One + League Spartan + Quicksand + Amiri). Not one layout in eight skins: a manuscript, a scroll-driven geometry, a photo essay, a dialogue, a poster deck, an almanac, a cut-paper zine, and a fixed-panel spread. Every page can switch across all eight palettes, so layout and color can be reviewed independently. Click any concept to open the full, standalone page.</p>
+    <p>Eight landing pages for Texas Dawah, each a structurally distinct artifact built from the same identity. Every page can switch across all eight palettes. Click any concept to open the full, standalone page.</p>
     <div class="meta">
       <span><b>8</b> distinct design languages</span>
       <span><b>4</b> dark · <b>4</b> light (native)</span>
@@ -282,11 +282,12 @@
     frames.forEach(send);
     [].slice.call(document.querySelectorAll('a.open, a.open-ov')).forEach(function(a){
       var base=(a.getAttribute('href')||'').split('?')[0];
-      a.setAttribute('href', key==='native'?base:base+'?palette='+key);
+      a.setAttribute('href', base+'?palette='+key);
     });
   }
   chips.forEach(function(c){c.addEventListener('click',function(){apply(c.dataset.pal)})});
   frames.forEach(function(f){f.addEventListener('load',function(){send(f)})});
+  apply(current);
 })();
 </script>
 </body>

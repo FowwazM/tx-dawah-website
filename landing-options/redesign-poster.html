@@ -33,15 +33,56 @@
   .ar{font-family:'Amiri',serif}
   .ks{font-family:'Kaushan Script',cursive}
 
-  /* ============ poster panel ============ */
-  .poster{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  /* ============ poster sheet : printed-sheet scaffold (runhead / field / baseline) ============ */
+  .poster{position:relative;min-height:100svh;
+    display:grid;grid-template-rows:auto minmax(0,1fr) auto;
     scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden;
-    padding:clamp(3.6rem,8vh,5.5rem) clamp(1.4rem,6vw,5.5rem) clamp(2.6rem,6vh,4rem)}
-  /* reserve a right gutter for the fixed pager on desktop */
-  @media (min-width:681px){.poster{padding-right:max(6rem,clamp(1.4rem,6vw,5.5rem))}}
+    padding:clamp(3.1rem,6.6vh,4.6rem) clamp(1.3rem,5vw,3.6rem) clamp(1.5rem,3.2vh,2.4rem)}
+  /* reserve a right gutter for the fixed pager, and (where the spine shows) a left gutter */
+  @media (min-width:681px){.poster{padding-right:max(6.2rem,clamp(1.3rem,5vw,3.6rem))}}
+  @media (min-width:901px){.poster{padding-left:max(4.6rem,clamp(1.3rem,5vw,3.6rem))}}
   .ground{position:absolute;inset:0;width:100%;height:100%;
     color:color-mix(in srgb,var(--p-ink) 8%,transparent);pointer-events:none;z-index:0}
-  .inner{position:relative;z-index:2;width:100%;max-width:1180px;margin-inline:auto}
+  .inner{position:relative;z-index:3;grid-row:2;align-self:center;width:100%;max-width:1180px;margin-inline:auto;min-width:0}
+
+  /* runhead : full-width running head riding the top edge, closed by a head rule */
+  .runhead{grid-row:1;position:relative;z-index:3;align-self:start;
+    display:flex;align-items:baseline;justify-content:space-between;gap:1rem;min-width:0;
+    font-family:'League Spartan',sans-serif;padding-bottom:.66rem;border-bottom:1.5px solid var(--p-line-2)}
+  .runhead .rh-l{display:inline-flex;align-items:baseline;gap:.7rem;min-width:0}
+  .runhead .rh-n{font-weight:800;color:var(--p-accent);font-size:.95rem;letter-spacing:.04em}
+  .runhead .rh-s{font-weight:700;text-transform:uppercase;letter-spacing:.26em;font-size:.72rem;color:var(--p-ink);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .runhead .rh-r{font-weight:600;text-transform:uppercase;letter-spacing:.2em;font-size:.66rem;color:var(--p-muted);
+    text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  /* baseline : full-width colophon riding the bottom edge, opened by a foot rule */
+  .baseline{grid-row:3;position:relative;z-index:3;align-self:end;
+    display:flex;align-items:baseline;justify-content:space-between;gap:1rem;min-width:0;
+    padding-top:.66rem;border-top:1.5px solid var(--p-line-2);
+    font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.2em;font-size:.64rem;color:var(--p-muted)}
+  .baseline .bl-l{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .baseline .bl-r{font-weight:700;color:var(--p-accent-deep);white-space:nowrap}
+
+  /* left spine : vertical series wordmark riding the left margin */
+  .spine{position:absolute;left:clamp(.5rem,1.4vw,1rem);top:0;bottom:0;z-index:2;
+    display:flex;align-items:center;justify-content:center;pointer-events:none;
+    writing-mode:vertical-rl;transform:rotate(180deg);
+    font-family:'League Spartan',sans-serif;font-weight:700;text-transform:uppercase;
+    letter-spacing:.42em;font-size:.64rem;color:color-mix(in srgb,var(--p-accent) 58%,transparent)}
+  @media (max-width:900px){.spine{display:none}}
+
+  /* registration frame : faint full-bleed keyline + accent corner brackets */
+  .frame{position:absolute;inset:clamp(.7rem,2vh,1.15rem) clamp(.7rem,2.2vw,1.2rem);
+    border:1px solid var(--p-line);pointer-events:none;z-index:1}
+  .frame .reg{position:absolute;width:15px;height:15px}
+  .frame .reg::before,.frame .reg::after{content:"";position:absolute;background:var(--p-accent)}
+  .frame .reg::before{width:15px;height:2px}
+  .frame .reg::after{width:2px;height:15px}
+  .frame .reg.tl{top:-1px;left:-1px}
+  .frame .reg.tr{top:-1px;right:-1px}.frame .reg.tr::before{right:0}.frame .reg.tr::after{right:0}
+  .frame .reg.bl{bottom:-1px;left:-1px}.frame .reg.bl::before{bottom:0}.frame .reg.bl::after{bottom:0}
+  .frame .reg.br{bottom:-1px;right:-1px}.frame .reg.br::before{right:0;bottom:0}.frame .reg.br::after{right:0;bottom:0}
 
   /* labels */
   .kicker{font-family:'League Spartan',sans-serif;text-transform:uppercase;font-weight:700;
@@ -107,27 +148,27 @@
   .frame-btn:hover::before{opacity:.55}
   .frame-btn:active{transform:translateY(1px)}
 
-  /* ============ PANEL 1 : mission (centered) ============ */
+  /* ============ PANEL 1 : mission (composed title sheet) ============ */
   .p-mission{text-align:center}
-  .p-mission .inner{max-width:980px}
-  .p-mission .emblem{width:clamp(46px,7vw,68px);height:auto;color:var(--p-accent);margin:0 auto 1.5rem}
-  .p-mission .head{margin:1.1rem 0 1.3rem}
-  .p-mission .pre{display:block;margin-bottom:.55rem}
-  .p-mission .hero{font-size:clamp(4.2rem,17vw,12.5rem)}
+  .p-mission .inner{max-width:1120px}
+  .p-mission .emblem{width:clamp(46px,7vw,70px);height:auto;color:var(--p-accent);margin:0 auto 1.2rem}
+  .p-mission .head{margin:.9rem 0 1.2rem}
+  .p-mission .pre{display:block;margin-bottom:.5rem;letter-spacing:.36em}
+  .p-mission .hero{font-size:clamp(4.2rem,21vw,15.5rem)}
   .p-mission .lede{max-width:54ch;margin:0 auto;color:var(--p-muted);
     font-size:clamp(1rem,1.7vw,1.22rem);line-height:1.6}
   .p-mission .lede b{color:var(--p-ink);font-weight:600}
   .p-mission .act{margin-top:2.1rem;display:flex;justify-content:center}
 
-  /* ============ PANEL 2 : the lineup (asymmetric, bottom-left) ============ */
-  .p-lineup{justify-content:flex-end}
-  .p-lineup .inner{max-width:1180px}
-  .p-lineup .wmk{position:absolute;top:7%;right:-2%;width:min(42vw,460px);height:auto;
-    color:color-mix(in srgb,var(--p-accent) 16%,transparent);z-index:1;pointer-events:none}
-  .p-lineup .top{display:flex;align-items:flex-end;flex-wrap:wrap;gap:.6rem 1.4rem;margin-bottom:1.5rem}
-  .p-lineup .title{font-size:clamp(3.1rem,9.5vw,6.6rem)}
-  .p-lineup .sub{max-width:30ch}
-  .lineup-list{border-top:1.5px solid var(--p-line-2);max-width:920px}
+  /* ============ PANEL 2 : the lineup (full-field index sheet) ============ */
+  .p-lineup .inner{max-width:1180px;align-self:stretch;display:flex;flex-direction:column;
+    justify-content:center;gap:clamp(1rem,3vh,2rem)}
+  .p-lineup .wmk{position:absolute;top:8%;right:clamp(-2rem,-1.5vw,0);width:min(50vw,600px);height:auto;
+    color:color-mix(in srgb,var(--p-accent) 13%,transparent);z-index:1;pointer-events:none}
+  .p-lineup .top{display:flex;align-items:flex-end;flex-wrap:wrap;gap:.6rem 1.6rem;margin-bottom:.4rem}
+  .p-lineup .title{font-size:clamp(3.1rem,10.5vw,7.6rem)}
+  .p-lineup .sub{max-width:34ch}
+  .lineup-list{border-top:1.5px solid var(--p-line-2);width:100%}
   .row{display:grid;grid-template-columns:1fr auto;gap:.4rem 1.4rem;align-items:baseline;
     padding:clamp(.7rem,1.7vh,1.05rem) 0;border-bottom:1px solid var(--p-line)}
   .row .nm{font-family:'League Spartan',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.01em;
@@ -141,19 +182,19 @@
   .p-lineup .act{margin-top:1.6rem;display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}
 
   /* ============ PANEL 3 : course (split) ============ */
-  .p-course .inner{max-width:1120px;display:grid;grid-template-columns:.82fr 1.18fr;
-    gap:clamp(1.8rem,5vw,4.2rem);align-items:center}
-  .p-course .left{position:relative;text-align:center;padding-right:clamp(1rem,3vw,2.4rem)}
-  .p-course .left::after{content:"";position:absolute;top:8%;bottom:8%;right:0;width:1.5px;
+  .p-course .inner{max-width:1180px;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.12fr);
+    gap:clamp(2rem,6vw,5.4rem);align-items:center}
+  .p-course .left{position:relative;text-align:center;padding-right:clamp(1rem,3vw,2.6rem)}
+  .p-course .left::after{content:"";position:absolute;top:6%;bottom:6%;right:0;width:1.5px;
     background:linear-gradient(var(--p-line) 0%,var(--p-line-2) 50%,var(--p-line) 100%)}
   .p-course .iqra{font-family:'Amiri',serif;color:var(--p-accent);direction:rtl;
-    font-size:clamp(4.5rem,15vw,9.5rem);line-height:1}
+    font-size:clamp(4.5rem,17vw,11.5rem);line-height:1}
   .p-course .iqra-t{font-family:'League Spartan',sans-serif;text-transform:uppercase;font-weight:600;
     letter-spacing:.28em;font-size:.66rem;color:var(--p-muted);margin-top:.4rem}
   .p-course .right{min-width:0}
   .p-course .free{display:inline-block;font-family:'Kaushan Script',cursive;color:var(--p-accent-3);
     font-size:clamp(1.5rem,3.6vw,2.1rem);transform:rotate(-4deg);margin-bottom:.1rem}
-  .p-course .title{font-size:clamp(2.5rem,6.6vw,4.7rem);margin:.1rem 0 .9rem}
+  .p-course .title{font-size:clamp(2.5rem,7.2vw,5.4rem);margin:.1rem 0 .9rem}
   .p-course .desc{max-width:46ch;color:var(--p-muted);font-size:clamp(1rem,1.6vw,1.16rem);line-height:1.6;margin-bottom:1.1rem}
   .p-course .desc b{color:var(--p-ink);font-weight:600}
   .p-course .crow{display:flex;align-items:center;gap:1.3rem;flex-wrap:wrap;margin-top:1.5rem}
@@ -161,16 +202,17 @@
     font-family:'Kaushan Script',cursive;font-size:1.15rem;padding-bottom:.2rem}
   .p-course .callout svg{width:34px;height:34px}
 
-  /* ============ PANEL 4 : support + footer ============ */
-  .p-support .inner{flex:1;display:flex;flex-direction:column;max-width:1120px}
-  .p-support .close{margin-block:auto;padding:clamp(1rem,4vh,2.4rem) 0;text-align:center}
-  .p-support .emblem{width:clamp(40px,6vw,58px);height:auto;color:var(--p-accent);margin:0 auto 1.2rem}
-  .p-support .title{font-size:clamp(2.9rem,8.5vw,6.6rem);margin-bottom:1.1rem}
-  .p-support .line{max-width:50ch;margin:0 auto 1.7rem;color:var(--p-muted);
+  /* ============ PANEL 4 : support (field) + colophon footer (baseline row) ============ */
+  .p-support .inner{max-width:1120px;margin-inline:auto;text-align:center}
+  .p-support .close{padding:0;text-align:center}
+  .p-support .emblem{width:clamp(40px,6vw,60px);height:auto;color:var(--p-accent);margin:0 auto 1.1rem}
+  .p-support .title{font-size:clamp(2.9rem,9vw,7.4rem);margin-bottom:1.1rem}
+  .p-support .line{max-width:52ch;margin:0 auto 1.6rem;color:var(--p-muted);
     font-size:clamp(1rem,1.7vw,1.2rem);line-height:1.6}
   .p-support .line b{color:var(--p-ink);font-weight:600}
   .p-support .act{display:flex;justify-content:center}
-  .pfoot{border-top:1.5px solid var(--p-line-2);padding-top:1.3rem;
+  .p-support .pfoot{grid-row:3;align-self:end}
+  .pfoot{border-top:1.5px solid var(--p-line-2);padding-top:1.2rem;
     display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1rem 1.4rem;align-items:start}
   .pfoot .brand{display:flex;align-items:center;gap:.65rem;color:var(--p-ink)}
   .pfoot .brand svg{width:30px;height:30px;color:var(--p-accent)}
@@ -280,6 +322,23 @@
     .row{grid-template-columns:1fr}
     .row .wh{text-align:left}
   }
+
+  /* ---- poster-sheet scaffold responsive ---- */
+  @media (max-width:900px){
+    .p-lineup .wmk{top:auto;bottom:5%;right:-9%;width:min(66vw,420px)}
+  }
+  @media (max-width:680px){
+    .poster{padding-bottom:clamp(2.9rem,7vh,3.6rem)}   /* clear the fixed bottom pager */
+    .runhead{gap:.55rem;padding-bottom:.55rem}
+    .runhead .rh-n{font-size:.82rem}
+    .runhead .rh-s{letter-spacing:.16em;font-size:.66rem}
+    .runhead .rh-r{letter-spacing:.14em;font-size:.6rem}
+    .baseline{padding-top:.55rem;letter-spacing:.13em;font-size:.58rem}
+  }
+  @media (max-width:430px){
+    .runhead .rh-r{display:none}
+    .baseline .bl-l{font-size:.55rem;letter-spacing:.1em}
+  }
 </style>
 </head>
 <body>
@@ -361,6 +420,12 @@
     <defs><pattern id="sp1" width="120" height="120" patternUnits="userSpaceOnUse"><use href="#startile" width="120" height="120"/></pattern></defs>
     <rect width="100%" height="100%" fill="url(#sp1)"/>
   </svg>
+  <div class="frame" aria-hidden="true"><span class="reg tl"></span><span class="reg tr"></span><span class="reg bl"></span><span class="reg br"></span></div>
+  <span class="spine" aria-hidden="true">An Invitation to the Truth</span>
+  <div class="runhead pr" style="--d:.04s">
+    <span class="rh-l"><span class="rh-n">i</span><span class="rh-s">Mission</span></span>
+    <span class="rh-r">Texas Dawah &middot; UT Austin</span>
+  </div>
   <div class="inner">
     <svg class="emblem pr" style="--d:.05s" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>
     <p class="kicker pr" style="--d:.12s"><span class="ar">دعوة</span> &nbsp; Texas Dawah &middot; UT Austin</p>
@@ -375,6 +440,10 @@
       <a class="flip" href="#panel2">See what we do <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#caret"/></svg></a>
     </div>
   </div>
+  <div class="baseline pr" style="--d:.6s">
+    <span class="bl-l">Texas Dawah &middot; Austin, Texas</span>
+    <span class="bl-r">Poster i / iv</span>
+  </div>
 </section>
 
 <!-- ============ PANEL 2 : THE LINEUP ============ -->
@@ -384,6 +453,12 @@
     <rect width="100%" height="100%" fill="url(#sp2)"/>
   </svg>
   <svg class="wmk pr" style="--d:.5s" viewBox="0 0 120 120" aria-hidden="true"><use href="#star8" width="120" height="120"/></svg>
+  <div class="frame" aria-hidden="true"><span class="reg tl"></span><span class="reg tr"></span><span class="reg bl"></span><span class="reg br"></span></div>
+  <span class="spine" aria-hidden="true">An Invitation to the Truth</span>
+  <div class="runhead pr" style="--d:.04s">
+    <span class="rh-l"><span class="rh-n">ii</span><span class="rh-s">The Lineup</span></span>
+    <span class="rh-r">Free &amp; open &middot; every week</span>
+  </div>
   <div class="inner">
     <div class="top">
       <h2 class="bw spk title" style="--fcc:var(--p-accent);--shc:var(--p-band)">
@@ -414,6 +489,10 @@
       <span class="meta">No experience needed. Just show up.</span>
     </div>
   </div>
+  <div class="baseline pr" style="--d:.74s">
+    <span class="bl-l">Texas Dawah &middot; Austin, Texas</span>
+    <span class="bl-r">Poster ii / iv</span>
+  </div>
 </section>
 
 <!-- ============ PANEL 3 : THE COURSE ============ -->
@@ -422,6 +501,12 @@
     <defs><pattern id="sp3" width="120" height="120" patternUnits="userSpaceOnUse"><use href="#startile" width="120" height="120"/></pattern></defs>
     <rect width="100%" height="100%" fill="url(#sp3)"/>
   </svg>
+  <div class="frame" aria-hidden="true"><span class="reg tl"></span><span class="reg tr"></span><span class="reg bl"></span><span class="reg br"></span></div>
+  <span class="spine" aria-hidden="true">An Invitation to the Truth</span>
+  <div class="runhead pr" style="--d:.04s">
+    <span class="rh-l"><span class="rh-n">iii</span><span class="rh-s">The Course</span></span>
+    <span class="rh-r">Now free &middot; self-paced</span>
+  </div>
   <div class="inner">
     <div class="left">
       <div class="iqra ar pr" style="--d:.12s">اقْرَأْ</div>
@@ -440,6 +525,10 @@
       </div>
     </div>
   </div>
+  <div class="baseline pr" style="--d:.6s">
+    <span class="bl-l">Texas Dawah &middot; Austin, Texas</span>
+    <span class="bl-r">Poster iii / iv</span>
+  </div>
 </section>
 
 <!-- ============ PANEL 4 : SUPPORT + FOOTER ============ -->
@@ -448,6 +537,12 @@
     <defs><pattern id="sp4" width="120" height="120" patternUnits="userSpaceOnUse"><use href="#startile" width="120" height="120"/></pattern></defs>
     <rect width="100%" height="100%" fill="url(#sp4)"/>
   </svg>
+  <div class="frame" aria-hidden="true"><span class="reg tl"></span><span class="reg tr"></span><span class="reg bl"></span><span class="reg br"></span></div>
+  <span class="spine" aria-hidden="true">An Invitation to the Truth</span>
+  <div class="runhead pr" style="--d:.04s">
+    <span class="rh-l"><span class="rh-n">iv</span><span class="rh-s">Support</span></span>
+    <span class="rh-r">Keep the table open</span>
+  </div>
   <div class="inner">
     <div class="close">
       <svg class="emblem pr" style="--d:.05s" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>
@@ -459,7 +554,8 @@
         <a class="frame-btn" href="#panel4">Support the dawah <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#heart"/></svg></a>
       </div>
     </div>
-    <footer class="pfoot pr" style="--d:.5s">
+  </div>
+  <footer class="pfoot pr" style="--d:.5s">
       <div class="brand"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg><b>Texas Dawah</b></div>
       <div class="col">
         <h4>Find us</h4>
@@ -476,8 +572,7 @@
         <span>&copy; 2026 Texas Dawah &middot; A student work, offered freely</span>
         <span>Set &amp; kept in Austin, Texas</span>
       </div>
-    </footer>
-  </div>
+  </footer>
 </section>
 
 </main>

@@ -33,7 +33,7 @@
     --quiet:color-mix(in srgb,var(--p-muted) 68%,var(--p-ink))}
   a{color:inherit;text-decoration:none}
   .ar{font-family:'Amiri',serif}
-  .wrap{max-width:1140px;margin-inline:auto;padding-inline:clamp(20px,5vw,46px)}
+  .wrap{max-width:1320px;margin-inline:auto;padding-inline:clamp(20px,5vw,46px)}
 
   /* ---------- running header ---------- */
   .runhead{position:sticky;top:0;z-index:40;
@@ -65,17 +65,47 @@
     font-size:clamp(1.06rem,2vw,1.34rem);line-height:1.62;color:var(--quiet);
     max-width:54ch;margin-top:1.5rem}
   .open-lede em{font-family:'EB Garamond',serif;font-style:italic;color:var(--p-ink);font-size:1.06em}
+  /* hero as an asymmetric spread: title block + a marginal stamp */
+  .opening-grid{display:grid;gap:clamp(1.6rem,4vw,3.4rem);align-items:start}
+  .open-head{min-width:0}
+  .open-meta{display:flex;flex-direction:column;gap:1.35rem;min-width:0}
+  @media(min-width:900px){
+    .opening-grid{grid-template-columns:minmax(0,1fr) minmax(220px,300px)}
+    .open-meta{border-left:1px solid var(--p-line-2);padding-left:clamp(1.4rem,2.4vw,2.4rem);
+      text-align:right;align-items:flex-end;margin-top:.5rem}
+  }
+  .open-stamp .ar{display:block;font-family:'Amiri',serif;direction:rtl;color:var(--p-accent);
+    font-size:clamp(1.8rem,3vw,2.4rem);line-height:1.2}
+  .open-stamp .ost{display:block;margin-top:.32rem;font-family:'Quicksand',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.18em;font-size:.66rem;color:var(--p-accent-deep)}
+  .open-stamp .osg{display:block;margin-top:.3rem;font-family:'EB Garamond',serif;font-style:italic;
+    color:var(--quiet);font-size:.98rem;line-height:1.5}
+  .open-dateline .odl{display:block;font-family:'Quicksand',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;color:var(--quiet)}
+  .open-dateline .odd{display:block;margin-top:.3rem;font-family:'EB Garamond',serif;font-style:italic;
+    color:var(--p-muted);font-size:.98rem;line-height:1.5}
+  .open-legend{display:inline-flex;align-items:center;gap:.65rem;font-family:'Quicksand',sans-serif;
+    font-weight:700;text-transform:uppercase;letter-spacing:.13em;font-size:.6rem}
+  .open-legend .lg-q{color:var(--quiet)}
+  .open-legend .lg-a{color:var(--p-accent-deep)}
+  .open-legend .lg-d{width:8px;height:8px;flex:none;transform:rotate(45deg);background:var(--p-accent)}
 
   /* ---------- the thread ---------- */
   .thread{padding:clamp(1rem,3vh,2rem) 0 0}
-  .rail{position:relative;max-width:1040px;margin-inline:auto;padding-inline:clamp(20px,5vw,46px)}
+  /* the conversation now spans the canvas; --axis is the spine, and the grid
+     columns below sum so the question|answer boundary lands exactly on it */
+  .rail{position:relative;max-width:1320px;margin-inline:auto;
+    padding-inline:clamp(20px,5vw,46px);--pad:clamp(20px,5vw,46px);--axis:.40}
   .rail::before{content:"";position:absolute;top:0;bottom:0;
-    left:calc(clamp(20px,5vw,46px) + (100% - 2*clamp(20px,5vw,46px))*0.40);
+    left:calc(var(--pad) + (100% - 2*var(--pad))*var(--axis));
     width:1px;background:linear-gradient(180deg,
       transparent 0,var(--p-line-2) 5%,var(--p-line-2) 95%,transparent 100%);
     transform:translateX(-.5px)}
 
-  .turn{position:relative;display:grid;grid-template-columns:40% 60%;
+  /* each turn spans the full canvas: far-left rubric, question, spine, answer,
+     far-right gloss. 13+27=40% puts the q|a boundary on --axis (the spine). */
+  .turn{position:relative;display:grid;column-gap:0;
+    grid-template-columns:[meta]minmax(0,13%) [q]minmax(0,27%) [a]minmax(0,43%) [gloss]minmax(0,17%);
     padding-top:var(--turn-pad);align-items:start}
   .turn .node{position:absolute;left:40%;top:calc(var(--turn-pad) + .35rem);
     width:9px;height:9px;transform:translate(-50%,0) rotate(45deg);z-index:2}
@@ -93,14 +123,34 @@
   .who .emblem{width:21px;height:21px;flex:none;color:var(--p-accent)}
 
   /* question side (left of axis) */
-  .turn.q .bubble{grid-column:1;justify-self:end;text-align:right;
-    max-width:34ch;padding-right:clamp(1.2rem,3vw,2.4rem)}
+  .turn.q .bubble{grid-column:q / a;justify-self:end;text-align:right;min-width:0;
+    max-width:100%;padding-right:clamp(1.2rem,3vw,2.4rem)}
   .ask{font-family:'EB Garamond',serif;font-style:italic;font-weight:500;
     color:var(--quiet);font-size:clamp(1.18rem,2vw,1.5rem);line-height:1.34;text-wrap:balance}
 
   /* answer side (right of axis) */
-  .turn.a .bubble{grid-column:2;justify-self:start;text-align:left;
-    max-width:58ch;padding-left:clamp(1.2rem,3vw,2.6rem)}
+  .turn.a .bubble{grid-column:a / gloss;justify-self:start;text-align:left;min-width:0;
+    max-width:100%;padding-left:clamp(1.2rem,3vw,2.6rem)}
+
+  /* far-left rubric : a transcript index in the margin, beside each question */
+  .turn.q .rubric{grid-column:meta / q;justify-self:start;align-self:start;text-align:left;
+    min-width:0;padding-right:clamp(.7rem,1.5vw,1.3rem);padding-top:.15rem}
+  .rubric .rn{display:block;font-family:'Yeseva One',serif;color:var(--p-accent-deep);
+    font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:.9}
+  .rubric .rl{display:block;margin-top:.5rem;font-family:'Quicksand',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.16em;font-size:.62rem;color:var(--quiet);line-height:1.5}
+  .rubric .rd{display:block;margin-top:.6rem;width:20px;height:1px;background:var(--p-line-2)}
+
+  /* far-right gloss : an Arabic phrase / marginal note, beside each answer */
+  .turn.a .gloss{grid-column:gloss / -1;justify-self:end;align-self:start;text-align:right;
+    min-width:0;font-family:'EB Garamond',serif;padding-left:clamp(.9rem,1.6vw,1.7rem);
+    border-left:1px solid var(--p-line-2)}
+  .gloss .gl{display:block;margin-bottom:.4rem;font-family:'Quicksand',sans-serif;font-weight:700;
+    text-transform:uppercase;letter-spacing:.1em;font-size:.6rem;color:var(--p-accent-deep)}
+  .gloss .ga{display:block;font-family:'Amiri',serif;direction:rtl;color:var(--p-accent);
+    font-size:clamp(1.18rem,1.7vw,1.5rem);line-height:1.7}
+  .gloss .gt{display:block;margin-top:.45rem;font-style:italic;color:var(--quiet);
+    font-size:.95rem;line-height:1.55;text-wrap:pretty}
   .lead{font-family:'Yeseva One',serif;font-weight:400;color:var(--p-ink);
     font-size:clamp(1.55rem,3.2vw,2.35rem);line-height:1.12;letter-spacing:-.005em;
     margin-bottom:.95rem;text-wrap:balance}
@@ -178,16 +228,27 @@
     .js .turn{opacity:1;transform:none;transition:none}}
 
   /* ---------- mobile: collapse to a clear single column ---------- */
-  @media (max-width:820px){
+  @media (max-width:900px){
     :root{--turn-pad:clamp(1.5rem,5vh,2.4rem)}
-    .rail{padding-inline:clamp(18px,5vw,28px)}
+    .rail{padding-inline:clamp(18px,5vw,28px);--pad:clamp(18px,5vw,28px)}
     .rail::before{left:calc(clamp(18px,5vw,28px) + 4px)}
     .turn{display:block;padding-left:1.7rem}
-    .turn .node{left:calc(clamp(18px,5vw,28px) + 4px - clamp(18px,5vw,28px));
-      left:4px;top:calc(var(--turn-pad) + .4rem)}
+    .turn .node{left:4px;top:calc(var(--turn-pad) + .4rem)}
+    /* rubric becomes a small label that opens the question, sharing its rule */
+    .turn.q .rubric{display:flex;align-items:baseline;gap:.55rem;justify-self:stretch;
+      text-align:left;padding:0 0 .55rem 1rem;
+      border-left:2px solid color-mix(in srgb,var(--p-muted) 55%,transparent)}
+    .rubric .rn{font-size:1.3rem;line-height:1}
+    .rubric .rl{margin-top:0}
+    .rubric .rd{display:none}
     .turn.q .bubble{justify-self:stretch;max-width:100%;text-align:left;padding:0 0 0 1rem;
       border-left:2px solid color-mix(in srgb,var(--p-muted) 55%,transparent)}
     .turn.a .bubble{justify-self:stretch;max-width:100%;text-align:left;padding:0}
+    /* gloss settles under its answer as an indented marginal note */
+    .turn.a .gloss{justify-self:stretch;max-width:100%;text-align:left;
+      margin-top:1.1rem;padding:0 0 0 1rem;border-left-width:2px;
+      border-left-color:color-mix(in srgb,var(--p-accent) 42%,transparent)}
+    .gloss .ga{text-align:left}
     .turn.q .who{flex-direction:row}
     .ask{font-size:clamp(1.15rem,5vw,1.35rem)}
     .js .turn.q{--from:-14px}
@@ -256,10 +317,17 @@
 
 <!-- ======== OPENING ======== -->
 <section class="opening">
-  <div class="wrap">
-    <p class="kicker"><span class="ar">دعوة</span><span class="ln" aria-hidden="true"></span>At the dawah table</p>
-    <h1 class="open-title">Pull up<br>a chair.</h1>
-    <p class="open-lede">Most afternoons there is a folding table on the Drag: free books, cold water, and someone glad to answer anything. <em>This is how those conversations tend to go.</em> The questions sit on one side, and we sit on the other.</p>
+  <div class="wrap opening-grid">
+    <div class="open-head">
+      <p class="kicker"><span class="ar">دعوة</span><span class="ln" aria-hidden="true"></span>At the dawah table</p>
+      <h1 class="open-title">Pull up<br>a chair.</h1>
+      <p class="open-lede">Most afternoons there is a folding table on the Drag: free books, cold water, and someone glad to answer anything. <em>This is how those conversations tend to go.</em> The questions sit on one side, and we sit on the other.</p>
+    </div>
+    <aside class="open-meta" aria-label="About this exchange">
+      <p class="open-stamp"><span class="ar">دعوة</span><span class="ost">da&rsquo;wah</span><span class="osg">an invitation, a calling toward</span></p>
+      <p class="open-dateline"><span class="odl">Austin, Texas</span><span class="odd">the West Mall, most afternoons</span></p>
+      <p class="open-legend"><span class="lg-q">the questions</span><span class="lg-d" aria-hidden="true"></span><span class="lg-a">our answers</span></p>
+    </aside>
   </div>
 </section>
 
@@ -270,6 +338,7 @@
     <!-- 1: who we are -->
     <div class="turn q">
       <span class="node" aria-hidden="true"></span>
+      <div class="rubric"><span class="rn">01</span><span class="rl">Who we are</span><span class="rd" aria-hidden="true"></span></div>
       <div class="bubble">
         <span class="who"><span class="qmark" aria-hidden="true"></span>A student, passing by</span>
         <p class="ask">So what is Texas Dawah, actually?</p>
@@ -283,11 +352,13 @@
         <p class="body">We are a student-led group at the University of Texas, and dawah just means invitation. We share the message of Islam the way we would want it shared with us: with knowledge, patience, and good character. No pressure, no performance.</p>
         <p class="body">So we set up where people already walk, on the West Mall and the Drag, open our books, and try to give an honest answer to whatever anyone brings us.</p>
       </div>
+      <aside class="gloss"><span class="gl">On the word</span><span class="ga ar">دَعْوَة</span><span class="gt">Da&rsquo;wah: an invitation, a calling toward. Not a counting of heads.</span></aside>
     </div>
 
     <!-- 2: what we do -->
     <div class="turn q">
       <span class="node" aria-hidden="true"></span>
+      <div class="rubric"><span class="rn">02</span><span class="rl">The week</span><span class="rd" aria-hidden="true"></span></div>
       <div class="bubble">
         <span class="who"><span class="qmark" aria-hidden="true"></span>A visitor</span>
         <p class="ask">What do you actually do all week?</p>
@@ -306,11 +377,13 @@
           <li><b>Book club and a guest lecture</b>, <span>monthly, with visiting scholars.</span></li>
         </ul>
       </div>
+      <aside class="gloss"><span class="gl">In the margin</span><span class="gt">Most of it open to anyone curious. None of it owed by anyone.</span></aside>
     </div>
 
     <!-- 3: the ethos -->
     <div class="turn q">
       <span class="node" aria-hidden="true"></span>
+      <div class="rubric"><span class="rn">03</span><span class="rl">On intention</span><span class="rd" aria-hidden="true"></span></div>
       <div class="bubble">
         <span class="who"><span class="qmark" aria-hidden="true"></span>Someone at the table</span>
         <p class="ask">Isn't this just trying to convert me?</p>
@@ -324,11 +397,13 @@
         <p class="body">Honestly, no, not the way you mean it. We are not counting anyone, and we are not keeping score. The Qur'an itself says there is no compulsion in religion, and we take that to heart.</p>
         <p class="body">Our part is to share what we have found true and beautiful, clearly and kindly, then leave the rest to you and to God. If you walk off with a free book and a better question than you arrived with, that is a good afternoon for us.</p>
       </div>
+      <aside class="gloss"><span class="gl">The verse behind it</span><span class="ga ar">لَا إِكْرَاهَ فِي الدِّينِ</span><span class="gt">There is no compulsion in religion. (Qur&rsquo;an 2:256)</span></aside>
     </div>
 
     <!-- 4: the hard question -->
     <div class="turn q">
       <span class="node" aria-hidden="true"></span>
+      <div class="rubric"><span class="rn">04</span><span class="rl">The hard one</span><span class="rd" aria-hidden="true"></span></div>
       <div class="bubble">
         <span class="who"><span class="qmark" aria-hidden="true"></span>A friend of a friend</span>
         <p class="ask">If God is merciful, why is there suffering?</p>
@@ -342,11 +417,13 @@
         <p class="body">It is the oldest question there is, and it deserves better than a slogan. The short version we hold to: this life is not the whole of the story, pain can carry a meaning we cannot always see from inside it, and mercy is not the absence of hardship but God's nearness within it.</p>
         <p class="body aside">That deserves more room than a table allows, so rather than pretend it fits in a sentence, we will point you to where we wrote it out: <a class="say-link" href="#">If God is merciful, why is there suffering?</a></p>
       </div>
+      <aside class="gloss"><span class="gl">Read in full</span><span class="gt">Some answers outgrow a folding table. We set this one down at length, and linked it in the reply.</span></aside>
     </div>
 
     <!-- 5: where to start -->
     <div class="turn q">
       <span class="node" aria-hidden="true"></span>
+      <div class="rubric"><span class="rn">05</span><span class="rl">Where to begin</span><span class="rd" aria-hidden="true"></span></div>
       <div class="bubble">
         <span class="who"><span class="qmark" aria-hidden="true"></span>A student, sitting down now</span>
         <p class="ask">Okay. Where do I actually start?</p>
@@ -363,6 +440,7 @@
           <a class="reply" href="#t2">See what's on this week</a>
         </div>
       </div>
+      <aside class="gloss"><span class="gl">The first word</span><span class="ga ar">اقْرَأْ</span><span class="gt">Read. The first word of the revelation, and the first step here.</span></aside>
     </div>
 
     <!-- closing turn -->
@@ -378,6 +456,7 @@
           <a class="reply" href="#">Support the dawah</a>
         </div>
       </div>
+      <aside class="gloss"><span class="gl">Welcome</span><span class="ga ar">أَهْلًا وَسَهْلًا</span><span class="gt">Ahlan wa sahlan. Be at ease; the seat is yours.</span></aside>
     </div>
 
   </div>
