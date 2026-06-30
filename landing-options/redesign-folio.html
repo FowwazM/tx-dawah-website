@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="cream">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Dawah - Redesign: Illuminated Folio</title>
+<meta name="description" content="Texas Dawah, an invitation to the truth, offered with knowledge and beautiful character in Austin, Texas.">
+<script>document.documentElement.className += ' js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=League+Spartan:wght@500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style id="txd-palettes">
+[data-palette="midnight"]{--p-bg:#0d1230;--p-surface:#161d44;--p-surface-2:#1d2662;--p-ink:#eef1fb;--p-muted:#aab4dc;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#15183a;--p-accent-2:#9bb4e8;--p-accent-3:#9bb4e8;--p-line:rgba(155,180,232,.16);--p-line-2:rgba(155,180,232,.30);--p-band:#090d24;--p-band-ink:#eef1fb;--p-overlay:rgba(13,18,48,.6)}
+[data-palette="olive"]{--p-bg:#1d2416;--p-surface:#28311e;--p-surface-2:#323d26;--p-ink:#ebeed6;--p-muted:#b3bb95;--p-accent:#cdb968;--p-accent-deep:#b6a24f;--p-accent-ink:#1d2416;--p-accent-2:#8a946f;--p-accent-3:#8a946f;--p-line:rgba(235,238,214,.14);--p-line-2:rgba(235,238,214,.26);--p-band:#161c10;--p-band-ink:#ebeed6;--p-overlay:rgba(29,36,22,.6)}
+[data-palette="cream"]{--p-bg:#f6f1e1;--p-surface:#fffdf7;--p-surface-2:#efe8d4;--p-ink:#24302a;--p-muted:#54604f;--p-accent:#c1851f;--p-accent-deep:#9f6e16;--p-accent-ink:#22150a;--p-accent-2:#4f7e6e;--p-accent-3:#cf5d42;--p-line:rgba(36,48,42,.14);--p-line-2:rgba(36,48,42,.26);--p-band:#3a5e52;--p-band-ink:#f4efe0;--p-overlay:rgba(36,48,42,.34)}
+[data-palette="mocha"]{--p-bg:#362116;--p-surface:#48301f;--p-surface-2:#5a3c27;--p-ink:#f1e3d4;--p-muted:#c9ab93;--p-accent:#d8ad7c;--p-accent-deep:#c0925f;--p-accent-ink:#2a1810;--p-accent-2:#b06a45;--p-accent-3:#b06a45;--p-line:rgba(241,227,212,.14);--p-line-2:rgba(241,227,212,.26);--p-band:#251610;--p-band-ink:#f1e3d4;--p-overlay:rgba(40,24,16,.58)}
+[data-palette="aubergine"]{--p-bg:#1f0f24;--p-surface:#2e1834;--p-surface-2:#3a1f42;--p-ink:#f3e7f1;--p-muted:#c6a6cb;--p-accent:#e3c071;--p-accent-deep:#cda74f;--p-accent-ink:#1c0c20;--p-accent-2:#c79bd6;--p-accent-3:#c79bd6;--p-line:rgba(243,231,241,.13);--p-line-2:rgba(243,231,241,.26);--p-band:#170a1b;--p-band-ink:#f3e7f1;--p-overlay:rgba(31,15,36,.6)}
+[data-palette="geometric"]{--p-bg:#072d2b;--p-surface:#0d3c39;--p-surface-2:#124a46;--p-ink:#e8f3ee;--p-muted:#8fc1b4;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#07221f;--p-accent-2:#46b89a;--p-accent-3:#46b89a;--p-line:rgba(232,243,238,.14);--p-line-2:rgba(232,243,238,.26);--p-band:#04201e;--p-band-ink:#e8f3ee;--p-overlay:rgba(7,45,43,.6)}
+[data-palette="interfaith"]{--p-bg:#e7d3c8;--p-surface:#f1e3da;--p-surface-2:#ddc6b8;--p-ink:#2b211c;--p-muted:#7a6253;--p-accent:#9c5c41;--p-accent-deep:#7d4631;--p-accent-ink:#f7efe9;--p-accent-2:#7d4631;--p-accent-3:#9c5c41;--p-line:rgba(43,33,28,.15);--p-line-2:rgba(43,33,28,.26);--p-band:#211a17;--p-band-ink:#f1e7df;--p-overlay:rgba(43,28,20,.42)}
+[data-palette="minimal"]{--p-bg:#f4f1ea;--p-surface:#ffffff;--p-surface-2:#ebe7dc;--p-ink:#16130f;--p-muted:#6b6457;--p-accent:#0c5440;--p-accent-deep:#0a4435;--p-accent-ink:#f4f1ea;--p-accent-2:#bfa15a;--p-accent-3:#0c5440;--p-line:rgba(22,19,15,.12);--p-line-2:rgba(22,19,15,.22);--p-band:#0c5440;--p-band-ink:#f4f1ea;--p-overlay:rgba(12,40,33,.4)}
+</style>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--maxw:1180px;--col:62ch;--ease:cubic-bezier(.23,1,.32,1)}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--p-bg);color:var(--p-ink);
+    font-family:'EB Garamond',Georgia,serif;font-size:1.18rem;line-height:1.75;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+    background-image:radial-gradient(rgba(0,0,0,.018) 1px,transparent 1px);background-size:3px 3px}
+  a{color:inherit;text-decoration:none}
+  .display{font-family:'Yeseva One',serif;font-weight:400}
+  .gar{font-family:'EB Garamond',serif}
+  .ar{font-family:'Amiri',serif}
+  .spartan{font-family:'League Spartan',sans-serif}
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+  .col{max-width:var(--col);margin-inline:auto}
+  .gold{color:var(--p-accent-deep)}
+  .smallcaps{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.22em;
+    font-size:.72rem;font-weight:600}
+
+  /* ornament colors via currentColor */
+  .orn{color:var(--p-accent)}
+  svg.ico{display:block}
+
+  /* ---------- masthead ---------- */
+  .mast{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--p-bg) 88%,transparent);
+    backdrop-filter:blur(6px);border-bottom:1px solid var(--p-line)}
+  .mast-in{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:66px}
+  .mark{display:inline-flex;align-items:center;gap:.65rem;color:var(--p-accent)}
+  .mark .ico{width:30px;height:30px}
+  .mark b{font-family:'Yeseva One',serif;font-weight:400;font-size:1.32rem;color:var(--p-ink);letter-spacing:.01em}
+  .mast nav{display:flex;align-items:center;gap:1.7rem}
+  .mast nav a{font-family:'EB Garamond',serif;font-style:italic;font-size:1.02rem;color:var(--p-muted);
+    transition:color .2s var(--ease)}
+  .mast nav a .num{font-style:normal;color:var(--p-accent-deep);margin-right:.35em;font-size:.85em;letter-spacing:.04em}
+  .mast nav a:hover{color:var(--p-ink)}
+  @media (max-width:860px){.mast nav{display:none}}
+
+  /* ---------- title page / unwan ---------- */
+  .titlepage{padding:clamp(2.5rem,7vh,5.5rem) 0 clamp(2rem,5vh,4rem);text-align:center;position:relative}
+  .titlepage .frame{position:relative;max-width:740px;margin-inline:auto;padding:clamp(2rem,5vw,3.4rem) clamp(1.2rem,4vw,2.6rem) clamp(2.4rem,5vw,3.4rem)}
+  .titlepage .frame::before,.titlepage .frame::after{content:"";position:absolute;inset:0;border:1px solid var(--p-accent);opacity:.55;pointer-events:none}
+  .titlepage .frame::after{inset:7px;opacity:.32}
+  .corner{position:absolute;width:42px;height:42px;color:var(--p-accent)}
+  .corner.tl{top:-6px;left:-6px} .corner.tr{top:-6px;right:-6px;transform:scaleX(-1)}
+  .corner.bl{bottom:-6px;left:-6px;transform:scaleY(-1)} .corner.br{bottom:-6px;right:-6px;transform:scale(-1)}
+  .unwan{position:relative;margin:0 auto 2rem;max-width:520px;background:var(--p-band);color:var(--p-band-ink);
+    border:1.5px solid var(--p-accent);border-top-left-radius:50% 80px;border-top-right-radius:50% 80px;
+    padding:2.6rem 1.5rem 1.5rem;overflow:hidden}
+  .unwan .geo{position:absolute;inset:0;color:var(--p-accent);opacity:.16;pointer-events:none}
+  .unwan .geo svg{width:100%;height:100%}
+  .unwan .bism{position:relative;font-family:'Amiri',serif;font-size:clamp(1.7rem,4.4vw,2.5rem);
+    color:var(--p-accent);line-height:1.8;direction:rtl}
+  .unwan .bism-t{position:relative;font-family:'EB Garamond',serif;font-style:italic;color:var(--p-band-ink);
+    opacity:.85;font-size:.96rem;margin-top:.3rem}
+  .titlepage h1{font-family:'Yeseva One',serif;font-size:clamp(2.6rem,7vw,4.6rem);line-height:1.04;
+    color:var(--p-ink);margin:.1em 0 .1em}
+  .titlepage .sub{font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(1.15rem,2vw,1.4rem);
+    color:var(--p-muted);max-width:44ch;margin:.6rem auto 0}
+  .titlepage .begin{margin-top:2.2rem;display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;align-items:center}
+
+  /* illuminated link / button */
+  .ill-btn{position:relative;display:inline-flex;align-items:center;gap:.6rem;font-family:'League Spartan',sans-serif;
+    text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;font-weight:600;color:var(--p-accent-deep);
+    padding:.85rem 1.5rem;border:1px solid var(--p-accent);background:transparent;cursor:pointer;
+    transition:background .25s var(--ease),color .25s var(--ease)}
+  .ill-btn::before,.ill-btn::after{content:"";position:absolute;width:6px;height:6px;border:1px solid var(--p-accent);background:var(--p-bg);transform:rotate(45deg)}
+  .ill-btn::before{left:-3.5px;top:50%;margin-top:-3px}
+  .ill-btn::after{right:-3.5px;top:50%;margin-top:-3px}
+  .ill-btn:hover{background:var(--p-accent);color:var(--p-accent-ink)}
+  .ill-btn:active{transform:translateY(1px)}
+  .text-link{font-family:'EB Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--p-ink);
+    border-bottom:1px solid var(--p-accent);padding-bottom:1px;transition:color .2s var(--ease)}
+  .text-link:hover{color:var(--p-accent-deep)}
+
+  /* ---------- divider ---------- */
+  .divider{display:flex;align-items:center;justify-content:center;gap:1rem;color:var(--p-accent);margin:clamp(3rem,7vh,5rem) 0;opacity:.9}
+  .divider .ln{height:1px;width:min(160px,22vw);background:linear-gradient(90deg,transparent,var(--p-accent))}
+  .divider .ln.r{background:linear-gradient(270deg,transparent,var(--p-accent))}
+  .divider .ico{width:30px;height:30px}
+
+  /* ---------- folio sections ---------- */
+  .folio{padding:clamp(1.5rem,4vh,3rem) 0}
+  .folio-head{text-align:center;margin-bottom:2.2rem}
+  .folio-head .roman{font-family:'League Spartan',sans-serif;letter-spacing:.3em;font-size:.74rem;font-weight:600;
+    color:var(--p-accent-deep);text-transform:uppercase}
+  .folio-head h2{font-family:'Yeseva One',serif;font-size:clamp(2rem,4.5vw,3rem);color:var(--p-ink);margin-top:.5rem;line-height:1.1}
+
+  /* invitation prose with drop cap */
+  .prose{font-size:1.22rem;line-height:1.85}
+  .prose p{margin-bottom:1.3rem;text-wrap:pretty}
+  .prose .dropcap::first-letter{font-family:'Yeseva One',serif;float:left;font-size:4.4rem;line-height:.74;
+    padding:.3rem .6rem .1rem .1rem;margin:.18rem .55rem 0 0;color:var(--p-accent-deep);
+    border:1px solid var(--p-accent);background:color-mix(in srgb,var(--p-accent) 8%,transparent)}
+  .invitation{position:relative}
+  .margin-note{font-family:'EB Garamond',serif;font-style:italic;color:var(--p-muted);font-size:.96rem;line-height:1.6;
+    border-top:1px solid var(--p-line-2);padding-top:.7rem;margin-top:1.6rem}
+  .margin-note .lbl{display:block;font-family:'League Spartan',sans-serif;font-style:normal;text-transform:uppercase;
+    letter-spacing:.18em;font-size:.62rem;color:var(--p-accent-deep);margin-bottom:.35rem}
+  @media (min-width:980px){
+    .invitation{display:grid;grid-template-columns:1fr 240px;gap:clamp(2rem,5vw,4rem);align-items:start}
+    .margin-note{border-top:none;border-left:1px solid var(--p-line-2);padding:.2rem 0 .2rem 1.4rem;margin-top:.5rem}
+  }
+
+  /* works: illuminated list */
+  .works{max-width:880px;margin-inline:auto}
+  .work{display:grid;grid-template-columns:46px 1fr auto;gap:1.1rem;align-items:baseline;
+    padding:1.5rem 0;border-bottom:1px solid var(--p-line)}
+  .work:first-child{border-top:1px solid var(--p-line)}
+  .work .rose{grid-row:1/3;align-self:center;color:var(--p-accent);width:38px;height:38px}
+  .work h3{font-family:'Yeseva One',serif;font-size:1.5rem;color:var(--p-ink);line-height:1.1}
+  .work .when{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.68rem;
+    color:var(--p-accent-deep);font-weight:600;text-align:right;white-space:nowrap}
+  .work p{grid-column:2/4;color:var(--p-muted);font-size:1.06rem;margin-top:.3rem;max-width:60ch}
+  @media (max-width:620px){.work{grid-template-columns:32px 1fr}.work .when{grid-column:2;text-align:left;margin-top:.2rem}.work .rose{width:28px;height:28px}.work p{grid-column:1/3}}
+
+  /* proof: mihrab arch */
+  .proof-arch{position:relative;max-width:620px;margin:0 auto;text-align:center;
+    border:1.5px solid var(--p-accent);border-top-left-radius:50% 120px;border-top-right-radius:50% 120px;
+    padding:clamp(2.6rem,6vw,3.6rem) clamp(1.5rem,5vw,3rem) clamp(2.2rem,5vw,3rem);
+    background:color-mix(in srgb,var(--p-accent) 5%,transparent)}
+  .proof-arch::before{content:"";position:absolute;inset:7px;border:1px solid var(--p-accent);opacity:.35;
+    border-top-left-radius:50% 110px;border-top-right-radius:50% 110px;pointer-events:none}
+  .proof-arch .iqra{font-family:'Amiri',serif;font-size:clamp(2.4rem,6vw,3.4rem);color:var(--p-accent-deep);line-height:1;direction:rtl}
+  .proof-arch h2{font-family:'Yeseva One',serif;font-size:clamp(1.9rem,4.4vw,2.8rem);color:var(--p-ink);margin:.7rem 0 .4rem}
+  .proof-arch .free{font-family:'EB Garamond',serif;font-style:italic;color:var(--p-accent-3);font-size:1.05rem}
+  .proof-arch p{color:var(--p-muted);max-width:46ch;margin:1rem auto 1.8rem;font-size:1.1rem}
+
+  /* writings index */
+  .writings{max-width:760px;margin-inline:auto}
+  .writing{display:flex;align-items:baseline;gap:1.2rem;padding:1.15rem 0;border-bottom:1px solid var(--p-line);
+    transition:padding-left .25s var(--ease)}
+  .writing:hover{padding-left:.5rem}
+  .writing .wn{font-family:'Yeseva One',serif;color:var(--p-accent-deep);font-size:1.15rem;width:2.2rem;flex:none}
+  .writing .wt{font-family:'EB Garamond',serif;font-size:1.3rem;color:var(--p-ink);line-height:1.25}
+  .writing .wk{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.62rem;
+    color:var(--p-muted);margin-top:.25rem;display:block}
+  .writing .arrow{margin-left:auto;color:var(--p-accent);opacity:0;transition:opacity .2s var(--ease)}
+  .writing:hover .arrow{opacity:1}
+
+  /* colophon */
+  .colophon{text-align:center;padding:clamp(3.5rem,8vh,6rem) 0 clamp(2.5rem,5vh,3.5rem);
+    border-top:1px solid var(--p-line);margin-top:clamp(3rem,7vh,5rem);position:relative;background:var(--p-surface)}
+  .colophon .ico-lg{width:54px;height:54px;color:var(--p-accent);margin:0 auto 1.4rem}
+  .colophon .note{font-family:'EB Garamond',serif;font-style:italic;color:var(--p-muted);max-width:52ch;margin:0 auto 2rem;font-size:1.12rem;line-height:1.7}
+  .colophon .note .gold{font-style:normal}
+  .colophon .meta{display:flex;gap:1.5rem 2.5rem;justify-content:center;flex-wrap:wrap;color:var(--p-muted);font-size:.95rem;margin-top:2.2rem}
+  .colophon .meta a:hover{color:var(--p-accent-deep)}
+  .colophon .addr{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.68rem;color:var(--p-muted);margin-top:2.4rem;line-height:2}
+
+  /* ---------- load illumination draw ---------- */
+  .js .draw{stroke-dasharray:var(--len,400);stroke-dashoffset:var(--len,400);animation:draw 2.4s var(--ease) forwards}
+  .js .fadein{opacity:0;animation:fade 1.4s ease forwards .3s}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes fade{to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){.js .draw{animation:none;stroke-dashoffset:0}.js .fadein{animation:none;opacity:1}}
+
+  /* ---------- palette switcher (discreet) ---------- */
+  .txd-pal{position:relative;font-family:'League Spartan',sans-serif;z-index:60}
+  .txd-pal-btn{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;background:transparent;
+    border:1px solid var(--p-line-2);color:var(--p-muted);border-radius:0;padding:.45rem .7rem;font-size:.62rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:.12em;transition:border-color .2s ease,color .2s ease}
+  .txd-pal-btn:hover{border-color:var(--p-accent);color:var(--p-ink)}
+  .txd-pal-sw{width:30px;height:12px;display:inline-block;border:1px solid var(--p-line-2);
+    background:linear-gradient(90deg,var(--p-bg) 0 33%,var(--p-accent) 33% 66%,var(--p-accent-2) 66% 100%)}
+  .txd-pal-cv{width:12px;height:12px;opacity:.7}
+  .txd-pal-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:246px;max-width:calc(100vw - 32px);
+    background:var(--p-surface);border:1px solid var(--p-accent);padding:.4rem;
+    box-shadow:0 22px 50px rgba(0,0,0,.28);opacity:0;visibility:hidden;transform:translateY(-6px);
+    transition:opacity .2s ease,transform .2s ease,visibility .2s ease;max-height:74vh;overflow:auto}
+  .txd-pal.open .txd-pal-menu{opacity:1;visibility:visible;transform:none}
+  .txd-pal-opt{display:flex;align-items:center;gap:.7rem;width:100%;text-align:left;cursor:pointer;background:none;border:0;
+    color:var(--p-ink);padding:.5rem .55rem;font-size:.92rem;font-family:'EB Garamond',serif}
+  .txd-pal-opt:hover{background:color-mix(in srgb,var(--p-ink) 8%,transparent)}
+  .txd-pal-opt[aria-selected="true"]{background:color-mix(in srgb,var(--p-accent) 18%,transparent)}
+  .txd-pal-opt .sw{width:28px;height:17px;flex:none;border:1px solid var(--p-line-2);
+    background:linear-gradient(90deg,var(--a) 0 50%,var(--b) 50% 80%,var(--c) 80% 100%)}
+  .txd-pal-opt .nm{display:flex;flex-direction:column;line-height:1.15}
+  .txd-pal-opt .nm small{opacity:.6;font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.6rem;margin-top:2px}
+</style>
+</head>
+<body>
+
+<!-- ornament symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 64 64">
+    <circle cx="32" cy="39" r="18.5" stroke="currentColor" stroke-width="1.4" fill="none" opacity="0.8"/>
+    <path d="M31 7c7.2 3.3-3.6 11.4 3 16.5 6.4 5 -4.4 9.7 1.4 15.2 4 3.8 9.4 2.3 12-1.2" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M31 7c-1.6 1.9-1.4 4.2 .4 6.2" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+    <rect x="26.4" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 29.1 42.9)" fill="currentColor"/>
+    <rect x="33.6" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 36.3 42.9)" fill="currentColor"/>
+  </symbol>
+  <symbol id="rosette" viewBox="0 0 40 40">
+    <g fill="none" stroke="currentColor" stroke-width="1.1">
+      <rect x="8.5" y="8.5" width="23" height="23"/>
+      <rect x="8.5" y="8.5" width="23" height="23" transform="rotate(45 20 20)"/>
+      <circle cx="20" cy="20" r="4.5"/>
+    </g>
+  </symbol>
+  <symbol id="corner" viewBox="0 0 48 48">
+    <g fill="none" stroke="currentColor" stroke-width="1.1">
+      <path d="M2 2h20M2 2v20"/>
+      <path d="M2 2c14 0 24 10 24 24" opacity=".7"/>
+      <circle cx="10" cy="10" r="4"/>
+      <rect x="6.5" y="6.5" width="7" height="7" transform="rotate(45 10 10)"/>
+    </g>
+  </symbol>
+  <symbol id="diamond" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.1">
+      <rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)"/>
+      <rect x="8" y="8" width="8" height="8" transform="rotate(45 12 12)"/>
+    </g>
+  </symbol>
+  <symbol id="khatam" viewBox="0 0 88 88">
+    <g fill="none" stroke="currentColor" stroke-width="1">
+      <rect x="22" y="22" width="44" height="44" transform="rotate(45 44 44)"/>
+      <rect x="22" y="22" width="44" height="44"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ======== MASTHEAD ======== -->
+<header class="mast">
+  <div class="wrap mast-in">
+    <a class="mark" href="redesign-folio.html" aria-label="Texas Dawah">
+      <svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>
+      <b>Texas Dawah</b>
+    </a>
+    <nav aria-label="Contents">
+      <a href="#invitation"><span class="num">I</span>Invitation</a>
+      <a href="#works"><span class="num">II</span>Works</a>
+      <a href="#proof"><span class="num">III</span>Proof</a>
+      <a href="#writings"><span class="num">IV</span>Writings</a>
+    </nav>
+    <div class="txd-pal" data-txd-pal>
+      <button class="txd-pal-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Switch color palette">
+        <span class="txd-pal-sw" aria-hidden="true"></span><span class="txd-pal-name">Palette</span>
+        <svg class="txd-pal-cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="txd-pal-menu" role="listbox" aria-label="Color palette"></div>
+    </div>
+  </div>
+</header>
+
+<!-- ======== TITLE PAGE / UNWAN ======== -->
+<section class="titlepage">
+  <div class="wrap">
+    <div class="frame">
+      <svg class="corner tl ico fadein" viewBox="0 0 48 48" aria-hidden="true"><use href="#corner"/></svg>
+      <svg class="corner tr ico fadein" viewBox="0 0 48 48" aria-hidden="true"><use href="#corner"/></svg>
+      <svg class="corner bl ico fadein" viewBox="0 0 48 48" aria-hidden="true"><use href="#corner"/></svg>
+      <svg class="corner br ico fadein" viewBox="0 0 48 48" aria-hidden="true"><use href="#corner"/></svg>
+
+      <div class="unwan">
+        <div class="geo" aria-hidden="true"><svg><defs><pattern id="kf" width="44" height="44" patternUnits="userSpaceOnUse"><use href="#khatam" width="44" height="44"/></pattern></defs><rect width="100%" height="100%" fill="url(#kf)"/></svg></div>
+        <div class="bism ar">بِسْمِ اللّٰهِ</div>
+        <div class="bism-t">In the name of God, the Most Merciful</div>
+      </div>
+
+      <h1 class="display">An invitation,<br>never an imposition.</h1>
+      <p class="sub">Texas Dawah offers the message of Islam in Austin, with knowledge, patience, and beautiful character.</p>
+      <div class="begin">
+        <a class="ill-btn" href="#invitation">Read the folio</a>
+        <a class="text-link" href="#proof">or begin the free course</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span class="ln"></span><svg class="ico" viewBox="0 0 24 24"><use href="#diamond"/></svg><span class="ln r"></span></div>
+
+<!-- ======== FOLIO I — INVITATION ======== -->
+<section class="folio" id="invitation">
+  <div class="wrap">
+    <div class="folio-head"><div class="roman">Folio I</div><h2 class="display">The Invitation</h2></div>
+    <div class="invitation col" style="max-width:920px">
+      <div class="prose">
+        <p class="dropcap">Texas Dawah began with a handful of students at the University of Texas who believed something simple: that the truth is best offered, never forced. We set a table on the Drag, opened our books, and started answering the questions people actually carry, about God, about Jesus, about suffering and meaning and why any of it should matter.</p>
+        <p>Years later the table is still there. So is the conviction behind it. We are not here to win arguments. We are here to be the reason someone, one afternoon between classes, felt the mercy of Islam for the first time, and decided to look closer.</p>
+        <p>Everything we do begins with a conversation and ends, we hope, in understanding. You are welcome at the table, whatever you believe.</p>
+      </div>
+      <aside class="margin-note">
+        <span class="lbl">In the margin</span>
+        The Prophet, peace be upon him, said: invite to the way of your Lord with wisdom and beautiful instruction. Wisdom is knowing what to say. Beautiful character is the reason anyone stays to listen.
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span class="ln"></span><svg class="ico" viewBox="0 0 24 24"><use href="#diamond"/></svg><span class="ln r"></span></div>
+
+<!-- ======== FOLIO II — WORKS ======== -->
+<section class="folio" id="works">
+  <div class="wrap">
+    <div class="folio-head"><div class="roman">Folio II</div><h2 class="display">The Works</h2></div>
+    <div class="works">
+      <article class="work">
+        <svg class="rose ico" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
+        <h3 class="display">Dawah tabling</h3>
+        <span class="when">Every week, West Mall</span>
+        <p>Free books, cold water, and an honest answer to any question, in the busiest corner of campus.</p>
+      </article>
+      <article class="work">
+        <svg class="rose ico" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
+        <h3 class="display">Dawah training</h3>
+        <span class="when">Thursdays, 8 PM</span>
+        <p>A weekly circle where students learn to share Islam with confidence and care. No experience asked of you, only willingness.</p>
+      </article>
+      <article class="work">
+        <svg class="rose ico" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
+        <h3 class="display">Interfaith iftars</h3>
+        <span class="when">Each Ramadan</span>
+        <p>We break bread with neighbors of every faith, and let the table do what arguments cannot.</p>
+      </article>
+      <article class="work">
+        <svg class="rose ico" viewBox="0 0 40 40" aria-hidden="true"><use href="#rosette"/></svg>
+        <h3 class="display">Book club &amp; lectures</h3>
+        <span class="when">Monthly, with guests</span>
+        <p>Slow reading on faith and doubt, and visiting scholars on the questions that keep people up at night.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span class="ln"></span><svg class="ico" viewBox="0 0 24 24"><use href="#diamond"/></svg><span class="ln r"></span></div>
+
+<!-- ======== FOLIO III — PROOF ======== -->
+<section class="folio" id="proof">
+  <div class="wrap">
+    <div class="folio-head"><div class="roman">Folio III</div><h2 class="display">The Proof</h2></div>
+    <div class="proof-arch">
+      <div class="iqra ar">اقْرَأْ</div>
+      <h2 class="display">Why Islam Is True</h2>
+      <p class="free">A six-part course, now offered freely to all.</p>
+      <p>A clear walk through the evidence behind the message: the Qur'an, the prophethood, and the case for belief. Built for the curious and the questioning alike.</p>
+      <a class="ill-btn" href="#proof">Begin the course</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"><span class="ln"></span><svg class="ico" viewBox="0 0 24 24"><use href="#diamond"/></svg><span class="ln r"></span></div>
+
+<!-- ======== FOLIO IV — WRITINGS ======== -->
+<section class="folio" id="writings">
+  <div class="wrap">
+    <div class="folio-head"><div class="roman">Folio IV</div><h2 class="display">The Writings</h2></div>
+    <div class="writings">
+      <a class="writing" href="#writings"><span class="wn display">i</span><span><span class="wt gar">If God is merciful, why is there suffering?</span><span class="wk">A question taken seriously</span></span><svg class="arrow ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="writing" href="#writings"><span class="wn display">ii</span><span><span class="wt gar">What the Qur'an says about Jesus, son of Mary</span><span class="wk">A deep reading</span></span><svg class="arrow ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="writing" href="#writings"><span class="wn display">iii</span><span><span class="wt gar">So you want to learn about Islam. Begin here.</span><span class="wk">A gentle map for the curious</span></span><svg class="arrow ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== COLOPHON ======== -->
+<footer class="colophon" id="support">
+  <div class="wrap col" style="max-width:640px">
+    <svg class="ico-lg" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>
+    <p class="note">This work is kept free by those who believe in it. Every book at the table, every seat in the course, is paid for by someone who once sat where you are sitting now. <span class="gold">Be the reason the next conversation happens.</span></p>
+    <a class="ill-btn" href="#support">Support this work</a>
+    <div class="meta">
+      <a href="#">Instagram</a><a href="#">YouTube</a><a href="#">Write to us</a>
+    </div>
+    <div class="addr">Completed at 1906 Nueces Street, Austin, Texas<br>Texas Dawah &middot; a student work, offered freely</div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var P=[
+      {k:'midnight',n:'Midnight',d:'Navy + Gold',c:['#0d1230','#e7c66b','#9bb4e8']},
+      {k:'olive',n:'Olive Manuscript',d:'Deep Olive + Sage',c:['#1d2416','#cdb968','#8a946f']},
+      {k:'cream',n:'Cream & Sage',d:'Off-white + Sage',c:['#f6f1e1','#c1851f','#4f7e6e']},
+      {k:'mocha',n:'Mocha Warmth',d:'Mocha + Tan',c:['#362116','#d8ad7c','#b06a45']},
+      {k:'aubergine',n:'Aubergine Nights',d:'Plum + Lilac',c:['#1f0f24','#e3c071','#c79bd6']},
+      {k:'geometric',n:'Geometric',d:'Teal + Gold',c:['#072d2b','#e7c66b','#46b89a']},
+      {k:'interfaith',n:'Interfaith',d:'Dusty Rose',c:['#e7d3c8','#9c5c41','#7d4631']},
+      {k:'minimal',n:'Minimal Mihrab',d:'Bone + Emerald',c:['#f4f1ea','#0c5440','#bfa15a']}
+    ];
+    var root=document.documentElement, KEY='txd-palette';
+    var NATIVE=root.getAttribute('data-palette')||'cream';
+    var valid=function(k){return P.some(function(p){return p.k===k})};
+    var wraps=[].slice.call(document.querySelectorAll('[data-txd-pal]'));
+    function label(k){var p=P.filter(function(x){return x.k===k})[0]||P[0];return p.n}
+    function render(cur){wraps.forEach(function(w){
+      var nm=w.querySelector('.txd-pal-name'); if(nm) nm.textContent=label(cur);
+      var menu=w.querySelector('.txd-pal-menu');
+      if(menu && !menu.dataset.built){P.forEach(function(p){
+        var b=document.createElement('button'); b.type='button'; b.className='txd-pal-opt';
+        b.setAttribute('role','option'); b.dataset.pal=p.k;
+        b.innerHTML='<span class="sw" style="--a:'+p.c[0]+';--b:'+p.c[1]+';--c:'+p.c[2]+'"></span><span class="nm">'+p.n+'<small>'+p.d+'</small></span>';
+        b.addEventListener('click',function(){set(p.k,true);close();}); menu.appendChild(b);
+      }); menu.dataset.built='1';}
+      [].slice.call(w.querySelectorAll('.txd-pal-opt')).forEach(function(o){o.setAttribute('aria-selected',o.dataset.pal===cur?'true':'false');});
+    });}
+    function set(k,persist){if(!valid(k))k=NATIVE; root.setAttribute('data-palette',k);
+      if(persist){try{localStorage.setItem(KEY,k)}catch(e){}} render(k);}
+    function openW(w){w.classList.add('open');var b=w.querySelector('.txd-pal-btn');if(b)b.setAttribute('aria-expanded','true')}
+    function close(){wraps.forEach(function(w){w.classList.remove('open');var b=w.querySelector('.txd-pal-btn');if(b)b.setAttribute('aria-expanded','false')})}
+    wraps.forEach(function(w){var btn=w.querySelector('.txd-pal-btn');
+      if(btn)btn.addEventListener('click',function(e){e.stopPropagation();var o=w.classList.contains('open');close();if(!o)openW(w);});});
+    document.addEventListener('click',function(e){if(!e.target.closest('[data-txd-pal]'))close()});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+    window.addEventListener('message',function(e){var d=e&&e.data;if(d&&d.txdPalette){set(d.txdPalette,false)}});
+    var params=new URLSearchParams(location.search), q=params.get('palette'), initial;
+    if(q==='native'){initial=NATIVE} else if(q&&valid(q)){initial=q}
+    else{var st;try{st=localStorage.getItem(KEY)}catch(e){} initial=(st&&valid(st))?st:NATIVE}
+    set(initial,false);
+  })();
+</script>
+</body>
+</html>

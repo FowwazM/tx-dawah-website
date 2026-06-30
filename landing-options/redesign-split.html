@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="aubergine">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Dawah - Redesign: Split Spread</title>
+<meta name="description" content="Texas Dawah, a student-led Muslim community in Austin sharing the message of Islam with knowledge and beautiful character. A persistent cover, and the work read chapter by chapter.">
+<script>document.documentElement.className += ' js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Quicksand:wght@400;500;600;700&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+<style id="txd-palettes">
+[data-palette="midnight"]{--p-bg:#0d1230;--p-surface:#161d44;--p-surface-2:#1d2662;--p-ink:#eef1fb;--p-muted:#aab4dc;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#15183a;--p-accent-2:#9bb4e8;--p-accent-3:#9bb4e8;--p-line:rgba(155,180,232,.16);--p-line-2:rgba(155,180,232,.30);--p-band:#090d24;--p-band-ink:#eef1fb;--p-overlay:rgba(13,18,48,.6)}
+[data-palette="olive"]{--p-bg:#1d2416;--p-surface:#28311e;--p-surface-2:#323d26;--p-ink:#ebeed6;--p-muted:#b3bb95;--p-accent:#cdb968;--p-accent-deep:#b6a24f;--p-accent-ink:#1d2416;--p-accent-2:#8a946f;--p-accent-3:#8a946f;--p-line:rgba(235,238,214,.14);--p-line-2:rgba(235,238,214,.26);--p-band:#161c10;--p-band-ink:#ebeed6;--p-overlay:rgba(29,36,22,.6)}
+[data-palette="cream"]{--p-bg:#f6f1e1;--p-surface:#fffdf7;--p-surface-2:#efe8d4;--p-ink:#24302a;--p-muted:#54604f;--p-accent:#c1851f;--p-accent-deep:#9f6e16;--p-accent-ink:#22150a;--p-accent-2:#4f7e6e;--p-accent-3:#cf5d42;--p-line:rgba(36,48,42,.14);--p-line-2:rgba(36,48,42,.26);--p-band:#3a5e52;--p-band-ink:#f4efe0;--p-overlay:rgba(36,48,42,.34)}
+[data-palette="mocha"]{--p-bg:#362116;--p-surface:#48301f;--p-surface-2:#5a3c27;--p-ink:#f1e3d4;--p-muted:#c9ab93;--p-accent:#d8ad7c;--p-accent-deep:#c0925f;--p-accent-ink:#2a1810;--p-accent-2:#b06a45;--p-accent-3:#b06a45;--p-line:rgba(241,227,212,.14);--p-line-2:rgba(241,227,212,.26);--p-band:#251610;--p-band-ink:#f1e3d4;--p-overlay:rgba(40,24,16,.58)}
+[data-palette="aubergine"]{--p-bg:#1f0f24;--p-surface:#2e1834;--p-surface-2:#3a1f42;--p-ink:#f3e7f1;--p-muted:#c6a6cb;--p-accent:#e3c071;--p-accent-deep:#cda74f;--p-accent-ink:#1c0c20;--p-accent-2:#c79bd6;--p-accent-3:#c79bd6;--p-line:rgba(243,231,241,.13);--p-line-2:rgba(243,231,241,.26);--p-band:#170a1b;--p-band-ink:#f3e7f1;--p-overlay:rgba(31,15,36,.6)}
+[data-palette="geometric"]{--p-bg:#072d2b;--p-surface:#0d3c39;--p-surface-2:#124a46;--p-ink:#e8f3ee;--p-muted:#8fc1b4;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#07221f;--p-accent-2:#46b89a;--p-accent-3:#46b89a;--p-line:rgba(232,243,238,.14);--p-line-2:rgba(232,243,238,.26);--p-band:#04201e;--p-band-ink:#e8f3ee;--p-overlay:rgba(7,45,43,.6)}
+[data-palette="interfaith"]{--p-bg:#e7d3c8;--p-surface:#f1e3da;--p-surface-2:#ddc6b8;--p-ink:#2b211c;--p-muted:#7a6253;--p-accent:#9c5c41;--p-accent-deep:#7d4631;--p-accent-ink:#f7efe9;--p-accent-2:#7d4631;--p-accent-3:#9c5c41;--p-line:rgba(43,33,28,.15);--p-line-2:rgba(43,33,28,.26);--p-band:#211a17;--p-band-ink:#f1e7df;--p-overlay:rgba(43,28,20,.42)}
+[data-palette="minimal"]{--p-bg:#f4f1ea;--p-surface:#ffffff;--p-surface-2:#ebe7dc;--p-ink:#16130f;--p-muted:#6b6457;--p-accent:#0c5440;--p-accent-deep:#0a4435;--p-accent-ink:#f4f1ea;--p-accent-2:#bfa15a;--p-accent-3:#0c5440;--p-line:rgba(22,19,15,.12);--p-line-2:rgba(22,19,15,.22);--p-band:#0c5440;--p-band-ink:#f4f1ea;--p-overlay:rgba(12,40,33,.4)}
+</style>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--ease:cubic-bezier(.23,1,.32,1);--panelw:42vw}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--p-bg);color:var(--p-ink);
+    font-family:'Quicksand',system-ui,sans-serif;font-weight:500;font-size:16px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .display{font-family:'Yeseva One',serif;font-weight:400}
+  .ar{font-family:'Amiri',serif}
+  .label{font-family:'Quicksand',sans-serif;text-transform:uppercase;letter-spacing:.26em;
+    font-size:.66rem;font-weight:600;line-height:1.5}
+  .num{font-variant-numeric:tabular-nums;letter-spacing:.02em}
+
+  /* ====================== SPREAD ARMATURE ====================== */
+  .spread{display:grid;grid-template-columns:var(--panelw) 1fr;min-height:100dvh}
+
+  /* ---------- LEFT: persistent cover ---------- */
+  .panel{position:sticky;top:0;align-self:start;height:100dvh;overflow:auto;
+    /* band accent stays visible even where --p-accent equals --p-band (minimal) */
+    --band-accent:color-mix(in srgb,var(--p-accent) 60%,var(--p-band-ink) 40%);
+    background:var(--p-band);color:var(--p-band-ink);
+    display:flex;flex-direction:column;justify-content:space-between;gap:1.4rem;
+    padding:clamp(1.7rem,2.6vw,2.9rem) clamp(1.7rem,2.8vw,3rem);
+    box-shadow:inset -1px 0 0 var(--band-accent)}
+  .panel-bg{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+  .panel-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:grayscale(1) contrast(1.04) brightness(.9);opacity:.2;mix-blend-mode:luminosity}
+  .panel-veil{position:absolute;inset:0;
+    background:linear-gradient(155deg,color-mix(in srgb,var(--p-band) 20%,transparent) 0%,var(--p-band) 78%)}
+  .panel-geo{position:absolute;top:-60px;left:-60px;width:calc(100% + 120px);height:calc(100% + 120px);
+    color:var(--p-accent);opacity:.13;will-change:transform;animation:drift 64s linear infinite}
+  @keyframes drift{to{transform:translate(-72px,-72px)}}
+  @media (prefers-reduced-motion:reduce){.panel-geo{animation:none}}
+  .panel > *{position:relative;z-index:1}
+
+  /* panel head */
+  .panel-head{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .brand{display:inline-flex;align-items:center;gap:.6rem;color:var(--p-band-ink)}
+  .brand .emblem{width:34px;height:34px;color:var(--band-accent);flex:none}
+  .brand .wm{font-family:'Yeseva One',serif;font-size:1.18rem;letter-spacing:.01em;line-height:1}
+  .brand .wm small{display:block;font-family:'Quicksand',sans-serif;font-weight:600;text-transform:uppercase;
+    letter-spacing:.28em;font-size:.52rem;color:color-mix(in srgb,var(--p-band-ink) 64%,transparent);margin-top:.3rem}
+
+  /* panel cover body */
+  .cover{display:flex;flex-direction:column;gap:1.15rem;max-width:30rem}
+  .cover .kicker{display:flex;align-items:center;gap:.85rem;color:color-mix(in srgb,var(--p-band-ink) 70%,transparent)}
+  .cover .kicker .ar{font-family:'Amiri',serif;font-size:1.4rem;color:var(--band-accent);direction:rtl;line-height:1}
+  .cover .kicker .ln{flex:1;height:1px;background:color-mix(in srgb,var(--p-band-ink) 24%,transparent)}
+  .cover h1{font-family:'Yeseva One',serif;font-weight:400;color:var(--p-band-ink);
+    font-size:clamp(2.1rem,3.5vw,3.35rem);line-height:1.06;letter-spacing:.005em}
+  .cover h1 em{font-style:normal;color:var(--band-accent)}
+  .cover .mission{color:color-mix(in srgb,var(--p-band-ink) 84%,transparent);
+    font-size:clamp(.96rem,1.05vw,1.06rem);line-height:1.62;max-width:34ch}
+  .cover .acts{display:flex;align-items:center;gap:1.3rem;flex-wrap:wrap;margin-top:.3rem}
+
+  /* elegant actions (no pill, no arrow) */
+  .plate{position:relative;display:inline-flex;align-items:center;gap:.7rem;
+    font-family:'Quicksand',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.2em;font-size:.71rem;
+    color:var(--p-accent-ink);background:var(--p-accent);border:1px solid var(--p-accent);
+    padding:.95rem 1.55rem;cursor:pointer;
+    box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--p-accent-ink) 24%,transparent),
+      inset 0 0 0 4px color-mix(in srgb,var(--p-accent) 100%,transparent);
+    transition:background .3s var(--ease),color .3s var(--ease),transform .12s var(--ease)}
+  .plate .pip{width:6px;height:6px;background:var(--p-accent-ink);transform:rotate(45deg);transition:background .3s var(--ease)}
+  .plate:hover{background:transparent;color:var(--p-accent)}
+  .plate:hover .pip{background:var(--p-accent)}
+  .plate:active{transform:translateY(1px)}
+
+  .quiet{position:relative;font-family:'Quicksand',sans-serif;font-weight:600;letter-spacing:.04em;
+    color:var(--p-band-ink);padding-bottom:3px;background-image:linear-gradient(var(--p-accent),var(--p-accent));
+    background-repeat:no-repeat;background-position:0 100%;background-size:100% 1px;
+    transition:background-size .35s var(--ease),color .25s var(--ease)}
+  .quiet:hover{color:var(--p-accent);background-size:100% 2px}
+  .read .quiet{color:var(--p-ink)}
+  /* band-scoped action tints (so accent never collapses into the band) */
+  .panel .plate{border-color:var(--band-accent)}
+  .panel .plate:hover{background:transparent;color:var(--band-accent)}
+  .panel .plate:hover .pip{background:var(--band-accent)}
+  .panel .quiet{background-image:linear-gradient(var(--band-accent),var(--band-accent))}
+  .panel .quiet:hover{color:var(--band-accent)}
+
+  /* contents rail = scroll reflection */
+  .rail-wrap{display:flex;gap:1.05rem;align-items:stretch}
+  .prog{position:relative;width:2px;flex:none;background:color-mix(in srgb,var(--p-band-ink) 16%,transparent)}
+  .prog .fill{position:absolute;inset:0;background:var(--band-accent);transform-origin:top;transform:scaleY(0);
+    animation:prog linear forwards;animation-timeline:scroll(root block)}
+  @keyframes prog{to{transform:scaleY(1)}}
+  .rail{flex:1;display:flex;flex-direction:column;gap:.1rem}
+  .rail .rail-label{color:color-mix(in srgb,var(--p-band-ink) 56%,transparent);margin-bottom:.55rem}
+  .rail-row{display:flex;align-items:baseline;gap:.85rem;padding:.42rem 0;
+    color:color-mix(in srgb,var(--p-band-ink) 60%,transparent);transition:color .3s var(--ease),transform .3s var(--ease)}
+  .rail-row .rn{font-weight:700;font-size:.78rem;width:1.7rem;flex:none;color:color-mix(in srgb,var(--p-band-ink) 46%,transparent);transition:color .3s var(--ease)}
+  .rail-row .rt{font-family:'Yeseva One',serif;font-size:1.02rem;line-height:1}
+  .rail-row:hover{color:var(--p-band-ink)}
+  .rail-row.active{color:var(--p-band-ink);transform:translateX(3px)}
+  .rail-row.active .rn{color:var(--band-accent)}
+  .rail-row.active .rt{color:var(--p-band-ink)}
+
+  /* ---------- RIGHT: the reading ---------- */
+  .read{min-width:0;position:relative;
+    padding:clamp(2.6rem,5vw,5.2rem) clamp(1.7rem,4.4vw,5rem) clamp(3rem,6vw,5.5rem)}
+
+  .chapter{max-width:46rem;padding:clamp(3rem,7vh,5.2rem) 0;border-top:1px solid var(--p-line)}
+  .chapter:first-of-type{border-top:0;padding-top:clamp(2.2rem,5vh,3.4rem)}
+  .ch-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.8rem}
+  .ch-head .ch-no{font-family:'Quicksand',sans-serif;font-weight:700;color:var(--p-accent);
+    font-size:.78rem;letter-spacing:.16em;border:1px solid color-mix(in srgb,var(--p-accent) 50%,transparent);
+    padding:.32rem .55rem;line-height:1}
+  .ch-head h2{font-family:'Yeseva One',serif;font-weight:400;color:var(--p-ink);
+    font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.04}
+  .ch-intro{color:var(--p-muted);font-size:1.04rem;line-height:1.7;max-width:54ch;margin-bottom:2rem}
+  .ch-intro b{color:var(--p-ink);font-weight:600}
+
+  /* CH1 programs ledger */
+  .prog-list{display:flex;flex-direction:column}
+  .prog-item{display:grid;grid-template-columns:2.4rem 1fr auto;gap:.4rem 1.3rem;align-items:baseline;
+    padding:1.45rem 0;border-bottom:1px solid var(--p-line);transition:padding-left .3s var(--ease)}
+  .prog-item:first-child{border-top:1px solid var(--p-line)}
+  .prog-item:hover{padding-left:.5rem}
+  .prog-item .pn{font-family:'Quicksand',sans-serif;font-weight:700;color:var(--p-accent);font-size:.9rem;grid-row:1}
+  .prog-item h3{font-family:'Yeseva One',serif;font-weight:400;color:var(--p-ink);font-size:1.42rem;line-height:1.12;grid-row:1}
+  .prog-item .when{grid-row:1;text-align:right;color:var(--p-accent-deep);
+    font-family:'Quicksand',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.66rem;white-space:nowrap}
+  .prog-item p{grid-column:2/4;color:var(--p-muted);font-size:1rem;line-height:1.6;margin-top:.45rem;max-width:52ch}
+  .prog-item .where{grid-column:2/4;font-family:'Quicksand',sans-serif;font-weight:600;text-transform:uppercase;
+    letter-spacing:.14em;font-size:.6rem;color:color-mix(in srgb,var(--p-ink) 56%,transparent);margin-top:.6rem}
+  @media (max-width:560px){
+    .prog-item{grid-template-columns:2rem 1fr}
+    .prog-item .when{grid-column:2;grid-row:auto;text-align:left;margin-top:.5rem}
+    .prog-item p,.prog-item .where{grid-column:1/3}
+  }
+
+  /* CH2 course feature */
+  .course{position:relative;background:var(--p-surface);
+    border:1px solid color-mix(in srgb,var(--p-accent) 42%,transparent);
+    border-top-left-radius:46% 90px;border-top-right-radius:46% 90px;
+    padding:clamp(2.4rem,4vw,3.4rem) clamp(1.7rem,3.4vw,3rem) clamp(2rem,3.4vw,2.8rem);overflow:hidden}
+  .course::before{content:"";position:absolute;inset:7px;pointer-events:none;
+    border:1px solid color-mix(in srgb,var(--p-accent) 26%,transparent);
+    border-top-left-radius:44% 82px;border-top-right-radius:44% 82px}
+  .course .iqra{font-family:'Amiri',serif;color:var(--p-accent);font-size:clamp(2rem,4vw,2.8rem);line-height:1;direction:rtl;text-align:center}
+  .course h3{font-family:'Yeseva One',serif;font-weight:400;color:var(--p-ink);text-align:center;
+    font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.06;margin:.7rem 0 .35rem}
+  .course .free{text-align:center;color:var(--p-accent-deep);font-weight:600;letter-spacing:.04em;font-size:.98rem}
+  .course p.body{color:var(--p-muted);text-align:center;max-width:42ch;margin:1rem auto 0;font-size:1.02rem;line-height:1.65}
+  .course .parts{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin:1.6rem 0 1.8rem}
+  .course .parts li{list-style:none;font-family:'Quicksand',sans-serif;font-weight:600;font-size:.66rem;
+    text-transform:uppercase;letter-spacing:.12em;color:var(--p-muted);
+    border:1px solid var(--p-line-2);padding:.42rem .7rem}
+  .course .cta{display:flex;justify-content:center}
+
+  /* CH3 writings index */
+  .writings{display:flex;flex-direction:column}
+  .writing{display:flex;align-items:baseline;gap:.95rem;padding:1.15rem 0;border-bottom:1px solid var(--p-line);
+    transition:padding-left .3s var(--ease)}
+  .writing:first-child{border-top:1px solid var(--p-line)}
+  .writing:hover{padding-left:.45rem}
+  .writing .wn{font-family:'Yeseva One',serif;color:var(--p-accent-deep);font-size:1.05rem;width:2rem;flex:none;line-height:1.3}
+  .writing .wt{color:var(--p-ink);font-size:1.12rem;font-weight:500;line-height:1.35}
+  .writing .ldr{flex:1;align-self:center;height:1px;background-image:linear-gradient(90deg,var(--p-line-2) 30%,transparent 0);
+    background-size:6px 1px;min-width:1.5rem}
+  .writing .wk{font-family:'Quicksand',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.14em;
+    font-size:.6rem;color:var(--p-muted);white-space:nowrap}
+  .writing:hover .wt{color:var(--p-accent)}
+  @media (max-width:560px){.writing .ldr{display:none}.writing{flex-wrap:wrap;gap:.3rem .9rem}.writing .wt{flex:1}}
+
+  /* CH4 support + footer */
+  .support h3{font-family:'Yeseva One',serif;font-weight:400;color:var(--p-ink);
+    font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.1;margin-bottom:1rem;max-width:20ch}
+  .support p{color:var(--p-muted);font-size:1.06rem;line-height:1.7;max-width:50ch;margin-bottom:1.7rem}
+  .support p .gold{color:var(--p-accent-deep);font-weight:600}
+  .support .acts{display:flex;align-items:center;gap:1.3rem;flex-wrap:wrap}
+  .colophon{margin-top:clamp(2.6rem,6vh,4rem);padding-top:clamp(2rem,4vh,2.6rem);border-top:1px solid var(--p-line);
+    display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:1.6rem 2rem}
+  .colophon h4{font-family:'Quicksand',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.18em;
+    font-size:.6rem;color:var(--p-muted);margin-bottom:.85rem}
+  .colophon .blurb{color:var(--p-muted);font-size:.92rem;line-height:1.6;max-width:32ch}
+  .colophon .blurb .emblem{width:30px;height:30px;color:var(--p-accent);margin-bottom:.7rem;display:block}
+  .colophon a{display:block;color:var(--p-ink);padding:.22rem 0;transition:color .2s var(--ease)}
+  .colophon a:hover{color:var(--p-accent)}
+  .end{margin-top:clamp(2rem,4vh,2.8rem);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
+    font-family:'Quicksand',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:.6rem;color:var(--p-muted)}
+  @media (max-width:620px){.colophon{grid-template-columns:1fr 1fr}.colophon .blurb{grid-column:1/-1}}
+
+  /* ====================== REVEALS ====================== */
+  .js [data-reveal]{opacity:0;transform:translateY(22px);
+    transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .js [data-reveal].in{opacity:1;transform:none}
+  .js [data-reveal="clip"]{transform:none;clip-path:inset(0 100% 0 0)}
+  .js [data-reveal="clip"].in{clip-path:inset(0 0 0 0)}
+  .js [data-reveal="slide"]{transform:translateX(-26px)}
+  .js [data-reveal="scale"]{transform:scale(.965)}
+  .js [data-reveal] [data-stagger]{opacity:0;transform:translateY(16px);
+    transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .js [data-reveal].in [data-stagger]{opacity:1;transform:none}
+  .js [data-reveal].in [data-stagger]:nth-child(2){transition-delay:.07s}
+  .js [data-reveal].in [data-stagger]:nth-child(3){transition-delay:.14s}
+  .js [data-reveal].in [data-stagger]:nth-child(4){transition-delay:.21s}
+  .js [data-reveal].in [data-stagger]:nth-child(5){transition-delay:.28s}
+  @media (prefers-reduced-motion:reduce){
+    .js [data-reveal],.js [data-reveal].in,
+    .js [data-reveal] [data-stagger]{opacity:1;transform:none;clip-path:none;transition:none}
+  }
+
+  /* ====================== STACK (mobile) ====================== */
+  @media (max-width:880px){
+    .spread{grid-template-columns:1fr}
+    .panel{position:static;height:auto;min-height:100dvh;overflow:visible;
+      justify-content:center;gap:2.1rem;box-shadow:none;
+      padding:clamp(1.8rem,7vw,2.6rem) clamp(1.5rem,6vw,2.2rem) clamp(2.4rem,9vw,3.2rem)}
+    .panel-geo{animation-duration:84s}
+    .prog{display:none}
+    .cover{max-width:36rem}
+  }
+
+  /* ====================== PALETTE SWITCHER ====================== */
+  .txd-pal{position:relative;font-family:'Quicksand',sans-serif;z-index:60}
+  .txd-pal-btn{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;background:transparent;
+    border:1px solid var(--p-line-2);color:var(--p-muted);padding:.42rem .68rem;font-size:.6rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.16em;transition:border-color .2s ease,color .2s ease}
+  .txd-pal-btn:hover{border-color:var(--p-accent);color:var(--p-ink)}
+  .txd-pal-sw{width:28px;height:11px;display:inline-block;border:1px solid var(--p-line-2);
+    background:linear-gradient(90deg,var(--p-bg) 0 33%,var(--p-accent) 33% 66%,var(--p-accent-2) 66% 100%)}
+  .txd-pal-cv{width:11px;height:11px;opacity:.7}
+  .txd-pal-menu{position:absolute;top:calc(100% + 7px);right:0;min-width:244px;max-width:calc(100vw - 32px);
+    background:var(--p-surface);border:1px solid var(--p-accent);padding:.35rem;
+    box-shadow:0 22px 48px rgba(0,0,0,.3);opacity:0;visibility:hidden;transform:translateY(-6px);
+    transition:opacity .18s ease,transform .18s ease,visibility .18s ease;max-height:74vh;overflow:auto}
+  .txd-pal.open .txd-pal-menu{opacity:1;visibility:visible;transform:none}
+  .txd-pal-opt{display:flex;align-items:center;gap:.7rem;width:100%;text-align:left;cursor:pointer;background:none;border:0;
+    color:var(--p-ink);padding:.5rem .55rem;font-size:.82rem;font-family:'Quicksand',sans-serif;font-weight:600}
+  .txd-pal-opt:hover{background:color-mix(in srgb,var(--p-ink) 8%,transparent)}
+  .txd-pal-opt[aria-selected="true"]{background:color-mix(in srgb,var(--p-accent) 18%,transparent)}
+  .txd-pal-opt .sw{width:28px;height:16px;flex:none;border:1px solid var(--p-line-2);
+    background:linear-gradient(90deg,var(--a) 0 50%,var(--b) 50% 80%,var(--c) 80% 100%)}
+  .txd-pal-opt .nm{display:flex;flex-direction:column;line-height:1.2}
+  .txd-pal-opt .nm small{opacity:.62;font-size:.58rem;letter-spacing:.06em;margin-top:2px;text-transform:uppercase}
+  /* switcher sits on the dark cover band, so re-tint to band ink */
+  .panel .txd-pal-btn{color:color-mix(in srgb,var(--p-band-ink) 78%,transparent);
+    border-color:color-mix(in srgb,var(--p-band-ink) 26%,transparent)}
+  .panel .txd-pal-btn:hover{color:var(--p-band-ink);border-color:var(--p-accent)}
+  .panel .txd-pal-sw{border-color:color-mix(in srgb,var(--p-band-ink) 26%,transparent)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 64 64">
+    <circle cx="32" cy="39" r="18.5" stroke="currentColor" stroke-width="1.4" fill="none" opacity="0.8"/>
+    <path d="M31 7c7.2 3.3-3.6 11.4 3 16.5 6.4 5 -4.4 9.7 1.4 15.2 4 3.8 9.4 2.3 12-1.2" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M31 7c-1.6 1.9-1.4 4.2 .4 6.2" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+    <rect x="26.4" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 29.1 42.9)" fill="currentColor"/>
+    <rect x="33.6" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 36.3 42.9)" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<main class="spread">
+
+  <!-- ============ LEFT: persistent cover ============ -->
+  <aside class="panel" aria-label="Texas Dawah cover">
+    <div class="panel-bg" aria-hidden="true">
+      <img class="panel-img" src="https://picsum.photos/seed/txd-spread-cover/1100/1500" alt="" loading="lazy">
+      <div class="panel-veil"></div>
+      <svg class="panel-geo" preserveAspectRatio="xMidYMid slice" viewBox="0 0 432 432">
+        <defs>
+          <pattern id="stars" width="72" height="72" patternUnits="userSpaceOnUse">
+            <g fill="none" stroke="currentColor" stroke-width="1.1">
+              <rect x="20" y="20" width="32" height="32"/>
+              <rect x="20" y="20" width="32" height="32" transform="rotate(45 36 36)"/>
+              <circle cx="36" cy="36" r="5.5"/>
+              <rect x="-16" y="-16" width="32" height="32"/>
+              <rect x="-16" y="-16" width="32" height="32" transform="rotate(45 0 0)"/>
+              <rect x="56" y="-16" width="32" height="32"/>
+              <rect x="56" y="-16" width="32" height="32" transform="rotate(45 72 0)"/>
+              <rect x="-16" y="56" width="32" height="32"/>
+              <rect x="-16" y="56" width="32" height="32" transform="rotate(45 0 72)"/>
+              <rect x="56" y="56" width="32" height="32"/>
+              <rect x="56" y="56" width="32" height="32" transform="rotate(45 72 72)"/>
+            </g>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#stars)"/>
+      </svg>
+    </div>
+
+    <div class="panel-head">
+      <a class="brand" href="#cover" aria-label="Texas Dawah">
+        <svg class="emblem" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>
+        <span class="wm">Texas Dawah<small>Austin, Texas</small></span>
+      </a>
+      <div class="txd-pal" data-txd-pal>
+        <button class="txd-pal-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Switch color palette">
+          <span class="txd-pal-sw" aria-hidden="true"></span><span class="txd-pal-name">Palette</span>
+          <svg class="txd-pal-cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="txd-pal-menu" role="listbox" aria-label="Color palette"></div>
+      </div>
+    </div>
+
+    <div class="cover" id="cover">
+      <div class="kicker">
+        <span class="ar">دعوة</span>
+        <span class="label">An invitation, kept open</span>
+        <span class="ln" aria-hidden="true"></span>
+      </div>
+      <h1 class="display">The truth, offered freely. <em>Never forced.</em></h1>
+      <p class="mission">We are a student-led Muslim community at the University of Texas, sharing the message of Islam in Austin with knowledge, patience, and beautiful character. We set a table on the Drag, open our books, and answer the questions people actually carry. You are welcome here, whatever you believe.</p>
+      <div class="acts">
+        <a class="plate" href="#ch4"><span class="pip" aria-hidden="true"></span>Support the dawah</a>
+        <a class="quiet" href="#ch1">Our mission</a>
+      </div>
+    </div>
+
+    <div class="rail-wrap">
+      <div class="prog" aria-hidden="true"><span class="fill"></span></div>
+      <nav class="rail" aria-label="Chapters">
+        <span class="rail-label label">The reading</span>
+        <a class="rail-row" data-rail="ch1" href="#ch1"><span class="rn num">01</span><span class="rt">What we do</span></a>
+        <a class="rail-row" data-rail="ch2" href="#ch2"><span class="rn num">02</span><span class="rt">The free course</span></a>
+        <a class="rail-row" data-rail="ch3" href="#ch3"><span class="rn num">03</span><span class="rt">The writings</span></a>
+        <a class="rail-row" data-rail="ch4" href="#ch4"><span class="rn num">04</span><span class="rt">Support the work</span></a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- ============ RIGHT: the reading ============ -->
+  <div class="read">
+    <!-- CHAPTER 01 -->
+    <section class="chapter" id="ch1" data-chapter="ch1">
+      <div class="ch-head" data-reveal="clip">
+        <span class="ch-no num">01</span>
+        <h2 class="display">What we do</h2>
+      </div>
+      <p class="ch-intro" data-reveal>Every program is a different door into the same conversation. Some are for the curious who arrive with questions. Some are for Muslims who want to learn to invite well. <b>All of them are free, and all of them are open.</b></p>
+      <div class="prog-list" data-reveal>
+        <article class="prog-item" data-stagger>
+          <span class="pn num">01</span>
+          <h3 class="display">Dawah tabling</h3>
+          <span class="when">Weekly</span>
+          <p>Free books, cold water, and an honest answer to any question, set up in the busiest corner of campus.</p>
+          <span class="where">West Mall, the Drag</span>
+        </article>
+        <article class="prog-item" data-stagger>
+          <span class="pn num">02</span>
+          <h3 class="display">Dawah training</h3>
+          <span class="when">Thursdays, 8 PM</span>
+          <p>A weekly circle where students learn to share Islam with confidence and care. No experience asked of you, only willingness.</p>
+          <span class="where">1906 Nueces Street</span>
+        </article>
+        <article class="prog-item" data-stagger>
+          <span class="pn num">03</span>
+          <h3 class="display">Interfaith iftars</h3>
+          <span class="when">Each Ramadan</span>
+          <p>We break bread with neighbors of every faith and let the table do what arguments rarely can.</p>
+          <span class="where">Nueces Mosque</span>
+        </article>
+        <article class="prog-item" data-stagger>
+          <span class="pn num">04</span>
+          <h3 class="display">Book club and lectures</h3>
+          <span class="when">Monthly</span>
+          <p>Slow reading on faith and doubt, with visiting scholars. A recent guest series: "What did Jesus really say?"</p>
+          <span class="where">On campus, with guests</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- CHAPTER 02 -->
+    <section class="chapter" id="ch2" data-chapter="ch2">
+      <div class="ch-head" data-reveal="clip">
+        <span class="ch-no num">02</span>
+        <h2 class="display">The free course</h2>
+      </div>
+      <p class="ch-intro" data-reveal>If the table starts the conversation, the course is where it deepens. A clear walk through the evidence behind the message, built for the curious and the questioning alike.</p>
+      <div class="course" data-reveal="scale">
+        <div class="iqra ar">اقْرَأْ</div>
+        <h3 class="display">Why Islam Is True</h3>
+        <p class="free">A six-part course, offered freely to all.</p>
+        <p class="body">Walk through the case for belief at your own pace: the Qur'an, the prophethood, suffering and meaning, and the questions that keep honest people up at night.</p>
+        <ul class="parts">
+          <li>01 The Qur'an</li>
+          <li>02 Prophethood</li>
+          <li>03 The case for God</li>
+          <li>04 Suffering</li>
+          <li>05 Jesus in Islam</li>
+          <li>06 Where to begin</li>
+        </ul>
+        <div class="cta"><a class="plate" href="#ch2"><span class="pip" aria-hidden="true"></span>Start the free course</a></div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 03 -->
+    <section class="chapter" id="ch3" data-chapter="ch3">
+      <div class="ch-head" data-reveal="clip">
+        <span class="ch-no num">03</span>
+        <h2 class="display">The writings</h2>
+      </div>
+      <p class="ch-intro" data-reveal>Questions taken seriously, in plain language. A few pieces from the blog to read between classes.</p>
+      <div class="writings" data-reveal="slide">
+        <a class="writing" href="#ch3" data-stagger>
+          <span class="wn display">i</span>
+          <span class="wt">If God is merciful, why is there suffering?</span>
+          <span class="ldr" aria-hidden="true"></span>
+          <span class="wk">A question</span>
+        </a>
+        <a class="writing" href="#ch3" data-stagger>
+          <span class="wn display">ii</span>
+          <span class="wt">What the Qur'an says about Jesus, son of Mary</span>
+          <span class="ldr" aria-hidden="true"></span>
+          <span class="wk">Deep reading</span>
+        </a>
+        <a class="writing" href="#ch3" data-stagger>
+          <span class="wn display">iii</span>
+          <span class="wt">So you want to learn about Islam. Begin here.</span>
+          <span class="ldr" aria-hidden="true"></span>
+          <span class="wk">A primer</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CHAPTER 04 -->
+    <section class="chapter support" id="ch4" data-chapter="ch4">
+      <div class="ch-head" data-reveal="clip">
+        <span class="ch-no num">04</span>
+        <h2 class="display">Support the work</h2>
+      </div>
+      <div data-reveal>
+        <h3 class="display">Every book at the table was paid for by someone who once sat where you are.</h3>
+        <p>This work is kept free by those who believe in it. Each seat in the course, each book passed across the table, is held open by a gift. <span class="gold">Be the reason the next conversation happens.</span></p>
+        <div class="acts">
+          <a class="plate" href="#ch4"><span class="pip" aria-hidden="true"></span>Support the dawah</a>
+          <a class="quiet" href="#ch2">Start the free course</a>
+        </div>
+      </div>
+
+      <footer class="colophon" data-reveal>
+        <div class="blurb">
+          <svg class="emblem" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>
+          <p>Texas Dawah, a student work offered freely from 1906 Nueces Street, Austin, Texas.</p>
+        </div>
+        <div>
+          <h4>The reading</h4>
+          <a href="#ch1">01 &nbsp; What we do</a>
+          <a href="#ch2">02 &nbsp; The free course</a>
+          <a href="#ch3">03 &nbsp; The writings</a>
+          <a href="#ch4">04 &nbsp; Support the work</a>
+        </div>
+        <div>
+          <h4>Find us</h4>
+          <a href="#ch4">Instagram</a>
+          <a href="#ch4">YouTube</a>
+          <a href="#ch4">Write to us</a>
+          <a href="#ch4">1906 Nueces St</a>
+        </div>
+      </footer>
+      <div class="end">
+        <span>&copy; 2026 Texas Dawah</span>
+        <span>Set and kept in Austin, Texas</span>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script>
+  (function(){
+    var P=[
+      {k:'midnight',n:'Midnight',d:'Navy + Gold',c:['#0d1230','#e7c66b','#9bb4e8']},
+      {k:'olive',n:'Olive Manuscript',d:'Deep Olive + Sage',c:['#1d2416','#cdb968','#8a946f']},
+      {k:'cream',n:'Cream & Sage',d:'Off-white + Sage',c:['#f6f1e1','#c1851f','#4f7e6e']},
+      {k:'mocha',n:'Mocha Warmth',d:'Mocha + Tan',c:['#362116','#d8ad7c','#b06a45']},
+      {k:'aubergine',n:'Aubergine Nights',d:'Plum + Lilac',c:['#1f0f24','#e3c071','#c79bd6']},
+      {k:'geometric',n:'Geometric',d:'Teal + Gold',c:['#072d2b','#e7c66b','#46b89a']},
+      {k:'interfaith',n:'Interfaith',d:'Dusty Rose',c:['#e7d3c8','#9c5c41','#7d4631']},
+      {k:'minimal',n:'Minimal Mihrab',d:'Bone + Emerald',c:['#f4f1ea','#0c5440','#bfa15a']}
+    ];
+    var root=document.documentElement, KEY='txd-palette';
+    var NATIVE=root.getAttribute('data-palette')||'aubergine';
+    var valid=function(k){return P.some(function(p){return p.k===k})};
+    var wraps=[].slice.call(document.querySelectorAll('[data-txd-pal]'));
+    function label(k){var p=P.filter(function(x){return x.k===k})[0]||P[0];return p.n}
+    function render(cur){wraps.forEach(function(w){
+      var nm=w.querySelector('.txd-pal-name'); if(nm) nm.textContent=label(cur);
+      var menu=w.querySelector('.txd-pal-menu');
+      if(menu && !menu.dataset.built){P.forEach(function(p){
+        var b=document.createElement('button'); b.type='button'; b.className='txd-pal-opt';
+        b.setAttribute('role','option'); b.dataset.pal=p.k;
+        b.innerHTML='<span class="sw" style="--a:'+p.c[0]+';--b:'+p.c[1]+';--c:'+p.c[2]+'"></span><span class="nm">'+p.n+'<small>'+p.d+'</small></span>';
+        b.addEventListener('click',function(){set(p.k,true);close();}); menu.appendChild(b);
+      }); menu.dataset.built='1';}
+      [].slice.call(w.querySelectorAll('.txd-pal-opt')).forEach(function(o){o.setAttribute('aria-selected',o.dataset.pal===cur?'true':'false');});
+    });}
+    function set(k,persist){if(!valid(k))k=NATIVE; root.setAttribute('data-palette',k);
+      if(persist){try{localStorage.setItem(KEY,k)}catch(e){}} render(k);}
+    function openW(w){w.classList.add('open');var b=w.querySelector('.txd-pal-btn');if(b)b.setAttribute('aria-expanded','true')}
+    function close(){wraps.forEach(function(w){w.classList.remove('open');var b=w.querySelector('.txd-pal-btn');if(b)b.setAttribute('aria-expanded','false')})}
+    wraps.forEach(function(w){var btn=w.querySelector('.txd-pal-btn');
+      if(btn)btn.addEventListener('click',function(e){e.stopPropagation();var o=w.classList.contains('open');close();if(!o)openW(w);});});
+    document.addEventListener('click',function(e){if(!e.target.closest('[data-txd-pal]'))close()});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+    window.addEventListener('message',function(e){var d=e&&e.data;if(d&&d.txdPalette){set(d.txdPalette,false)}});
+    var params=new URLSearchParams(location.search), q=params.get('palette'), initial;
+    if(q==='native'){initial=NATIVE} else if(q&&valid(q)){initial=q}
+    else{var st;try{st=localStorage.getItem(KEY)}catch(e){} initial=(st&&valid(st))?st:NATIVE}
+    set(initial,false);
+  })();
+
+  /* ---- reveals + active chapter (IntersectionObserver, no scroll listener) ---- */
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    var rev=document.querySelectorAll('[data-reveal]');
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{threshold:.16,rootMargin:'0px 0px -7% 0px'});
+    rev.forEach(function(el){io.observe(el);});
+
+    var rows={};
+    [].slice.call(document.querySelectorAll('[data-rail]')).forEach(function(r){rows[r.getAttribute('data-rail')]=r;});
+    var chs=[].slice.call(document.querySelectorAll('[data-chapter]'));
+    function activate(id){
+      for(var k in rows){rows[k].classList.toggle('active',k===id);}
+    }
+    var cio=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){activate(e.target.getAttribute('data-chapter'));}});
+    },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+    chs.forEach(function(c){cio.observe(c);});
+    if(chs.length){activate(chs[0].getAttribute('data-chapter'));}
+  })();
+</script>
+</body>
+</html>

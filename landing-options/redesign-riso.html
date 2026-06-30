@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="cream">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Dawah - Redesign: Riso Zine</title>
+<meta name="description" content="Texas Dawah, a hand-printed community dawah zine from Austin, Texas. Pull up a chair, whoever you are.">
+<script>document.documentElement.className += ' js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=League+Spartan:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style id="txd-palettes">
+[data-palette="midnight"]{--p-bg:#0d1230;--p-surface:#161d44;--p-surface-2:#1d2662;--p-ink:#eef1fb;--p-muted:#aab4dc;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#15183a;--p-accent-2:#9bb4e8;--p-accent-3:#9bb4e8;--p-line:rgba(155,180,232,.16);--p-line-2:rgba(155,180,232,.30);--p-band:#090d24;--p-band-ink:#eef1fb;--p-overlay:rgba(13,18,48,.6)}
+[data-palette="olive"]{--p-bg:#1d2416;--p-surface:#28311e;--p-surface-2:#323d26;--p-ink:#ebeed6;--p-muted:#b3bb95;--p-accent:#cdb968;--p-accent-deep:#b6a24f;--p-accent-ink:#1d2416;--p-accent-2:#8a946f;--p-accent-3:#8a946f;--p-line:rgba(235,238,214,.14);--p-line-2:rgba(235,238,214,.26);--p-band:#161c10;--p-band-ink:#ebeed6;--p-overlay:rgba(29,36,22,.6)}
+[data-palette="cream"]{--p-bg:#f6f1e1;--p-surface:#fffdf7;--p-surface-2:#efe8d4;--p-ink:#24302a;--p-muted:#54604f;--p-accent:#c1851f;--p-accent-deep:#9f6e16;--p-accent-ink:#22150a;--p-accent-2:#4f7e6e;--p-accent-3:#cf5d42;--p-line:rgba(36,48,42,.14);--p-line-2:rgba(36,48,42,.26);--p-band:#3a5e52;--p-band-ink:#f4efe0;--p-overlay:rgba(36,48,42,.34)}
+[data-palette="mocha"]{--p-bg:#362116;--p-surface:#48301f;--p-surface-2:#5a3c27;--p-ink:#f1e3d4;--p-muted:#c9ab93;--p-accent:#d8ad7c;--p-accent-deep:#c0925f;--p-accent-ink:#2a1810;--p-accent-2:#b06a45;--p-accent-3:#b06a45;--p-line:rgba(241,227,212,.14);--p-line-2:rgba(241,227,212,.26);--p-band:#251610;--p-band-ink:#f1e3d4;--p-overlay:rgba(40,24,16,.58)}
+[data-palette="aubergine"]{--p-bg:#1f0f24;--p-surface:#2e1834;--p-surface-2:#3a1f42;--p-ink:#f3e7f1;--p-muted:#c6a6cb;--p-accent:#e3c071;--p-accent-deep:#cda74f;--p-accent-ink:#1c0c20;--p-accent-2:#c79bd6;--p-accent-3:#c79bd6;--p-line:rgba(243,231,241,.13);--p-line-2:rgba(243,231,241,.26);--p-band:#170a1b;--p-band-ink:#f3e7f1;--p-overlay:rgba(31,15,36,.6)}
+[data-palette="geometric"]{--p-bg:#072d2b;--p-surface:#0d3c39;--p-surface-2:#124a46;--p-ink:#e8f3ee;--p-muted:#8fc1b4;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#07221f;--p-accent-2:#46b89a;--p-accent-3:#46b89a;--p-line:rgba(232,243,238,.14);--p-line-2:rgba(232,243,238,.26);--p-band:#04201e;--p-band-ink:#e8f3ee;--p-overlay:rgba(7,45,43,.6)}
+[data-palette="interfaith"]{--p-bg:#e7d3c8;--p-surface:#f1e3da;--p-surface-2:#ddc6b8;--p-ink:#2b211c;--p-muted:#7a6253;--p-accent:#9c5c41;--p-accent-deep:#7d4631;--p-accent-ink:#f7efe9;--p-accent-2:#7d4631;--p-accent-3:#9c5c41;--p-line:rgba(43,33,28,.15);--p-line-2:rgba(43,33,28,.26);--p-band:#211a17;--p-band-ink:#f1e7df;--p-overlay:rgba(43,28,20,.42)}
+[data-palette="minimal"]{--p-bg:#f4f1ea;--p-surface:#ffffff;--p-surface-2:#ebe7dc;--p-ink:#16130f;--p-muted:#6b6457;--p-accent:#0c5440;--p-accent-deep:#0a4435;--p-accent-ink:#f4f1ea;--p-accent-2:#bfa15a;--p-accent-3:#0c5440;--p-line:rgba(22,19,15,.12);--p-line-2:rgba(22,19,15,.22);--p-band:#0c5440;--p-band-ink:#f4f1ea;--p-overlay:rgba(12,40,33,.4)}
+</style>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--maxw:1180px;--ease:cubic-bezier(.23,1,.32,1)}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--p-bg);color:var(--p-ink);
+    font-family:'Quicksand',system-ui,sans-serif;font-weight:500;font-size:16px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  /* paper grain over the whole stock */
+  body::after{content:"";position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size:160px 160px}
+
+  .sp{font-family:'League Spartan',sans-serif}
+  .ar{font-family:'Amiri',serif}
+  .hand{font-family:'Kaushan Script',cursive;font-weight:400}
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(18px,5vw,46px);position:relative}
+  .label{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.18em;font-weight:700;font-size:.66rem}
+
+  /* ---- riso overprint: multiply on light stock, screen on dark stock ---- */
+  .op{mix-blend-mode:multiply}
+  [data-palette="midnight"] .op,[data-palette="olive"] .op,[data-palette="mocha"] .op,
+  [data-palette="aubergine"] .op,[data-palette="geometric"] .op{mix-blend-mode:screen}
+
+  /* ---- decorative ink + halftone ---- */
+  .deco{position:absolute;pointer-events:none;z-index:0}
+  .blob{border-radius:46% 54% 60% 40%/47% 42% 58% 53%}
+  .ink-1{background:color-mix(in srgb,var(--p-accent) 60%,transparent)}
+  .ink-2{background:color-mix(in srgb,var(--p-accent-2) 55%,transparent)}
+  .ink-3{background:color-mix(in srgb,var(--p-accent-3) 55%,transparent)}
+  .halftone{background-image:radial-gradient(currentColor 1.5px,transparent 1.7px);background-size:8px 8px}
+  .ht-acc{color:color-mix(in srgb,var(--p-accent) 75%,transparent)}
+  .ht-acc2{color:color-mix(in srgb,var(--p-accent-2) 72%,transparent)}
+  .ht-acc3{color:color-mix(in srgb,var(--p-accent-3) 72%,transparent)}
+  .fade-r{-webkit-mask-image:linear-gradient(90deg,#000,transparent);mask-image:linear-gradient(90deg,#000,transparent)}
+  .fade-l{-webkit-mask-image:linear-gradient(270deg,#000,transparent);mask-image:linear-gradient(270deg,#000,transparent)}
+  .fade-d{-webkit-mask-image:linear-gradient(180deg,#000,transparent);mask-image:linear-gradient(180deg,#000,transparent)}
+
+  /* ---- cut-paper clipping ---- */
+  .tilt{transform:rotate(var(--r,0deg))}
+  .clip{position:relative;background:var(--p-surface);color:var(--p-ink);
+    border:1.5px solid color-mix(in srgb,var(--p-ink) 78%,transparent);
+    filter:drop-shadow(5px 7px 0 color-mix(in srgb,var(--p-ink) 16%,transparent));
+    transition:transform .3s var(--ease),filter .3s var(--ease);will-change:transform}
+  .js .clip{opacity:0;transition:transform .3s var(--ease),filter .3s var(--ease),opacity .55s var(--ease)}
+  .js .clip.in{opacity:1}
+  .clip:hover{transform:rotate(0deg);filter:drop-shadow(8px 12px 0 color-mix(in srgb,var(--p-ink) 22%,transparent))}
+  @media (prefers-reduced-motion:reduce){
+    .js .clip{opacity:1;transition:none}
+    .clip{transition:none}
+    .clip:hover{transform:rotate(var(--r,0deg))}
+  }
+
+  /* tape + pins */
+  .tape{position:absolute;width:74px;height:26px;z-index:6;
+    background:color-mix(in srgb,var(--p-accent-2) 34%,transparent);
+    border-left:1px dashed color-mix(in srgb,var(--p-ink) 22%,transparent);
+    border-right:1px dashed color-mix(in srgb,var(--p-ink) 22%,transparent)}
+  .tape.amber{background:color-mix(in srgb,var(--p-accent) 36%,transparent)}
+
+  /* ---- stamp ---- */
+  .stamp{color:var(--p-accent-3);display:inline-block}
+  .stamp svg{display:block;width:100%;height:100%}
+  .stamp-spin:hover{animation:wob 1.1s var(--ease) infinite}
+  @keyframes wob{0%,100%{transform:rotate(var(--sr,-8deg))}50%{transform:rotate(calc(var(--sr,-8deg) + 6deg))}}
+  @media (prefers-reduced-motion:reduce){.stamp-spin:hover{animation:none}}
+
+  /* hand marks */
+  .mark-svg{position:absolute;pointer-events:none;z-index:5;color:var(--p-accent-3)}
+  .mark-svg.acc{color:var(--p-accent)}
+  .mark-svg.acc2{color:var(--p-accent-2)}
+
+  /* ---- buttons ---- */
+  .btn{display:inline-flex;align-items:center;gap:.55rem;cursor:pointer;
+    font-family:'League Spartan',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.07em;font-size:.84rem;
+    color:var(--p-accent-ink);background:var(--p-accent);padding:.85rem 1.4rem;
+    border:2px solid var(--p-ink);box-shadow:4px 4px 0 var(--p-ink);
+    transition:transform .12s var(--ease),box-shadow .12s var(--ease)}
+  .btn:hover{transform:translate(-1px,-1px);box-shadow:6px 6px 0 var(--p-ink)}
+  .btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--p-ink)}
+  .btn .ar{font-size:1.05em}
+  .btn-ghost{background:transparent;color:var(--p-ink);box-shadow:3px 3px 0 color-mix(in srgb,var(--p-ink) 45%,transparent)}
+  .btn-ghost:active{box-shadow:0 0 0 transparent}
+
+  /* hand underlined inline link */
+  .ulink{position:relative;font-weight:700;color:var(--p-ink);white-space:nowrap}
+  .ulink svg{position:absolute;left:-2%;right:0;bottom:-.62em;width:104%;height:.6em;color:var(--p-accent-3)}
+  .ulink:hover{color:var(--p-accent-deep)}
+
+  /* ---- sticky tape header ---- */
+  .topbar{position:sticky;top:0;z-index:70;background:var(--p-band);color:var(--p-band-ink);
+    border-bottom:2px solid var(--p-ink)}
+  .topbar-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:50px}
+  .brand{display:inline-flex;align-items:center;gap:.5rem;font-family:'League Spartan',sans-serif;font-weight:800;
+    text-transform:uppercase;letter-spacing:.06em;font-size:.92rem;color:var(--p-band-ink)}
+  .brand svg{width:24px;height:24px;color:var(--p-accent)}
+  .topbar nav{display:flex;gap:1.25rem}
+  .topbar nav a{font-family:'League Spartan',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+    font-size:.66rem;color:color-mix(in srgb,var(--p-band-ink) 78%,transparent);transition:color .15s var(--ease)}
+  .topbar nav a:hover{color:var(--p-accent)}
+  @media (max-width:820px){.topbar nav{display:none}}
+
+  /* ---- generic spread ---- */
+  .spread{position:relative;padding:clamp(2.6rem,6vh,4.6rem) 0}
+  .kicker{display:inline-flex;align-items:center;gap:.5rem;color:var(--p-accent-deep);
+    font-family:'League Spartan',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:.7rem}
+  .kicker .dot{width:8px;height:8px;background:var(--p-accent-3);border-radius:50%}
+  .sec-title{font-family:'Kaushan Script',cursive;font-weight:400;line-height:.96;color:var(--p-ink);
+    font-size:clamp(2.4rem,6vw,4.2rem)}
+
+  /* ---- COVER ---- */
+  .cover{padding:clamp(2.4rem,5vh,4rem) 0 clamp(2.2rem,5vh,3.4rem)}
+  .cover-grid{position:relative;width:100%;display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(1.4rem,3vw,2.6rem);align-items:center}
+  .masthead{position:relative;z-index:3;background:var(--p-surface);border:2px solid var(--p-ink);
+    padding:clamp(1.6rem,3.5vw,2.8rem);filter:drop-shadow(7px 9px 0 color-mix(in srgb,var(--p-ink) 18%,transparent))}
+  .mh-strip{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;justify-content:space-between;
+    border-bottom:2px solid var(--p-ink);padding-bottom:.7rem;margin-bottom:1rem}
+  .mh-strip .label{color:var(--p-muted)}
+  .mh-strip .iss{color:var(--p-accent-3)}
+  .mh-title{position:relative;font-family:'Kaushan Script',cursive;font-weight:400;color:var(--p-ink);
+    font-size:clamp(3.6rem,11vw,7.2rem);line-height:.86;letter-spacing:.01em}
+  .mh-title .ghost{position:absolute;left:3px;top:5px;z-index:-1;color:var(--p-accent-2)}
+  .mh-title .ghost.two{left:6px;top:9px;color:var(--p-accent-3);opacity:.85}
+  .mh-sub{margin-top:1.1rem;font-size:clamp(1.02rem,1.6vw,1.18rem);max-width:42ch;color:var(--p-ink);line-height:1.55}
+  .mh-sub b{color:var(--p-accent-deep);font-weight:700}
+  .mh-foot{display:flex;flex-wrap:wrap;gap:.7rem 1.2rem;align-items:center;margin-top:1.4rem}
+
+  .cover-side{position:relative;z-index:2;align-self:stretch;display:flex;flex-direction:column;gap:1.1rem;justify-content:center}
+  .ar-stamp{align-self:flex-start;position:relative;background:var(--p-band);color:var(--p-band-ink);
+    border:2px solid var(--p-ink);padding:.7rem 1.2rem .85rem;text-align:center;
+    filter:drop-shadow(4px 5px 0 color-mix(in srgb,var(--p-ink) 20%,transparent))}
+  .ar-stamp .big{font-family:'Amiri',serif;font-size:2.6rem;color:var(--p-accent);line-height:1;direction:rtl}
+  .ar-stamp .rom{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:.58rem;font-weight:700;margin-top:.3rem;color:color-mix(in srgb,var(--p-band-ink) 80%,transparent)}
+  .contents{background:var(--p-surface);border:2px solid var(--p-ink);padding:1.1rem 1.2rem;
+    filter:drop-shadow(5px 6px 0 color-mix(in srgb,var(--p-ink) 16%,transparent))}
+  .contents h4{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.18em;font-size:.62rem;
+    font-weight:700;color:var(--p-muted);margin-bottom:.6rem}
+  .contents a{display:flex;align-items:baseline;gap:.6rem;padding:.36rem 0;border-bottom:1px dotted var(--p-line-2);
+    font-family:'League Spartan',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.86rem;color:var(--p-ink);
+    transition:color .15s var(--ease),padding-left .2s var(--ease)}
+  .contents a:last-child{border-bottom:0}
+  .contents a:hover{color:var(--p-accent-deep);padding-left:.3rem}
+  .contents a .n{color:var(--p-accent-3);font-weight:800;width:1.4rem;flex:none}
+
+  /* ---- MISSION torn note ---- */
+  .note{position:relative;z-index:3;max-width:640px;background:var(--p-surface);color:var(--p-ink);
+    padding:clamp(1.8rem,4vw,3rem) clamp(1.6rem,4vw,3rem);
+    clip-path:polygon(0% 5%,7% 1%,18% 4%,30% 0%,43% 3%,56% 1%,68% 4%,80% 1%,91% 3%,100% 6%,99% 20%,100% 33%,98% 47%,100% 60%,99% 73%,100% 86%,97% 96%,86% 99%,74% 96%,62% 100%,49% 97%,37% 100%,25% 97%,13% 100%,4% 97%,1% 88%,2% 74%,0% 61%,1% 47%,0% 34%,1% 20%);
+    filter:drop-shadow(4px 8px 0 color-mix(in srgb,var(--p-ink) 14%,transparent))}
+  .note .bism{font-family:'Amiri',serif;color:var(--p-accent-deep);font-size:1.3rem;direction:rtl;margin-bottom:.6rem}
+  .note p{font-size:clamp(1.12rem,2vw,1.42rem);line-height:1.62}
+  .note p + p{margin-top:1rem}
+  .note .circ{position:relative;font-weight:700;color:var(--p-accent-deep)}
+  .note .circ svg{position:absolute;left:-12%;top:-32%;width:124%;height:164%;color:var(--p-accent-3);z-index:-1}
+  .note .sig{display:block;margin-top:1.3rem;font-family:'Kaushan Script',cursive;font-size:1.5rem;color:var(--p-accent-2)}
+  .mission-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(1.4rem,3vw,2.4rem);align-items:center}
+
+  /* duotone photo clipping */
+  .photo{position:relative;background:var(--p-accent-2);border:2px solid var(--p-ink);padding:8px;
+    filter:drop-shadow(5px 7px 0 color-mix(in srgb,var(--p-ink) 18%,transparent))}
+  .photo .frame{position:relative;overflow:hidden;background:var(--p-accent-2)}
+  .photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04) brightness(1.04);mix-blend-mode:luminosity}
+  .photo .ht{position:absolute;inset:0;background-image:radial-gradient(currentColor 1.3px,transparent 1.5px);background-size:5px 5px;color:color-mix(in srgb,var(--p-ink) 30%,transparent);mix-blend-mode:multiply;pointer-events:none}
+  .photo .cap{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-weight:700;
+    font-size:.6rem;color:var(--p-muted);padding:.5rem .2rem .15rem;text-align:center}
+  .photo.acc3{background:var(--p-accent-3)}.photo.acc3 .frame{background:var(--p-accent-3)}
+  .photo.acc{background:var(--p-accent)}.photo.acc .frame{background:var(--p-accent)}
+
+  /* ---- PROGRAMS flyers ---- */
+  .flyers{display:grid;grid-template-columns:repeat(12,1fr);gap:0;margin-top:1.6rem}
+  .flyer{position:relative}
+  .f1{grid-column:1/7;grid-row:1;z-index:4}
+  .f2{grid-column:7/13;grid-row:1;margin-top:2.6rem;z-index:3}
+  .f3{grid-column:1/6;grid-row:2;margin-top:-1rem;z-index:5}
+  .f4{grid-column:6/13;grid-row:2;margin-top:1.4rem;z-index:2}
+  .flyer .card{background:var(--p-surface);border:2px solid var(--p-ink);padding:1.3rem 1.4rem 1.5rem;height:100%;
+    filter:drop-shadow(5px 7px 0 color-mix(in srgb,var(--p-ink) 16%,transparent))}
+  .flyer.accent .card{background:var(--p-accent);color:var(--p-accent-ink)}
+  .flyer .ftag{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:.62rem;color:var(--p-accent-3)}
+  .flyer.accent .ftag{color:var(--p-accent-ink);opacity:.8}
+  .flyer h3{font-family:'Kaushan Script',cursive;font-weight:400;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1;margin:.35rem 0 .5rem;color:inherit}
+  .flyer p{font-size:.98rem;line-height:1.5;color:var(--p-muted);max-width:34ch}
+  .flyer.accent p{color:color-mix(in srgb,var(--p-accent-ink) 86%,transparent)}
+  .flyer .meta{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin-top:.9rem;
+    font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:700;font-size:.66rem}
+  .flyer .meta .w{color:var(--p-accent-deep)}
+  .flyer.accent .meta .w{color:var(--p-accent-ink)}
+  .flyer .meta .l{color:var(--p-muted)}
+  .flyer.accent .meta .l{color:color-mix(in srgb,var(--p-accent-ink) 75%,transparent)}
+  .flyer .num{position:absolute;top:-14px;left:-12px;z-index:6;width:42px;height:42px;border-radius:50%;
+    background:var(--p-band);color:var(--p-band-ink);border:2px solid var(--p-ink);
+    display:grid;place-items:center;font-family:'League Spartan',sans-serif;font-weight:900;font-size:1.1rem}
+  .flyer .photo{margin-bottom:.9rem;padding:6px}
+  .flyer .photo .frame{height:118px}
+
+  /* ---- COURSE ---- */
+  .course-grid{position:relative;display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(1.4rem,3vw,2.2rem);align-items:start}
+  .course-flyer{position:relative;z-index:3;background:var(--p-surface);border:2px solid var(--p-ink);
+    padding:clamp(1.8rem,4vw,2.8rem);filter:drop-shadow(6px 9px 0 color-mix(in srgb,var(--p-ink) 18%,transparent))}
+  .course-flyer .iqra{font-family:'Amiri',serif;color:var(--p-accent-deep);font-size:clamp(2.2rem,5vw,3rem);direction:rtl;line-height:1}
+  .course-flyer h2{font-family:'Kaushan Script',cursive;font-weight:400;font-size:clamp(2.4rem,5.5vw,3.8rem);line-height:.95;margin:.2rem 0 .7rem;color:var(--p-ink)}
+  .course-flyer p{font-size:1.06rem;line-height:1.6;color:var(--p-muted);max-width:46ch}
+  .course-flyer .terms{display:flex;flex-wrap:wrap;gap:.5rem .8rem;margin:1.1rem 0 1.4rem}
+  .course-flyer .chip{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:700;font-size:.64rem;
+    color:var(--p-ink);border:1.5px solid var(--p-ink);padding:.4rem .65rem;background:color-mix(in srgb,var(--p-accent) 14%,transparent)}
+  .free-stamp{position:absolute;top:-34px;right:clamp(8px,3vw,40px);width:128px;height:128px;z-index:6;
+    color:var(--p-accent-3);transform:rotate(var(--sr,-12deg))}
+  .companion{position:relative;z-index:2;margin-top:2.4rem}
+  .companion .card{background:var(--p-band);color:var(--p-band-ink);border:2px solid var(--p-ink);padding:1.3rem 1.4rem;
+    filter:drop-shadow(5px 7px 0 color-mix(in srgb,var(--p-ink) 20%,transparent))}
+  .companion .ftag{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:.6rem;color:var(--p-accent)}
+  .companion h3{font-family:'Kaushan Script',cursive;font-weight:400;font-size:1.7rem;line-height:1.02;margin:.3rem 0 .5rem;color:var(--p-band-ink)}
+  .companion p{font-size:.92rem;line-height:1.5;color:color-mix(in srgb,var(--p-band-ink) 80%,transparent)}
+  .companion .when{margin-top:.7rem;font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-weight:700;font-size:.64rem;color:var(--p-accent)}
+
+  /* ---- QUOTE ---- */
+  .quote{position:relative;z-index:3;max-width:920px;margin-inline:auto;text-align:center}
+  .quote .marks{font-family:'Kaushan Script',cursive;font-size:5rem;line-height:.5;color:var(--p-accent-3);display:block;height:.5em}
+  .quote blockquote{font-family:'Kaushan Script',cursive;font-weight:400;font-size:clamp(1.7rem,4vw,2.9rem);line-height:1.32;color:var(--p-ink)}
+  .quote .hl{position:relative;white-space:nowrap}
+  .quote .hl::before{content:"";position:absolute;left:-.18em;right:-.18em;top:.1em;bottom:.12em;z-index:-1;
+    background:color-mix(in srgb,var(--p-accent) 42%,transparent);mix-blend-mode:multiply;transform:rotate(-1.2deg);border-radius:3px}
+  [data-palette="midnight"] .quote .hl::before,[data-palette="olive"] .quote .hl::before,[data-palette="mocha"] .quote .hl::before,
+  [data-palette="aubergine"] .quote .hl::before,[data-palette="geometric"] .quote .hl::before{mix-blend-mode:screen;background:color-mix(in srgb,var(--p-accent) 30%,transparent)}
+  .quote cite{display:block;margin-top:1.4rem;font-family:'League Spartan',sans-serif;font-style:normal;
+    text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:.74rem;color:var(--p-accent-deep)}
+  .quote cite span{color:var(--p-muted)}
+
+  /* ---- WRITINGS contents ---- */
+  .writings{position:relative;z-index:3;max-width:840px;background:var(--p-surface);border:2px solid var(--p-ink);
+    padding:clamp(1.8rem,4vw,2.6rem) clamp(1.6rem,4vw,2.8rem);
+    filter:drop-shadow(6px 8px 0 color-mix(in srgb,var(--p-ink) 16%,transparent))}
+  .writings .wh{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;border-bottom:2px solid var(--p-ink);padding-bottom:.7rem;margin-bottom:.4rem}
+  .writings .wh h3{font-family:'Kaushan Script',cursive;font-weight:400;font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--p-ink);line-height:1}
+  .writings .wh .label{color:var(--p-muted)}
+  .wrow{display:flex;align-items:center;gap:1rem;padding:1.05rem .2rem;border-bottom:1px dotted var(--p-line-2);transition:padding-left .22s var(--ease)}
+  .wrow:last-child{border-bottom:0}
+  .wrow:hover{padding-left:.55rem}
+  .wrow .wn{position:relative;flex:none;width:46px;height:46px;display:grid;place-items:center;
+    font-family:'League Spartan',sans-serif;font-weight:900;font-size:1.15rem;color:var(--p-accent-3)}
+  .wrow .wn svg{position:absolute;inset:-2px;color:var(--p-accent-3)}
+  .wrow > span:not([class]){flex:1;min-width:0}
+  .wrow .wt{display:block;font-size:clamp(1.05rem,2vw,1.32rem);font-weight:600;color:var(--p-ink);line-height:1.25}
+  .wrow .wk{display:block;margin-top:.2rem;font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-weight:700;font-size:.6rem;color:var(--p-accent-deep)}
+  .wrow .wby{font-family:'Quicksand',sans-serif;text-transform:none;letter-spacing:0;color:var(--p-muted);font-weight:600}
+  .wrow .arr{margin-left:auto;color:var(--p-accent-3);opacity:0;transition:opacity .2s var(--ease)}
+  .wrow:hover .arr{opacity:1}
+
+  /* ---- DONATE ---- */
+  .donate{position:relative;z-index:3;background:var(--p-band);color:var(--p-band-ink);border:2px solid var(--p-ink);
+    max-width:980px;margin-inline:auto;padding:clamp(2rem,5vw,3.4rem);text-align:center;
+    filter:drop-shadow(7px 10px 0 color-mix(in srgb,var(--p-ink) 22%,transparent));overflow:hidden}
+  .donate .dstamp{position:absolute;top:-26px;left:-26px;width:150px;height:150px;color:var(--p-accent);opacity:.9;transform:rotate(-14deg)}
+  .donate h2{font-family:'Kaushan Script',cursive;font-weight:400;font-size:clamp(2.4rem,6vw,4rem);line-height:.96;color:var(--p-band-ink);position:relative;z-index:2}
+  .donate p{position:relative;z-index:2;max-width:48ch;margin:1rem auto 1.6rem;font-size:1.08rem;line-height:1.6;color:color-mix(in srgb,var(--p-band-ink) 86%,transparent)}
+  .donate .btn{position:relative;z-index:2;border-color:var(--p-band-ink);box-shadow:4px 4px 0 var(--p-band-ink)}
+  .donate .btn:hover{box-shadow:6px 6px 0 var(--p-band-ink)}
+  .donate .btn:active{box-shadow:0 0 0 var(--p-band-ink)}
+
+  /* ---- FOOTER colophon ---- */
+  .foot{position:relative;border-top:2px dashed var(--p-line-2);margin-top:clamp(2.4rem,6vh,4rem);
+    padding:clamp(2.4rem,6vh,3.6rem) 0 clamp(2rem,4vh,3rem)}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:1.6rem 2rem;align-items:start}
+  .foot .emb{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:.9rem}
+  .foot .emb svg{width:38px;height:38px;color:var(--p-accent)}
+  .foot .emb b{font-family:'Kaushan Script',cursive;font-weight:400;font-size:1.7rem;color:var(--p-ink)}
+  .foot .about{color:var(--p-muted);max-width:34ch;line-height:1.6;font-size:.96rem}
+  .foot h4{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:.62rem;color:var(--p-accent-deep);margin-bottom:.7rem}
+  .foot a.fl{display:block;padding:.22rem 0;color:var(--p-ink);font-weight:600;transition:color .15s var(--ease)}
+  .foot a.fl:hover{color:var(--p-accent-deep)}
+  .foot .addr{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.07em;font-weight:700;font-size:.74rem;color:var(--p-ink);line-height:1.8}
+  .foot .end{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem;margin-top:2.4rem;padding-top:1.1rem;
+    border-top:1px solid var(--p-line);font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-weight:600;font-size:.62rem;color:var(--p-muted)}
+
+  /* ---- palette switcher (sticker) ---- */
+  .txd-pal{position:relative;font-family:'League Spartan',sans-serif;z-index:75}
+  .txd-pal-btn{display:inline-flex;align-items:center;gap:.45rem;cursor:pointer;background:var(--p-surface);
+    border:2px solid var(--p-ink);color:var(--p-ink);padding:.35rem .55rem;font-size:.58rem;font-weight:800;
+    text-transform:uppercase;letter-spacing:.1em;box-shadow:2px 2px 0 var(--p-ink);transition:transform .12s var(--ease),box-shadow .12s var(--ease)}
+  .txd-pal-btn:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--p-ink)}
+  .txd-pal-sw{width:26px;height:11px;display:inline-block;border:1px solid var(--p-ink);
+    background:linear-gradient(90deg,var(--p-bg) 0 33%,var(--p-accent) 33% 66%,var(--p-accent-2) 66% 100%)}
+  .txd-pal-cv{width:11px;height:11px;opacity:.7}
+  .txd-pal-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:244px;max-width:calc(100vw - 32px);
+    background:var(--p-surface);border:2px solid var(--p-ink);padding:.35rem;
+    box-shadow:6px 8px 0 color-mix(in srgb,var(--p-ink) 30%,transparent);opacity:0;visibility:hidden;transform:translateY(-6px);
+    transition:opacity .18s ease,transform .18s ease,visibility .18s ease;max-height:74vh;overflow:auto}
+  .txd-pal.open .txd-pal-menu{opacity:1;visibility:visible;transform:none}
+  .txd-pal-opt{display:flex;align-items:center;gap:.7rem;width:100%;text-align:left;cursor:pointer;background:none;border:0;
+    color:var(--p-ink);padding:.5rem .55rem;font-size:.8rem;font-family:'League Spartan',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+  .txd-pal-opt:hover{background:color-mix(in srgb,var(--p-ink) 8%,transparent)}
+  .txd-pal-opt[aria-selected="true"]{background:color-mix(in srgb,var(--p-accent) 18%,transparent)}
+  .txd-pal-opt .sw{width:28px;height:16px;flex:none;border:1px solid var(--p-ink);
+    background:linear-gradient(90deg,var(--a) 0 50%,var(--b) 50% 80%,var(--c) 80% 100%)}
+  .txd-pal-opt .nm{display:flex;flex-direction:column;line-height:1.2}
+  .txd-pal-opt .nm small{opacity:.6;font-size:.56rem;letter-spacing:.08em;margin-top:2px}
+
+  /* ---- reveal (rise) ---- */
+  .js .rise{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .js .rise.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.js .rise{opacity:1;transform:none;transition:none}}
+
+  /* ================= MOBILE: collage relaxes to one readable column ================= */
+  @media (max-width:860px){
+    .cover-grid{grid-template-columns:1fr}
+    .mission-grid{grid-template-columns:1fr}
+    .course-grid{grid-template-columns:1fr}
+    .flyers{display:flex;flex-direction:column;gap:1.4rem}
+    .flyer,.f1,.f2,.f3,.f4{grid-column:auto;grid-row:auto;margin-top:0}
+    .free-stamp{position:static;display:block;width:108px;height:108px;margin:0 auto 1rem}
+    .companion{margin-top:0}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .foot .about{grid-column:1/-1}
+  }
+  @media (max-width:680px){
+    .tilt{transform:rotate(0deg)!important}
+    .mh-title .ghost{left:2px;top:3px}
+    .deco{display:none}
+    .note{clip-path:none;border:2px solid var(--p-ink)}
+    .free-stamp{transform:rotate(-6deg)}
+    .foot-grid{grid-template-columns:1fr}
+    .quote .hl{white-space:normal}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SVG SYMBOLS ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 64 64">
+    <circle cx="32" cy="39" r="18.5" stroke="currentColor" stroke-width="1.4" fill="none" opacity="0.8"/>
+    <path d="M31 7c7.2 3.3-3.6 11.4 3 16.5 6.4 5 -4.4 9.7 1.4 15.2 4 3.8 9.4 2.3 12-1.2" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M31 7c-1.6 1.9-1.4 4.2 .4 6.2" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+    <rect x="26.4" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 29.1 42.9)" fill="currentColor"/>
+    <rect x="33.6" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 36.3 42.9)" fill="currentColor"/>
+  </symbol>
+  <symbol id="hl-underline" viewBox="0 0 200 16" preserveAspectRatio="none">
+    <path d="M4 11C44 4 82 14 122 8s58 -3 74 3" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="hl-circle" viewBox="0 0 220 92">
+    <path d="M44 16C96 3 176 8 204 32c14 12 -6 44 -64 52 -62 9 -126 -2 -134 -32 -5 -19 13 -33 52 -40" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="hl-arrow" viewBox="0 0 120 60">
+    <path d="M6 28C40 16 80 20 106 34" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M92 21l16 13 -18 9" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="hl-squiggle" viewBox="0 0 130 20">
+    <path d="M4 10q9 -8 18 0t18 0t18 0t18 0t18 0t18 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="hl-burst" viewBox="0 0 60 60">
+    <g stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none">
+      <path d="M30 5V25M30 35V55M5 30H25M35 30H55M13 13l11 11M36 36l11 11M47 13l-11 11M24 36l-11 11"/>
+    </g>
+  </symbol>
+  <symbol id="geo-star" viewBox="0 0 100 100">
+    <g fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="22" y="22" width="56" height="56"/>
+      <rect x="22" y="22" width="56" height="56" transform="rotate(45 50 50)"/>
+      <circle cx="50" cy="50" r="13"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ============ STICKY TAPE HEADER ============ -->
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="redesign-riso.html">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>Texas Dawah
+    </a>
+    <nav aria-label="Sections">
+      <a href="#mission">Mission</a>
+      <a href="#programs">Programs</a>
+      <a href="#course">Course</a>
+      <a href="#writings">Writings</a>
+      <a href="#donate">Donate</a>
+    </nav>
+    <div class="txd-pal" data-txd-pal>
+      <button class="txd-pal-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Switch color palette">
+        <span class="txd-pal-sw" aria-hidden="true"></span><span class="txd-pal-name">Inks</span>
+        <svg class="txd-pal-cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="txd-pal-menu" role="listbox" aria-label="Color palette"></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ COVER ============ -->
+<section class="cover wrap" aria-label="Cover">
+  <span class="deco blob ink-2 op" style="width:340px;height:300px;top:-40px;right:-60px" aria-hidden="true"></span>
+  <span class="deco halftone ht-acc3 op fade-l" style="width:300px;height:280px;bottom:-30px;left:-40px;border-radius:50%" aria-hidden="true"></span>
+  <span class="deco blob ink-1 op" style="width:150px;height:140px;bottom:40px;right:18%" aria-hidden="true"></span>
+
+  <div class="cover-grid">
+    <div class="rise">
+      <div class="masthead tilt" style="--r:-1.4deg">
+        <span class="tape amber op" style="top:-13px;left:34px;transform:rotate(-7deg)" aria-hidden="true"></span>
+        <span class="tape op" style="top:-13px;right:40px;transform:rotate(5deg)" aria-hidden="true"></span>
+        <div class="mh-strip">
+          <span class="label">A community dawah zine</span>
+          <span class="label iss">Issue No. 6 / Free, take one</span>
+        </div>
+        <h1 class="mh-title">
+          <span class="ghost" aria-hidden="true">Texas<br>Dawah</span>
+          <span class="ghost two" aria-hidden="true">Texas<br>Dawah</span>
+          Texas<br>Dawah
+        </h1>
+        <p class="mh-sub">A student crew at UT Austin who set a table on the Drag and answer the questions you actually carry. About God, about Jesus, about <b>mercy and meaning</b>.</p>
+        <div class="mh-foot">
+          <a class="btn" href="#course">Start the free course <span class="ar">&rarr;</span></a>
+          <a class="ulink" href="#mission">read our mission<svg viewBox="0 0 200 16" preserveAspectRatio="none" aria-hidden="true"><use href="#hl-underline"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-side">
+      <div class="rise">
+        <div class="ar-stamp tilt stamp-spin" style="--r:4deg;--sr:4deg">
+          <div class="big ar">دعوة</div>
+          <div class="rom">Da'wah / The Invitation</div>
+        </div>
+      </div>
+      <div class="rise">
+        <nav class="contents tilt" style="--r:-2deg" aria-label="In this issue">
+          <h4>In this issue</h4>
+          <a href="#mission"><span class="n">01</span>Who we are</a>
+          <a href="#programs"><span class="n">02</span>What we run, every week</a>
+          <a href="#course"><span class="n">03</span>The free course</a>
+          <a href="#writings"><span class="n">04</span>From the blog</a>
+          <a href="#donate"><span class="n">05</span>Keep the table open</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MISSION ============ -->
+<section class="spread wrap" id="mission">
+  <span class="deco halftone ht-acc2 op fade-r" style="width:260px;height:240px;top:20px;right:-30px;border-radius:50%" aria-hidden="true"></span>
+  <div class="mission-grid">
+    <div class="rise">
+      <div class="note tilt" style="--r:-1.6deg">
+        <div class="bism ar">بِسْمِ اللّٰهِ</div>
+        <span class="kicker" style="margin-bottom:.6rem"><span class="dot"></span>Who we are</span>
+        <p>Texas Dawah is a student-led crew sharing the message of Islam with wisdom and beautiful character. We are not here to win arguments. We are here to be the reason someone looked closer, and found
+          <span class="circ">mercy<svg viewBox="0 0 220 92" aria-hidden="true"><use href="#hl-circle"/></svg></span> in it.</p>
+        <p>Pull up a chair, whoever you are. Bring your doubts and your questions. The table is open to everyone, and everything on it is free.</p>
+        <span class="sig">with peace, the Texas Dawah crew</span>
+      </div>
+    </div>
+    <div class="rise">
+      <div class="photo tilt" style="--r:2.4deg">
+        <div class="frame" style="height:300px">
+          <img src="https://picsum.photos/seed/txdtable/640/520" alt="Students in conversation around a table" loading="lazy">
+          <span class="ht" aria-hidden="true"></span>
+        </div>
+        <div class="cap">The table on the Drag, every week</div>
+        <span class="mark-svg acc" style="bottom:-30px;left:-26px;width:110px;height:54px" aria-hidden="true"><svg viewBox="0 0 120 60"><use href="#hl-arrow"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMS ============ -->
+<section class="spread wrap" id="programs">
+  <span class="deco blob ink-3 op" style="width:200px;height:180px;top:60px;left:-70px" aria-hidden="true"></span>
+  <div style="position:relative;z-index:2;display:flex;align-items:flex-end;gap:1.2rem;flex-wrap:wrap">
+    <h2 class="sec-title">What we run</h2>
+    <span class="kicker" style="margin-bottom:.5rem"><span class="dot"></span>Pinned to the board, every week in term</span>
+  </div>
+
+  <div class="flyers">
+    <article class="flyer f1 rise">
+      <div class="card tilt" style="--r:-2.2deg">
+        <span class="num" aria-hidden="true">1</span>
+        <span class="tape op" style="top:-13px;right:30px;transform:rotate(6deg)" aria-hidden="true"></span>
+        <div class="photo acc" style="margin-bottom:.9rem">
+          <div class="frame" style="height:120px">
+            <img src="https://picsum.photos/seed/txdbooks/560/240" alt="A spread of free books" loading="lazy">
+            <span class="ht" aria-hidden="true"></span>
+          </div>
+        </div>
+        <span class="ftag">Out on campus</span>
+        <h3>Dawah Tabling</h3>
+        <p>Free books, cold water, and an honest answer to any question you bring.</p>
+        <div class="meta"><span class="w">Every week</span><span class="l">West Mall / the Drag</span></div>
+      </div>
+    </article>
+
+    <article class="flyer f2 accent rise">
+      <div class="card tilt" style="--r:1.8deg">
+        <span class="num" aria-hidden="true">2</span>
+        <span class="ftag">Learn to invite</span>
+        <h3>Dawah Training</h3>
+        <p>A weekly circle where students learn to share Islam with confidence and care. No experience needed, only willingness.</p>
+        <div class="meta"><span class="w">Thursdays, 8 PM</span><span class="l">1906 Nueces St</span></div>
+        <span class="mark-svg" style="bottom:-22px;right:14px;width:120px;height:18px;color:var(--p-accent-ink)" aria-hidden="true"><svg viewBox="0 0 130 20"><use href="#hl-squiggle"/></svg></span>
+      </div>
+    </article>
+
+    <article class="flyer f3 rise">
+      <div class="card tilt" style="--r:1.6deg">
+        <span class="num" aria-hidden="true">3</span>
+        <span class="ftag">Break bread together</span>
+        <h3>Interfaith Iftars</h3>
+        <p>We break our fast with neighbors of every faith, and let the table do what arguments cannot.</p>
+        <div class="meta"><span class="w">Each Ramadan</span><span class="l">Nueces Mosque</span></div>
+      </div>
+    </article>
+
+    <article class="flyer f4 rise">
+      <div class="card tilt" style="--r:-1.4deg">
+        <span class="num" aria-hidden="true">4</span>
+        <span class="tape amber op" style="top:-13px;left:40px;transform:rotate(-5deg)" aria-hidden="true"></span>
+        <span class="ftag">Slow reading, big questions</span>
+        <h3>Book Club &amp; Lectures</h3>
+        <p>Monthly reading on faith and doubt, with visiting scholars on the questions that keep people up at night.</p>
+        <div class="meta"><span class="w">Monthly</span><span class="l">On campus</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ COURSE ============ -->
+<section class="spread wrap" id="course">
+  <span class="deco halftone ht-acc op fade-d" style="width:280px;height:200px;top:-10px;left:30%;border-radius:50%" aria-hidden="true"></span>
+  <div class="course-grid">
+    <div class="rise">
+      <div class="course-flyer tilt" style="--r:-1.2deg">
+        <span class="stamp free-stamp stamp-spin" style="--sr:-12deg" aria-hidden="true">
+          <svg viewBox="0 0 128 128">
+            <defs><path id="freeArc" d="M64 64 m -50 0 a 50 50 0 1 1 100 0 a 50 50 0 1 1 -100 0"/></defs>
+            <circle cx="64" cy="64" r="58" fill="none" stroke="currentColor" stroke-width="2.4"/>
+            <circle cx="64" cy="64" r="51" fill="none" stroke="currentColor" stroke-width="1"/>
+            <text font-family="League Spartan" font-weight="800" font-size="9.5" letter-spacing="3.4" fill="currentColor">
+              <textPath href="#freeArc" startOffset="2%">FREE COURSE  ·  SIX PARTS  ·  TEXAS DAWAH  ·  </textPath>
+            </text>
+            <text x="64" y="60" text-anchor="middle" font-family="League Spartan" font-weight="900" font-size="26" letter-spacing="1" fill="currentColor">FREE</text>
+            <text x="64" y="80" text-anchor="middle" font-family="League Spartan" font-weight="700" font-size="9" letter-spacing="2.5" fill="currentColor">ENROLL NOW</text>
+          </svg>
+        </span>
+        <span class="kicker"><span class="dot"></span>The free course</span>
+        <div class="iqra ar" style="margin-top:.6rem">اقْرَأْ</div>
+        <h2>Why Islam<br>Is True</h2>
+        <p>A clear, six-part walk through the evidence behind the message: the Qur'an, the prophethood, and the case for belief. Built for the curious and the questioning alike.</p>
+        <div class="terms">
+          <span class="chip">Free to enroll</span>
+          <span class="chip">Six lessons</span>
+          <span class="chip">Self-paced</span>
+          <span class="chip">No prerequisite</span>
+        </div>
+        <a class="btn" href="#course">Start the free course <span class="ar">&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="rise">
+      <div class="companion tilt" style="--r:2.4deg">
+        <div class="card">
+          <span class="stamp stamp-spin" style="--sr:8deg;width:46px;height:46px;float:right;margin:-4px -2px 0 8px" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#geo-star"/></svg></span>
+          <span class="ftag">Guest lecture</span>
+          <h3>What Did Jesus Really Say?</h3>
+          <p>An evening with a visiting scholar on Jesus, son of Mary, in the Qur'an and the Gospels. Bring a friend, bring a question.</p>
+          <div class="when">Each semester / Open to everyone</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="spread wrap" aria-label="A visitor's note">
+  <span class="deco blob ink-2 op" style="width:170px;height:160px;top:0;left:6%" aria-hidden="true"></span>
+  <span class="deco blob ink-1 op" style="width:150px;height:150px;bottom:0;right:8%;border-radius:50%" aria-hidden="true"></span>
+  <div class="rise">
+    <figure class="quote tilt" style="--r:-1deg">
+      <span class="marks" aria-hidden="true">&ldquo;</span>
+      <blockquote>I came to the table to <span class="hl">argue</span>. I left with a friend, a book, and more <span class="hl">questions</span> than I started with.</blockquote>
+      <cite>Hamza Sheikh <span>/ a visitor at West Mall</span></cite>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ WRITINGS ============ -->
+<section class="spread wrap" id="writings">
+  <span class="deco halftone ht-acc3 op fade-l" style="width:240px;height:240px;top:30px;right:-50px;border-radius:50%" aria-hidden="true"></span>
+  <div class="rise">
+    <div class="writings tilt" style="--r:1deg">
+      <span class="tape op" style="top:-13px;left:8%;transform:rotate(-4deg)" aria-hidden="true"></span>
+      <div class="wh">
+        <h3>From the blog</h3>
+        <span class="label">Table of contents</span>
+      </div>
+
+      <a class="wrow" href="#writings">
+        <span class="wn" aria-hidden="true"><svg viewBox="0 0 220 92"><use href="#hl-circle"/></svg>01</span>
+        <span><span class="wt">If God is merciful, why is there suffering?</span><span class="wk">Question taken seriously &middot; <span class="wby">Aisha Siddiqui</span></span></span>
+        <span class="arr" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="wrow" href="#writings">
+        <span class="wn" aria-hidden="true"><svg viewBox="0 0 220 92"><use href="#hl-circle"/></svg>02</span>
+        <span><span class="wt">What the Qur'an says about Jesus, son of Mary</span><span class="wk">Deep dive &middot; <span class="wby">Yusuf Rahman</span></span></span>
+        <span class="arr" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="wrow" href="#writings">
+        <span class="wn" aria-hidden="true"><svg viewBox="0 0 220 92"><use href="#hl-circle"/></svg>03</span>
+        <span><span class="wt">So you want to learn about Islam. Begin here.</span><span class="wk">A primer for the curious &middot; <span class="wby">Khadija Noor</span></span></span>
+        <span class="arr" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DONATE ============ -->
+<section class="spread wrap" id="donate">
+  <div class="rise">
+    <div class="donate tilt" style="--r:-1deg">
+      <span class="stamp dstamp stamp-spin" style="--sr:-14deg" aria-hidden="true">
+        <svg viewBox="0 0 150 150">
+          <defs><path id="dArc" d="M75 75 m -58 0 a 58 58 0 1 1 116 0 a 58 58 0 1 1 -116 0"/></defs>
+          <circle cx="75" cy="75" r="66" fill="none" stroke="currentColor" stroke-width="2.4"/>
+          <circle cx="75" cy="75" r="58" fill="none" stroke="currentColor" stroke-width="1"/>
+          <text font-family="League Spartan" font-weight="800" font-size="10" letter-spacing="3.2" fill="currentColor">
+            <textPath href="#dArc" startOffset="2%">KEEP THE TABLE OPEN  ·  TEXAS DAWAH  ·  </textPath>
+          </text>
+          <use href="#geo-star" x="55" y="55" width="40" height="40"/>
+        </svg>
+      </span>
+      <h2>Keep the table open</h2>
+      <p>Every book at the table, every seat in the course, is paid for by someone who once sat where you are sitting now. Be the reason the next conversation happens.</p>
+      <a class="btn" href="#donate">Support the dawah <span class="ar">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER / COLOPHON ============ -->
+<footer class="foot wrap">
+  <div class="foot-grid">
+    <div class="about">
+      <span class="emb"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg><b>Texas Dawah</b></span>
+      <p>A student-led dawah community at the University of Texas at Austin, sharing the message of Islam with wisdom and beautiful character. Hand-made, free, and open to all.</p>
+    </div>
+    <div>
+      <h4>Sections</h4>
+      <a class="fl" href="#mission">Mission</a>
+      <a class="fl" href="#programs">Programs</a>
+      <a class="fl" href="#course">Course</a>
+      <a class="fl" href="#writings">Writings</a>
+      <a class="fl" href="#donate">Donate</a>
+    </div>
+    <div>
+      <h4>Find us</h4>
+      <a class="fl" href="#">Instagram</a>
+      <a class="fl" href="#">YouTube</a>
+      <a class="fl" href="#">Write to us</a>
+      <div class="addr" style="margin-top:.9rem">1906 Nueces St<br>Austin, TX 78705</div>
+    </div>
+  </div>
+  <div class="end">
+    <span>&copy; 2026 Texas Dawah &middot; A student work, printed with love</span>
+    <span>Set &amp; stapled in Austin, Texas</span>
+  </div>
+</footer>
+
+<script>
+  /* reveal on scroll (progressive enhancement) */
+  (function(){
+    var els=[].slice.call(document.querySelectorAll('.rise, .clip'));
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    els.forEach(function(e){io.observe(e)});
+  })();
+</script>
+
+<script>
+  (function(){
+    var P=[
+      {k:'midnight',n:'Midnight',d:'Navy + Gold',c:['#0d1230','#e7c66b','#9bb4e8']},
+      {k:'olive',n:'Olive Manuscript',d:'Deep Olive + Sage',c:['#1d2416','#cdb968','#8a946f']},
+      {k:'cream',n:'Cream & Sage',d:'Off-white + Sage',c:['#f6f1e1','#c1851f','#4f7e6e']},
+      {k:'mocha',n:'Mocha Warmth',d:'Mocha + Tan',c:['#362116','#d8ad7c','#b06a45']},
+      {k:'aubergine',n:'Aubergine Nights',d:'Plum + Lilac',c:['#1f0f24','#e3c071','#c79bd6']},
+      {k:'geometric',n:'Geometric',d:'Teal + Gold',c:['#072d2b','#e7c66b','#46b89a']},
+      {k:'interfaith',n:'Interfaith',d:'Dusty Rose',c:['#e7d3c8','#9c5c41','#7d4631']},
+      {k:'minimal',n:'Minimal Mihrab',d:'Bone + Emerald',c:['#f4f1ea','#0c5440','#bfa15a']}
+    ];
+    var root=document.documentElement, KEY='txd-palette';
+    var NATIVE=root.getAttribute('data-palette')||'cream';
+    var valid=function(k){return P.some(function(p){return p.k===k})};
+    var wraps=[].slice.call(document.querySelectorAll('[data-txd-pal]'));
+    function label(k){var p=P.filter(function(x){return x.k===k})[0]||P[0];return p.n}
+    function render(cur){wraps.forEach(function(w){
+      var nm=w.querySelector('.txd-pal-name'); if(nm) nm.textContent=label(cur);
+      var menu=w.querySelector('.txd-pal-menu');
+      if(menu && !menu.dataset.built){P.forEach(function(p){
+        var b=document.createElement('button'); b.type='button'; b.className='txd-pal-opt';
+        b.setAttribute('role','option'); b.dataset.pal=p.k;
+        b.innerHTML='<span class="sw" style="--a:'+p.c[0]+';--b:'+p.c[1]+';--c:'+p.c[2]+'"></span><span class="nm">'+p.n+'<small>'+p.d+'</small></span>';
+        b.addEventListener('click',function(){set(p.k,true);close();}); menu.appendChild(b);
+      }); menu.dataset.built='1';}
+      [].slice.call(w.querySelectorAll('.txd-pal-opt')).forEach(function(o){o.setAttribute('aria-selected',o.dataset.pal===cur?'true':'false');});
+    });}
+    function set(k,persist){if(!valid(k))k=NATIVE; root.setAttribute('data-palette',k);
+      if(persist){try{localStorage.setItem(KEY,k)}catch(e){}} render(k);}
+    function openW(w){w.classList.add('open');var b=w.querySelector('.txd-pal-btn');if(b)b.setAttribute('aria-expanded','true')}
+    function close(){wraps.forEach(function(w){w.classList.remove('open');var b=w.querySelector('.txd-pal-btn');if(b)b.setAttribute('aria-expanded','false')})}
+    wraps.forEach(function(w){var btn=w.querySelector('.txd-pal-btn');
+      if(btn)btn.addEventListener('click',function(e){e.stopPropagation();var o=w.classList.contains('open');close();if(!o)openW(w);});});
+    document.addEventListener('click',function(e){if(!e.target.closest('[data-txd-pal]'))close()});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+    window.addEventListener('message',function(e){var d=e&&e.data;if(d&&d.txdPalette){set(d.txdPalette,false)}});
+    var params=new URLSearchParams(location.search), q=params.get('palette'), initial;
+    if(q==='native'){initial=NATIVE} else if(q&&valid(q)){initial=q}
+    else{var st;try{st=localStorage.getItem(KEY)}catch(e){} initial=(st&&valid(st))?st:NATIVE}
+    set(initial,false);
+  })();
+</script>
+</body>
+</html>

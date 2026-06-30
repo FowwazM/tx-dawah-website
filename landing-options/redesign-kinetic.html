@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" data-palette="geometric">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Dawah - Redesign: Kinetic Geometry</title>
+<meta name="description" content="Texas Dawah, a student-led invitation to Islam in Austin, drawn in light and geometry. Share the truth with wisdom and beautiful character.">
+<script>document.documentElement.className += ' js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=League+Spartan:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&family=Yeseva+One&display=swap" rel="stylesheet">
+<style id="txd-palettes">
+[data-palette="midnight"]{--p-bg:#0d1230;--p-surface:#161d44;--p-surface-2:#1d2662;--p-ink:#eef1fb;--p-muted:#aab4dc;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#15183a;--p-accent-2:#9bb4e8;--p-accent-3:#9bb4e8;--p-line:rgba(155,180,232,.16);--p-line-2:rgba(155,180,232,.30);--p-band:#090d24;--p-band-ink:#eef1fb;--p-overlay:rgba(13,18,48,.6)}
+[data-palette="olive"]{--p-bg:#1d2416;--p-surface:#28311e;--p-surface-2:#323d26;--p-ink:#ebeed6;--p-muted:#b3bb95;--p-accent:#cdb968;--p-accent-deep:#b6a24f;--p-accent-ink:#1d2416;--p-accent-2:#8a946f;--p-accent-3:#8a946f;--p-line:rgba(235,238,214,.14);--p-line-2:rgba(235,238,214,.26);--p-band:#161c10;--p-band-ink:#ebeed6;--p-overlay:rgba(29,36,22,.6)}
+[data-palette="cream"]{--p-bg:#f6f1e1;--p-surface:#fffdf7;--p-surface-2:#efe8d4;--p-ink:#24302a;--p-muted:#54604f;--p-accent:#c1851f;--p-accent-deep:#9f6e16;--p-accent-ink:#22150a;--p-accent-2:#4f7e6e;--p-accent-3:#cf5d42;--p-line:rgba(36,48,42,.14);--p-line-2:rgba(36,48,42,.26);--p-band:#3a5e52;--p-band-ink:#f4efe0;--p-overlay:rgba(36,48,42,.34)}
+[data-palette="mocha"]{--p-bg:#362116;--p-surface:#48301f;--p-surface-2:#5a3c27;--p-ink:#f1e3d4;--p-muted:#c9ab93;--p-accent:#d8ad7c;--p-accent-deep:#c0925f;--p-accent-ink:#2a1810;--p-accent-2:#b06a45;--p-accent-3:#b06a45;--p-line:rgba(241,227,212,.14);--p-line-2:rgba(241,227,212,.26);--p-band:#251610;--p-band-ink:#f1e3d4;--p-overlay:rgba(40,24,16,.58)}
+[data-palette="aubergine"]{--p-bg:#1f0f24;--p-surface:#2e1834;--p-surface-2:#3a1f42;--p-ink:#f3e7f1;--p-muted:#c6a6cb;--p-accent:#e3c071;--p-accent-deep:#cda74f;--p-accent-ink:#1c0c20;--p-accent-2:#c79bd6;--p-accent-3:#c79bd6;--p-line:rgba(243,231,241,.13);--p-line-2:rgba(243,231,241,.26);--p-band:#170a1b;--p-band-ink:#f3e7f1;--p-overlay:rgba(31,15,36,.6)}
+[data-palette="geometric"]{--p-bg:#072d2b;--p-surface:#0d3c39;--p-surface-2:#124a46;--p-ink:#e8f3ee;--p-muted:#8fc1b4;--p-accent:#e7c66b;--p-accent-deep:#d4ac4d;--p-accent-ink:#07221f;--p-accent-2:#46b89a;--p-accent-3:#46b89a;--p-line:rgba(232,243,238,.14);--p-line-2:rgba(232,243,238,.26);--p-band:#04201e;--p-band-ink:#e8f3ee;--p-overlay:rgba(7,45,43,.6)}
+[data-palette="interfaith"]{--p-bg:#e7d3c8;--p-surface:#f1e3da;--p-surface-2:#ddc6b8;--p-ink:#2b211c;--p-muted:#7a6253;--p-accent:#9c5c41;--p-accent-deep:#7d4631;--p-accent-ink:#f7efe9;--p-accent-2:#7d4631;--p-accent-3:#9c5c41;--p-line:rgba(43,33,28,.15);--p-line-2:rgba(43,33,28,.26);--p-band:#211a17;--p-band-ink:#f1e7df;--p-overlay:rgba(43,28,20,.42)}
+[data-palette="minimal"]{--p-bg:#f4f1ea;--p-surface:#ffffff;--p-surface-2:#ebe7dc;--p-ink:#16130f;--p-muted:#6b6457;--p-accent:#0c5440;--p-accent-deep:#0a4435;--p-accent-ink:#f4f1ea;--p-accent-2:#bfa15a;--p-accent-3:#0c5440;--p-line:rgba(22,19,15,.12);--p-line-2:rgba(22,19,15,.22);--p-band:#0c5440;--p-band-ink:#f4f1ea;--p-overlay:rgba(12,40,33,.4)}
+</style>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--maxw:1240px;--ease:cubic-bezier(.23,1,.32,1)}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--p-bg);color:var(--p-ink);
+    font-family:'Quicksand',system-ui,sans-serif;font-weight:500;font-size:16px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+    background-image:radial-gradient(120% 80% at 50% -10%, color-mix(in srgb,var(--p-surface) 70%,transparent), transparent 60%);
+    background-attachment:fixed}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:color-mix(in srgb,var(--p-accent) 36%,transparent);color:var(--p-ink)}
+  .sp{font-family:'League Spartan',sans-serif}
+  .ar{font-family:'Amiri',serif}
+  .ys{font-family:'Yeseva One',serif;font-weight:400}
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,52px)}
+
+  /* ============ FLOATING TOP BAR ============ */
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:70;
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    padding:clamp(.7rem,1.6vw,1.1rem) clamp(16px,4vw,40px);
+    background:linear-gradient(to bottom, color-mix(in srgb,var(--p-bg) 82%,transparent), transparent);
+    backdrop-filter:blur(3px)}
+  .brand{display:inline-flex;align-items:center;gap:.6rem;color:var(--p-ink)}
+  .brand svg{width:30px;height:30px;color:var(--p-accent)}
+  .brand b{font-family:'League Spartan',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:.82rem}
+  .topnav{display:flex;gap:1.6rem;font-family:'League Spartan',sans-serif;text-transform:uppercase;
+    letter-spacing:.16em;font-size:.66rem;font-weight:600;color:var(--p-muted)}
+  .topnav a{transition:color .2s var(--ease)} .topnav a:hover{color:var(--p-accent)}
+  @media (max-width:860px){.topnav{display:none}}
+
+  /* ============ GIRIH GEOMETRY ============ */
+  .girih{fill:none;display:block}
+  .gd{fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .gd-c{stroke:var(--p-accent-2);stroke-width:1;opacity:.5}
+  .gd-c2{stroke:var(--p-accent-2);stroke-width:.8;opacity:.36}
+  .gd-s{stroke:var(--p-accent);stroke-width:1.1;opacity:.6}
+  .gd-star{stroke:var(--p-accent);stroke-width:2.1}
+  .gd-sp{stroke:var(--p-ink);stroke-width:.5;opacity:.16}
+  .gd-in{stroke:var(--p-accent-2);stroke-width:1.1;opacity:.85}
+  .gd-dot{fill:var(--p-accent)}
+  .spin{transform-box:fill-box;transform-origin:center;animation:spin 150s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){.spin{animation:none}}
+
+  /* ============ HERO ============ */
+  .hero{position:relative;overflow:hidden;display:grid;place-items:center;text-align:center;
+    min-height:min(100vh,1240px);min-height:min(100dvh,1240px);padding:6rem 0 3rem}
+  .hero-geo{position:absolute;inset:0;z-index:0;display:grid;place-items:center;pointer-events:none}
+  .hero-geo .girih{width:min(132vmin,1240px);height:min(132vmin,1240px)}
+  .hero-veil{position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(58% 52% at 50% 46%, color-mix(in srgb,var(--p-bg) 82%,transparent) 0%, color-mix(in srgb,var(--p-bg) 30%,transparent) 46%, transparent 70%)}
+  .hero-inner{position:relative;z-index:2;padding-inline:clamp(20px,5vw,40px);max-width:1100px}
+  .hero-kicker{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.42em;
+    font-size:clamp(.6rem,1.3vw,.74rem);font-weight:600;color:var(--p-accent);margin-bottom:clamp(1.2rem,3vh,2rem);
+    display:inline-flex;align-items:center;gap:.9rem;text-shadow:0 0 16px var(--p-bg),0 1px 3px var(--p-bg)}
+  .hero-kicker .ar{font-family:'Amiri',serif;letter-spacing:0;font-size:1.5em;color:var(--p-accent);direction:rtl}
+  .hero-title{font-family:'League Spartan',sans-serif;font-weight:900;text-transform:uppercase;
+    line-height:.82;letter-spacing:-.02em;font-size:clamp(4.2rem,19vw,17rem)}
+  .hero-title .kin-line{display:block;overflow:hidden;padding-block:.02em}
+  .hero-title .kin-line>i{display:block;font-style:normal}
+  .hero-title .solid{color:var(--p-ink)}
+  .hero-title .outline{color:transparent;-webkit-text-stroke:clamp(1.6px,.36vw,3.4px) var(--p-accent)}
+  .hero-sub{max-width:36ch;margin:clamp(1.4rem,3vh,2.2rem) auto 0;color:var(--p-ink);
+    font-size:clamp(1.05rem,1.7vw,1.35rem);line-height:1.5;
+    text-shadow:0 0 20px var(--p-bg),0 0 8px var(--p-bg),0 1px 3px var(--p-bg)}
+  .hero-sub b{color:var(--p-accent);font-weight:600}
+  .hero-cta{margin-top:clamp(1.8rem,4vh,2.6rem);display:flex;gap:1.6rem;justify-content:center;align-items:center;flex-wrap:wrap}
+  .hero-meta{margin-top:clamp(1.6rem,4vh,2.4rem);font-family:'League Spartan',sans-serif;text-transform:uppercase;
+    letter-spacing:.2em;font-size:.64rem;font-weight:600;color:var(--p-muted);text-shadow:0 0 14px var(--p-bg),0 1px 2px var(--p-bg)}
+
+  /* load reveal: masked slide-up for headline */
+  .js .kin-line>i{transform:translateY(112%)}
+  .js .hero-title .kin-line>i{animation:slideUp 1.1s var(--ease) forwards}
+  .js .kin-1{animation-delay:.15s} .js .kin-2{animation-delay:.32s}
+  @keyframes slideUp{to{transform:translateY(0)}}
+  .js .load-fade{opacity:0;animation:loadFade 1s var(--ease) forwards}
+  .js .lf-1{animation-delay:.7s} .js .lf-2{animation-delay:.9s} .js .lf-3{animation-delay:1.05s}
+  @keyframes loadFade{to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){
+    .js .kin-line>i{animation:none;transform:none}
+    .js .load-fade{animation:none;opacity:1}
+  }
+  /* hero girih draws on load */
+  .js .girih--hero .gd{stroke-dasharray:100;stroke-dashoffset:100;animation:gdraw 2s var(--ease) forwards}
+  .js .girih--hero .gd-c,.js .girih--hero .gd-c2{animation-delay:.05s}
+  .js .girih--hero .gd-sp{animation-delay:.12s}
+  .js .girih--hero .gd-s{animation-delay:.4s}
+  .js .girih--hero .gd-star{animation-delay:.6s}
+  .js .girih--hero .gd-in{animation-delay:.95s}
+  @keyframes gdraw{to{stroke-dashoffset:0}}
+  @media (prefers-reduced-motion:reduce){.js .girih--hero .gd{animation:none;stroke-dashoffset:0}}
+
+  /* ============ BUTTONS (outlined, draw-on-hover) ============ */
+  .geo-btn{position:relative;display:inline-flex;align-items:center;gap:.7rem;
+    padding:1.05rem 2rem;font-family:'League Spartan',sans-serif;font-weight:700;text-transform:uppercase;
+    letter-spacing:.18em;font-size:.78rem;color:var(--p-accent);cursor:pointer;
+    border:1px solid color-mix(in srgb,var(--p-accent) 42%,transparent);background:transparent;
+    transition:color .3s var(--ease),background .35s var(--ease)}
+  .geo-btn .gb-bd{position:absolute;inset:-1px;width:calc(100% + 2px);height:calc(100% + 2px);overflow:visible;pointer-events:none}
+  .geo-btn .gb-bd rect{fill:none;stroke:var(--p-accent);stroke-width:2;vector-effect:non-scaling-stroke;
+    stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset .6s var(--ease)}
+  .geo-btn .gb-dot{position:absolute;width:6px;height:6px;background:var(--p-accent);transform:rotate(45deg);transition:transform .35s var(--ease)}
+  .geo-btn .d-l{left:-3px;top:calc(50% - 3px)} .geo-btn .d-r{right:-3px;top:calc(50% - 3px)}
+  .geo-btn:hover{color:var(--p-ink);background:color-mix(in srgb,var(--p-accent) 9%,transparent)}
+  .geo-btn:hover .gb-bd rect{stroke-dashoffset:0}
+  .geo-btn:hover .gb-dot{transform:rotate(135deg) scale(1.3)}
+  .geo-btn:active{transform:translateY(1px)}
+  .geo-btn:focus-visible{outline:2px solid var(--p-accent);outline-offset:3px}
+  .geo-btn.lg{padding:1.25rem 2.4rem;font-size:.86rem}
+  .text-link{position:relative;font-family:'League Spartan',sans-serif;font-weight:600;text-transform:uppercase;
+    letter-spacing:.16em;font-size:.74rem;color:var(--p-ink);padding-bottom:3px}
+  .text-link::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--p-accent);
+    transform:scaleX(.36);transform-origin:left;transition:transform .35s var(--ease)}
+  .text-link:hover::after{transform:scaleX(1)}
+  .text-link:focus-visible{outline:2px solid var(--p-accent);outline-offset:3px}
+
+  /* ============ REVEAL SYSTEM ============ */
+  .js .rv{opacity:0}
+  .js .rv-up{opacity:0;transform:translateY(40px)}
+  .js .rv-clip{opacity:0;clip-path:inset(0 0 100% 0)}
+  .js .rv-scale{opacity:0;transform:scale(.8)}
+  .js .rv-mask{overflow:hidden;display:block}
+  .js .rv-mask>i{display:block;font-style:normal;transform:translateY(116%)}
+  @media (prefers-reduced-motion:no-preference){
+    .js .rv.in{opacity:1;transition:opacity .9s var(--ease)}
+    .js .rv-up.in{opacity:1;transform:none;transition:opacity .9s var(--ease),transform .9s var(--ease)}
+    .js .rv-clip.in{opacity:1;clip-path:inset(0 0 0 0);transition:opacity .9s var(--ease),clip-path 1.1s var(--ease)}
+    .js .rv-scale.in{opacity:1;transform:none;transition:opacity .9s var(--ease),transform 1.1s var(--ease)}
+    .js .rv-mask.in>i{transform:none;transition:transform 1s var(--ease)}
+    @supports (animation-timeline:view()){
+      .js .rv{animation:rvFade linear both;animation-timeline:view();animation-range:entry 6% entry 50%}
+      .js .rv-up{animation:rvUp linear both;animation-timeline:view();animation-range:entry 6% entry 50%}
+      .js .rv-clip{animation:rvClip linear both;animation-timeline:view();animation-range:entry 4% entry 58%}
+      .js .rv-scale{animation:rvScale linear both;animation-timeline:view();animation-range:entry 4% cover 26%}
+      .js .rv-mask>i{animation:rvMask linear both;animation-timeline:view();animation-range:entry 8% entry 62%}
+    }
+  }
+  @keyframes rvFade{from{opacity:0}to{opacity:1}}
+  @keyframes rvUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+  @keyframes rvClip{from{opacity:0;clip-path:inset(0 0 100% 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+  @keyframes rvScale{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
+  @keyframes rvMask{from{transform:translateY(116%)}to{transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .js .rv,.js .rv-up,.js .rv-clip,.js .rv-scale{opacity:1;transform:none;clip-path:none}
+    .js .rv-mask>i{transform:none}
+  }
+  /* decorative scroll-driven rotation (content-safe) */
+  .deco-rot{transform-box:fill-box;transform-origin:center}
+  @supports (animation-timeline:scroll()){
+    @media (prefers-reduced-motion:no-preference){
+      .deco-rot{animation:decoRot linear both;animation-timeline:scroll(root)}
+      .deco-rot.rev{animation-name:decoRotRev}
+      .geo-zoom{animation:geoZoom linear both;animation-timeline:scroll(root)}
+    }
+  }
+  @keyframes decoRot{from{transform:rotate(0)}to{transform:rotate(150deg)}}
+  @keyframes decoRotRev{from{transform:rotate(0)}to{transform:rotate(-150deg)}}
+  @keyframes geoZoom{from{transform:rotate(0) scale(1)}to{transform:rotate(40deg) scale(1.35)}}
+
+  /* ============ MISSION ============ */
+  .mission{position:relative;overflow:hidden;padding:clamp(6rem,16vh,12rem) 0}
+  .mission-geo{position:absolute;top:50%;left:74%;transform:translate(-50%,-50%);z-index:0;
+    width:min(110vmin,1000px);height:min(110vmin,1000px);pointer-events:none;opacity:.5}
+  .mission-geo .girih{width:100%;height:100%}
+  .mission-inner{position:relative;z-index:2}
+  .sec-label{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.36em;
+    font-size:.7rem;font-weight:600;color:var(--p-accent);display:inline-flex;align-items:center;gap:.8rem;margin-bottom:clamp(1.6rem,4vh,2.6rem)}
+  .sec-label::before{content:"";width:34px;height:1px;background:var(--p-accent)}
+  .ms-head{font-family:'League Spartan',sans-serif;font-weight:900;text-transform:uppercase;
+    line-height:.92;letter-spacing:-.01em;font-size:clamp(2.6rem,9.4vw,8.4rem);max-width:14ch}
+  .ms-head .ln{display:block;overflow:hidden}
+  .ms-head .ln:nth-child(2){color:var(--p-accent);padding-left:clamp(0px,4vw,2.4ch)}
+  .ms-head .ln:nth-child(3){color:var(--p-accent-2)}
+  .ms-body{margin-top:clamp(2rem,5vh,3.2rem);max-width:54ch;font-size:clamp(1.08rem,1.7vw,1.32rem);
+    line-height:1.6;color:var(--p-ink)}
+  .ms-body+.ms-body{margin-top:1.1rem;color:var(--p-muted)}
+
+  /* ============ MARQUEE ============ */
+  .marquee{overflow:hidden;border-block:1px solid var(--p-line-2);background:var(--p-band);color:var(--p-band-ink);
+    padding:clamp(1rem,2.4vw,1.5rem) 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .marquee-track{display:inline-flex;align-items:center;gap:2.6rem;white-space:nowrap;will-change:transform;
+    font-family:'League Spartan',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;
+    font-size:clamp(1.5rem,4vw,2.8rem);animation:marq 32s linear infinite}
+  .marquee-track .star{color:var(--p-accent);font-size:.7em}
+  @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ============ PROGRAMS (radial / orbital) ============ */
+  .programs{position:relative;overflow:hidden;padding:clamp(5rem,12vh,9rem) 0 clamp(5rem,12vh,9rem)}
+  .programs-head{text-align:center;margin-bottom:clamp(2rem,5vh,3.5rem)}
+  .programs-head .sec-label{justify-content:center}
+  .programs-head h2{font-family:'League Spartan',sans-serif;font-weight:800;text-transform:uppercase;
+    letter-spacing:-.01em;font-size:clamp(2rem,5.4vw,4rem);line-height:1}
+  .prog-cluster{position:relative;width:min(900px,94vw);height:min(700px,98vw);margin:0 auto}
+  .prog-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+  .prog-lines line{stroke:var(--p-line-2);stroke-width:.4;stroke-dasharray:2.4 2.4}
+  .prog-hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;
+    width:clamp(104px,14vw,156px);height:clamp(104px,14vw,156px);display:grid;place-items:center;text-align:center}
+  .prog-hub .girih{position:absolute;inset:0;width:100%;height:100%;opacity:.82}
+  .hub-label{position:relative;font-family:'Yeseva One',serif;font-size:clamp(1.1rem,2.4vw,1.7rem);
+    line-height:1.05;color:var(--p-ink)}
+  .prog{position:absolute;z-index:2;width:min(240px,34vw);transform:translate(-50%,-50%);text-align:center}
+  .prog .pmark{width:24px;height:24px;color:var(--p-accent);margin:0 auto .5rem}
+  .prog h3{font-family:'League Spartan',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;
+    font-size:clamp(1.1rem,1.9vw,1.5rem);line-height:1.05;color:var(--p-ink)}
+  .prog p{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;
+    font-weight:600;color:var(--p-accent);margin-top:.5rem}
+  .prog .pq{display:block;font-family:'Quicksand',sans-serif;text-transform:none;letter-spacing:0;font-weight:500;
+    font-size:.9rem;color:var(--p-muted);margin-top:.35rem;line-height:1.4}
+  .prog.p0{left:50%;top:8%} .prog.p1{left:85%;top:37%} .prog.p2{left:70%;top:86%}
+  .prog.p3{left:30%;top:86%} .prog.p4{left:15%;top:37%}
+  @media (max-width:880px){
+    .prog-cluster{height:auto;display:flex;flex-direction:column;gap:0;width:100%}
+    .prog-lines{display:none}
+    .prog-hub{position:relative;left:auto;top:auto;transform:none;margin:0 auto clamp(1.5rem,5vw,2.5rem);
+      width:clamp(140px,40vw,190px);height:clamp(140px,40vw,190px)}
+    .prog{position:relative;left:auto!important;top:auto!important;transform:none;width:100%;max-width:520px;
+      margin:0 auto;text-align:left;display:grid;grid-template-columns:30px 1fr;gap:.2rem 1rem;align-items:start;
+      padding:1.4rem 0;border-top:1px solid var(--p-line)}
+    .prog .pmark{margin:.2rem 0 0;grid-row:1/4}
+    .prog h3,.prog p,.prog .pq{grid-column:2}
+  }
+
+  /* ============ QUOTE ============ */
+  .quote{position:relative;overflow:hidden;padding:clamp(5rem,12vh,9rem) 0;text-align:center}
+  .quote blockquote{position:relative;z-index:2;max-width:24ch;margin:0 auto;
+    font-family:'Yeseva One',serif;font-size:clamp(1.7rem,4.6vw,3.4rem);line-height:1.18;color:var(--p-ink)}
+  .quote .qm{display:block;font-family:'Yeseva One',serif;font-size:3em;line-height:0;height:.5em;color:var(--p-accent);opacity:.7}
+  .quote cite{display:block;margin-top:1.8rem;font-family:'League Spartan',sans-serif;font-style:normal;
+    text-transform:uppercase;letter-spacing:.2em;font-size:.68rem;font-weight:600;color:var(--p-accent)}
+
+  /* ============ COURSE (portal) ============ */
+  .course{position:relative;overflow:hidden;padding:clamp(5rem,12vh,9rem) 0;text-align:center}
+  .portal{position:relative;width:min(620px,92vw);margin:0 auto;aspect-ratio:1/1;display:grid;place-items:center}
+  .portal-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .portal-svg .pr{fill:none;stroke:var(--p-accent);stroke-linejoin:round}
+  .portal-svg .pr-1{opacity:.5;stroke-width:1}
+  .portal-svg .pr-2{opacity:.8;stroke-width:1.4}
+  .portal-svg .pr-3{stroke:var(--p-accent-2);opacity:.7;stroke-width:1}
+  .portal-svg .pr-c{stroke:var(--p-accent-2);stroke-width:.8;opacity:.45}
+  .portal-spin{transform-box:fill-box;transform-origin:center;animation:spin 120s linear infinite}
+  .portal-spin.rev{animation:spinRev 90s linear infinite}
+  @keyframes spinRev{to{transform:rotate(-360deg)}}
+  @media (prefers-reduced-motion:reduce){.portal-spin,.portal-spin.rev{animation:none}}
+  .portal-in{position:relative;z-index:2;padding:clamp(1.6rem,6vw,3.6rem);max-width:32ch;
+    background:radial-gradient(closest-side, color-mix(in srgb,var(--p-bg) 82%,transparent) 0%, color-mix(in srgb,var(--p-bg) 52%,transparent) 58%, transparent 100%)}
+  .portal-in .iqra{font-family:'Amiri',serif;font-size:clamp(3rem,9vw,5.4rem);line-height:1;color:var(--p-accent);direction:rtl}
+  .portal-in .ref{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.24em;
+    font-size:.66rem;font-weight:600;color:var(--p-accent-2);margin:1rem 0 .4rem}
+  .portal-in h2{font-family:'Yeseva One',serif;font-size:clamp(1.9rem,5vw,3.2rem);line-height:1.04;color:var(--p-ink)}
+  .portal-in p{margin:1rem auto 0;max-width:34ch;color:color-mix(in srgb,var(--p-ink) 80%,var(--p-muted));
+    font-size:clamp(.98rem,1.5vw,1.12rem);text-shadow:0 0 10px var(--p-bg)}
+  .portal-in .geo-btn{margin-top:1.8rem}
+
+  /* ============ WRITINGS ============ */
+  .writings{padding:clamp(5rem,12vh,9rem) 0}
+  .writings-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;
+    border-bottom:1px solid var(--p-line-2);padding-bottom:1.4rem;margin-bottom:1rem}
+  .writings-head h2{font-family:'League Spartan',sans-serif;font-weight:800;text-transform:uppercase;
+    letter-spacing:-.01em;font-size:clamp(1.8rem,4.6vw,3.4rem);line-height:1}
+  .writings-head .rt{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.18em;
+    font-size:.66rem;font-weight:600;color:var(--p-muted)}
+  .writing{display:grid;grid-template-columns:auto 1fr auto;gap:1.2rem 1.8rem;align-items:center;
+    padding:clamp(1.5rem,3.4vh,2.4rem) 0;border-bottom:1px solid var(--p-line)}
+  .writing .wn{font-family:'Yeseva One',serif;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--p-accent);line-height:1}
+  .writing .wt{font-family:'Yeseva One',serif;font-size:clamp(1.35rem,3vw,2.2rem);line-height:1.12;color:var(--p-ink);
+    transition:color .25s var(--ease)}
+  .writing .wk{display:block;font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.16em;
+    font-size:.64rem;font-weight:600;color:var(--p-muted);margin-top:.5rem}
+  .writing .warr{color:var(--p-accent);transition:transform .3s var(--ease),opacity .25s var(--ease);opacity:.55}
+  .writing:hover .wt{color:var(--p-accent)}
+  .writing:hover .warr{transform:translateX(8px);opacity:1}
+  @media (max-width:620px){.writing{grid-template-columns:auto 1fr;gap:.4rem 1.1rem}.writing .warr{display:none}}
+
+  /* ============ DONATE ============ */
+  .donate{position:relative;overflow:hidden;display:grid;place-items:center;text-align:center;
+    min-height:min(100vh,1100px);min-height:min(100dvh,1100px);padding:clamp(5rem,14vh,9rem) 0}
+  .donate-geo{position:absolute;inset:0;z-index:0;display:grid;place-items:center;pointer-events:none;opacity:.62}
+  .donate-geo .girih{width:min(126vmin,1180px);height:min(126vmin,1180px)}
+  .donate-veil{position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(56% 50% at 50% 50%, color-mix(in srgb,var(--p-bg) 84%,transparent) 0%, color-mix(in srgb,var(--p-bg) 24%,transparent) 50%, transparent 74%)}
+  .donate-inner{position:relative;z-index:2;max-width:760px;padding-inline:clamp(20px,5vw,40px)}
+  .donate-inner h2{font-family:'League Spartan',sans-serif;font-weight:900;text-transform:uppercase;
+    line-height:.88;letter-spacing:-.02em;font-size:clamp(3rem,12vw,9rem);color:var(--p-ink)}
+  .donate-inner h2 .ln{display:block;overflow:hidden}
+  .donate-inner h2 .ln:nth-child(2){color:var(--p-accent)}
+  .donate-inner p{margin:clamp(1.6rem,3.6vh,2.4rem) auto 0;max-width:46ch;font-size:clamp(1.05rem,1.7vw,1.3rem);
+    line-height:1.55;color:var(--p-ink);text-shadow:0 0 16px var(--p-bg),0 1px 3px var(--p-bg)}
+  .donate-inner .geo-btn{margin-top:clamp(1.8rem,4vh,2.6rem)}
+
+  /* ============ FOOTER ============ */
+  .foot{position:relative;z-index:2;border-top:1px solid var(--p-line-2);background:var(--p-band);color:var(--p-band-ink);
+    padding:clamp(3rem,7vh,4.5rem) 0 clamp(2.2rem,5vh,3rem)}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:2.4rem}
+  .foot .brand svg{color:var(--p-accent)}
+  .foot .about{color:color-mix(in srgb,var(--p-band-ink) 75%,transparent);max-width:34ch;margin-top:1rem;font-size:.98rem;line-height:1.6}
+  .foot h4{font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.18em;font-size:.62rem;
+    font-weight:700;color:color-mix(in srgb,var(--p-band-ink) 64%,transparent);margin-bottom:1rem}
+  .foot a.fl{display:block;padding:.28rem 0;color:var(--p-band-ink);transition:color .2s var(--ease)}
+  .foot a.fl:hover{color:var(--p-accent)}
+  .foot .addr{font-family:'League Spartan',sans-serif;font-weight:600;color:var(--p-band-ink);line-height:1.7;font-size:.92rem}
+  .foot-end{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;margin-top:clamp(2.4rem,5vh,3.4rem);
+    padding-top:1.4rem;border-top:1px solid color-mix(in srgb,var(--p-band-ink) 16%,transparent);
+    font-family:'League Spartan',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:.62rem;
+    color:color-mix(in srgb,var(--p-band-ink) 60%,transparent)}
+  @media (max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}.foot .about{grid-column:1/-1}}
+
+  /* ============ PALETTE SWITCHER ============ */
+  .txd-pal{position:relative;font-family:'League Spartan',sans-serif;z-index:80}
+  .txd-pal-btn{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;background:color-mix(in srgb,var(--p-surface) 60%,transparent);
+    border:1px solid var(--p-line-2);color:var(--p-muted);padding:.45rem .68rem;font-size:.6rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.14em;transition:border-color .2s ease,color .2s ease}
+  .txd-pal-btn:hover{border-color:var(--p-accent);color:var(--p-ink)}
+  .txd-pal-sw{width:28px;height:11px;display:inline-block;border:1px solid var(--p-line-2);
+    background:linear-gradient(90deg,var(--p-bg) 0 33%,var(--p-accent) 33% 66%,var(--p-accent-2) 66% 100%)}
+  .txd-pal-cv{width:11px;height:11px;opacity:.7}
+  .txd-pal-menu{position:absolute;top:calc(100% + 7px);right:0;min-width:244px;max-width:calc(100vw - 32px);
+    background:var(--p-surface);border:1px solid var(--p-accent);padding:.35rem;
+    box-shadow:0 22px 50px rgba(0,0,0,.35);opacity:0;visibility:hidden;transform:translateY(-6px);
+    transition:opacity .18s ease,transform .18s ease,visibility .18s ease;max-height:74vh;overflow:auto}
+  .txd-pal.open .txd-pal-menu{opacity:1;visibility:visible;transform:none}
+  .txd-pal-opt{display:flex;align-items:center;gap:.7rem;width:100%;text-align:left;cursor:pointer;background:none;border:0;
+    color:var(--p-ink);padding:.5rem .55rem;font-size:.8rem;font-family:'League Spartan',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+  .txd-pal-opt:hover{background:color-mix(in srgb,var(--p-ink) 8%,transparent)}
+  .txd-pal-opt[aria-selected="true"]{background:color-mix(in srgb,var(--p-accent) 18%,transparent)}
+  .txd-pal-opt .sw{width:28px;height:16px;flex:none;border:1px solid var(--p-line-2);
+    background:linear-gradient(90deg,var(--a) 0 50%,var(--b) 50% 80%,var(--c) 80% 100%)}
+  .txd-pal-opt .nm{display:flex;flex-direction:column;line-height:1.2}
+  .txd-pal-opt .nm small{opacity:.6;font-size:.58rem;letter-spacing:.08em;margin-top:2px}
+</style>
+</head>
+<body>
+
+<!-- symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 64 64">
+    <circle cx="32" cy="39" r="18.5" stroke="currentColor" stroke-width="1.4" fill="none" opacity="0.8"/>
+    <path d="M31 7c7.2 3.3-3.6 11.4 3 16.5 6.4 5 -4.4 9.7 1.4 15.2 4 3.8 9.4 2.3 12-1.2" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M31 7c-1.6 1.9-1.4 4.2 .4 6.2" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+    <rect x="26.4" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 29.1 42.9)" fill="currentColor"/>
+    <rect x="33.6" y="40.2" width="5.4" height="5.4" rx="0.6" transform="rotate(45 36.3 42.9)" fill="currentColor"/>
+  </symbol>
+  <symbol id="star8" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.3">
+      <rect x="5" y="5" width="14" height="14"/>
+      <rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Texas Dawah">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg><b>Texas Dawah</b>
+  </a>
+  <nav class="topnav" aria-label="Primary">
+    <a href="#mission">Mission</a>
+    <a href="#programs">Programs</a>
+    <a href="#course">Course</a>
+    <a href="#support">Support</a>
+  </nav>
+  <div class="txd-pal" data-txd-pal>
+    <button class="txd-pal-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Switch color palette">
+      <span class="txd-pal-sw" aria-hidden="true"></span><span class="txd-pal-name">Palette</span>
+      <svg class="txd-pal-cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="txd-pal-menu" role="listbox" aria-label="Color palette"></div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-geo geo-zoom" aria-hidden="true">
+    <svg class="girih girih--hero" viewBox="0 0 600 600"><g class="spin">
+      <circle class="gd gd-c" cx="300" cy="300" r="294" pathLength="100"/>
+      <circle class="gd gd-c2" cx="300" cy="300" r="246" pathLength="100"/>
+      <polygon class="gd gd-s" points="570,300 300,570 30,300 300,30" pathLength="100"/>
+      <polygon class="gd gd-s" points="533.8,435 165,533.8 66.2,165 435,66.2" pathLength="100"/>
+      <polygon class="gd gd-s" points="435,533.8 66.2,435 165,66.2 533.8,165" pathLength="100"/>
+      <path class="gd gd-star" d="M570,300 66.2,435 435,66.2 300,570 165,66.2 533.8,435 30,300 533.8,165 165,533.8 300,30 435,533.8 66.2,165 Z" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="570" y2="300" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="533.8" y2="435" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="435" y2="533.8" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="300" y2="570" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="165" y2="533.8" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="66.2" y2="435" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="30" y2="300" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="66.2" y2="165" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="165" y2="66.2" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="300" y2="30" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="435" y2="66.2" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="533.8" y2="165" pathLength="100"/>
+      <rect class="gd gd-in" x="222" y="222" width="156" height="156" pathLength="100"/>
+      <rect class="gd gd-in" x="222" y="222" width="156" height="156" transform="rotate(45 300 300)" pathLength="100"/>
+      <circle class="gd gd-in" cx="300" cy="300" r="60" pathLength="100"/>
+      <circle class="gd-dot" cx="300" cy="300" r="11"/>
+    </g></svg>
+  </div>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="hero-kicker load-fade lf-1">Est. 2018 <span class="ar">دعوة</span> University of Texas</p>
+    <h1 class="hero-title">
+      <span class="kin-line"><i class="solid kin-1">Texas</i></span>
+      <span class="kin-line"><i class="outline kin-2">Dawah</i></span>
+    </h1>
+    <p class="hero-sub load-fade lf-2">A student-led invitation to Islam in Austin, drawn in light and geometry. We <b>share the truth</b> with wisdom and beautiful character.</p>
+    <div class="hero-cta load-fade lf-3">
+      <a class="geo-btn" href="#course"><span>Start the free course</span><span class="gb-dot d-l"></span><span class="gb-dot d-r"></span><svg class="gb-bd" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><rect x="1" y="1" width="98" height="98" pathLength="100"/></svg></a>
+      <a class="text-link" href="#mission">Our mission</a>
+    </div>
+    <p class="hero-meta load-fade lf-3">1906 Nueces St, Austin, Texas</p>
+  </div>
+</section>
+
+<!-- ============ MISSION ============ -->
+<section class="mission" id="mission">
+  <div class="mission-geo deco-rot" aria-hidden="true">
+    <svg class="girih" viewBox="0 0 600 600"><g class="spin">
+      <circle class="gd gd-c" cx="300" cy="300" r="294" pathLength="100"/>
+      <circle class="gd gd-c2" cx="300" cy="300" r="246" pathLength="100"/>
+      <polygon class="gd gd-s" points="570,300 300,570 30,300 300,30" pathLength="100"/>
+      <polygon class="gd gd-s" points="533.8,435 165,533.8 66.2,165 435,66.2" pathLength="100"/>
+      <polygon class="gd gd-s" points="435,533.8 66.2,435 165,66.2 533.8,165" pathLength="100"/>
+      <path class="gd gd-star" d="M570,300 66.2,435 435,66.2 300,570 165,66.2 533.8,435 30,300 533.8,165 165,533.8 300,30 435,533.8 66.2,165 Z" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="570" y2="300" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="533.8" y2="435" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="435" y2="533.8" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="300" y2="570" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="165" y2="533.8" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="66.2" y2="435" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="30" y2="300" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="66.2" y2="165" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="165" y2="66.2" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="300" y2="30" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="435" y2="66.2" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="533.8" y2="165" pathLength="100"/>
+      <rect class="gd gd-in" x="222" y="222" width="156" height="156" pathLength="100"/>
+      <rect class="gd gd-in" x="222" y="222" width="156" height="156" transform="rotate(45 300 300)" pathLength="100"/>
+      <circle class="gd gd-in" cx="300" cy="300" r="60" pathLength="100"/>
+      <circle class="gd-dot" cx="300" cy="300" r="11"/>
+    </g></svg>
+  </div>
+  <div class="wrap mission-inner">
+    <span class="sec-label rv">Our mission</span>
+    <h2 class="ms-head">
+      <span class="ln rv-mask"><i>Share the truth</i></span>
+      <span class="ln rv-mask"><i>with wisdom</i></span>
+      <span class="ln rv-mask"><i>and beautiful character.</i></span>
+    </h2>
+    <p class="ms-body rv-up">Texas Dawah is a student community at the University of Texas at Austin. We set a table on the Drag, open our books, and answer the questions people actually carry: about God, about Jesus, about suffering and meaning. The truth, we believe, is best offered, never imposed.</p>
+    <p class="ms-body rv-up">We are not here to win arguments. We are here to be the reason someone, one afternoon between classes, looked closer at Islam and found mercy in it. Whatever you believe, you are welcome at the table.</p>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Wisdom</span><span class="star">&#10022;</span><span>Patience</span><span class="star">&#10022;</span><span>An open table</span><span class="star">&#10022;</span><span>Every question welcome</span><span class="star">&#10022;</span><span>Free books</span><span class="star">&#10022;</span><span>Beautiful character</span><span class="star">&#10022;</span>
+    <span>Wisdom</span><span class="star">&#10022;</span><span>Patience</span><span class="star">&#10022;</span><span>An open table</span><span class="star">&#10022;</span><span>Every question welcome</span><span class="star">&#10022;</span><span>Free books</span><span class="star">&#10022;</span><span>Beautiful character</span><span class="star">&#10022;</span>
+  </div>
+</div>
+
+<!-- ============ PROGRAMS ============ -->
+<section class="programs" id="programs">
+  <div class="wrap programs-head">
+    <span class="sec-label rv">What we run</span>
+    <h2 class="rv-up">Doors into the same conversation</h2>
+  </div>
+  <div class="prog-cluster">
+    <svg class="prog-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <line x1="50" y1="35.7" x2="50" y2="17.5"/>
+      <line x1="60.5" y1="46.1" x2="71" y2="42"/>
+      <line x1="56.4" y1="61.5" x2="65" y2="77"/>
+      <line x1="43.6" y1="61.5" x2="35" y2="77"/>
+      <line x1="39.5" y1="46.1" x2="29" y2="42"/>
+    </svg>
+    <div class="prog-hub">
+      <svg class="girih deco-rot rev" viewBox="0 0 600 600" aria-hidden="true"><g class="spin">
+        <circle class="gd gd-c" cx="300" cy="300" r="290" pathLength="100"/>
+        <path class="gd gd-star" d="M570,300 66.2,435 435,66.2 300,570 165,66.2 533.8,435 30,300 533.8,165 165,533.8 300,30 435,533.8 66.2,165 Z" pathLength="100"/>
+        <rect class="gd gd-in" x="222" y="222" width="156" height="156" pathLength="100"/>
+        <rect class="gd gd-in" x="222" y="222" width="156" height="156" transform="rotate(45 300 300)" pathLength="100"/>
+        <circle class="gd-dot" cx="300" cy="300" r="11"/>
+      </g></svg>
+      <span class="hub-label">What<br>we run</span>
+    </div>
+    <div class="prog p0 rv-up">
+      <svg class="pmark" viewBox="0 0 24 24" aria-hidden="true"><use href="#star8"/></svg>
+      <h3>Dawah tabling</h3>
+      <p>Weekly &middot; West Mall</p>
+      <span class="pq">Free books, cold water, and an honest answer to any question.</span>
+    </div>
+    <div class="prog p1 rv-up">
+      <svg class="pmark" viewBox="0 0 24 24" aria-hidden="true"><use href="#star8"/></svg>
+      <h3>Dawah training</h3>
+      <p>Thursdays 8 PM &middot; 1906 Nueces</p>
+      <span class="pq">Learn to invite with confidence and care. No experience needed.</span>
+    </div>
+    <div class="prog p2 rv-up">
+      <svg class="pmark" viewBox="0 0 24 24" aria-hidden="true"><use href="#star8"/></svg>
+      <h3>Interfaith iftars</h3>
+      <p>Each Ramadan</p>
+      <span class="pq">Breaking bread with neighbors of every faith.</span>
+    </div>
+    <div class="prog p3 rv-up">
+      <svg class="pmark" viewBox="0 0 24 24" aria-hidden="true"><use href="#star8"/></svg>
+      <h3>Book club &amp; lectures</h3>
+      <p>Monthly &middot; Guest scholars</p>
+      <span class="pq">Slow reading on faith and doubt, with visiting voices.</span>
+    </div>
+    <div class="prog p4 rv-up">
+      <svg class="pmark" viewBox="0 0 24 24" aria-hidden="true"><use href="#star8"/></svg>
+      <h3>Guest lectures</h3>
+      <p>Each semester</p>
+      <span class="pq">"What did Jesus really say?" and other open questions.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="quote">
+  <div class="wrap">
+    <blockquote class="rv-up">
+      <span class="qm" aria-hidden="true">&ldquo;</span>
+      I came to the table to argue. I left with a friend, a book, and more questions than I started with.
+      <cite>A visitor on the Drag</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ============ COURSE (portal) ============ -->
+<section class="course" id="course">
+  <div class="wrap">
+    <span class="sec-label rv" style="justify-content:center">The free course</span>
+    <div class="portal">
+      <svg class="portal-svg" viewBox="0 0 600 600" aria-hidden="true">
+        <g class="portal-spin">
+          <rect class="pr pr-1" x="60" y="60" width="480" height="480"/>
+          <rect class="pr pr-1" x="60" y="60" width="480" height="480" transform="rotate(45 300 300)"/>
+        </g>
+        <g class="portal-spin rev">
+          <rect class="pr pr-2" x="120" y="120" width="360" height="360"/>
+          <rect class="pr pr-2" x="120" y="120" width="360" height="360" transform="rotate(45 300 300)"/>
+        </g>
+        <circle class="pr pr-c" cx="300" cy="300" r="252"/>
+        <circle class="pr pr-c" cx="300" cy="300" r="186"/>
+        <g class="portal-spin">
+          <path class="pr pr-3" d="M510,300 138.6,394 414,138.6 300,510 186,138.6 461.4,394 90,300 461.4,206 186,461.4 300,90 414,461.4 138.6,206 Z"/>
+        </g>
+      </svg>
+      <div class="portal-in rv-scale">
+        <div class="iqra ar">اقْرَأْ</div>
+        <p class="ref">Course &middot; WIT 01</p>
+        <h2>Why Islam Is True</h2>
+        <p>A free six-part course walking through the evidence behind the message: the Qur'an, the prophethood, and the case for belief. Built for the curious and the questioning alike.</p>
+        <a class="geo-btn lg" href="#course"><span>Start the free course</span><span class="gb-dot d-l"></span><span class="gb-dot d-r"></span><svg class="gb-bd" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><rect x="1" y="1" width="98" height="98" pathLength="100"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WRITINGS ============ -->
+<section class="writings" id="writings">
+  <div class="wrap">
+    <div class="writings-head">
+      <h2 class="rv-up">From the blog</h2>
+      <span class="rt rv">Questions taken seriously</span>
+    </div>
+    <a class="writing rv-up" href="#writings">
+      <span class="wn">01</span>
+      <span><span class="wt">If God is merciful, why is there suffering?</span><span class="wk">A question taken seriously</span></span>
+      <svg class="warr" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <a class="writing rv-up" href="#writings">
+      <span class="wn">02</span>
+      <span><span class="wt">What the Qur'an says about Jesus, son of Mary</span><span class="wk">A deep reading</span></span>
+      <svg class="warr" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <a class="writing rv-up" href="#writings">
+      <span class="wn">03</span>
+      <span><span class="wt">So you want to learn about Islam. Begin here.</span><span class="wk">A gentle map for the curious</span></span>
+      <svg class="warr" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============ DONATE ============ -->
+<section class="donate" id="support">
+  <div class="donate-geo geo-zoom" aria-hidden="true">
+    <svg class="girih" viewBox="0 0 600 600"><g class="spin">
+      <circle class="gd gd-c" cx="300" cy="300" r="294" pathLength="100"/>
+      <circle class="gd gd-c2" cx="300" cy="300" r="246" pathLength="100"/>
+      <polygon class="gd gd-s" points="570,300 300,570 30,300 300,30" pathLength="100"/>
+      <polygon class="gd gd-s" points="533.8,435 165,533.8 66.2,165 435,66.2" pathLength="100"/>
+      <polygon class="gd gd-s" points="435,533.8 66.2,435 165,66.2 533.8,165" pathLength="100"/>
+      <path class="gd gd-star" d="M570,300 66.2,435 435,66.2 300,570 165,66.2 533.8,435 30,300 533.8,165 165,533.8 300,30 435,533.8 66.2,165 Z" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="570" y2="300" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="533.8" y2="435" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="435" y2="533.8" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="300" y2="570" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="165" y2="533.8" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="66.2" y2="435" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="30" y2="300" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="66.2" y2="165" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="165" y2="66.2" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="300" y2="30" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="435" y2="66.2" pathLength="100"/>
+      <line class="gd gd-sp" x1="300" y1="300" x2="533.8" y2="165" pathLength="100"/>
+      <rect class="gd gd-in" x="222" y="222" width="156" height="156" pathLength="100"/>
+      <rect class="gd gd-in" x="222" y="222" width="156" height="156" transform="rotate(45 300 300)" pathLength="100"/>
+      <circle class="gd gd-in" cx="300" cy="300" r="60" pathLength="100"/>
+      <circle class="gd-dot" cx="300" cy="300" r="11"/>
+    </g></svg>
+  </div>
+  <div class="donate-veil" aria-hidden="true"></div>
+  <div class="donate-inner">
+    <span class="sec-label rv" style="justify-content:center">Keep the table open</span>
+    <h2>
+      <span class="ln rv-mask"><i>Support</i></span>
+      <span class="ln rv-mask"><i>the dawah</i></span>
+    </h2>
+    <p class="rv-up">Every book at the table, every seat in the course, is paid for by someone who once sat where you sit now. Be the reason the next conversation happens.</p>
+    <a class="geo-btn lg rv-up" href="#support"><span>Support the dawah</span><span class="gb-dot d-l"></span><span class="gb-dot d-r"></span><svg class="gb-bd" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><rect x="1" y="1" width="98" height="98" pathLength="100"/></svg></a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Texas Dawah">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg><b>Texas Dawah</b>
+        </a>
+        <p class="about">A student-led Muslim community sharing the message of Islam in Austin, with knowledge and beautiful character. Kept free by those who believe in the work.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a class="fl" href="#mission">Mission</a>
+        <a class="fl" href="#programs">Programs</a>
+        <a class="fl" href="#course">The course</a>
+        <a class="fl" href="#writings">Writings</a>
+        <a class="fl" href="#support">Support</a>
+      </div>
+      <div>
+        <h4>Find us</h4>
+        <a class="fl" href="#">Instagram</a>
+        <a class="fl" href="#">YouTube</a>
+        <a class="fl" href="#">Write to us</a>
+        <p class="addr">1906 Nueces St<br>Austin, TX 78705</p>
+      </div>
+    </div>
+    <div class="foot-end">
+      <span>&copy; 2026 Texas Dawah &middot; A student work, offered freely</span>
+      <span>Drawn in Austin, Texas</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* Reveal fallback: only when CSS scroll-driven view() is unsupported */
+  (function(){
+    var supportsView=false;
+    try{supportsView=window.CSS&&CSS.supports&&CSS.supports('animation-timeline','view()');}catch(e){supportsView=false;}
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    var nodes=[].slice.call(document.querySelectorAll('.rv,.rv-up,.rv-clip,.rv-scale,.rv-mask'));
+    if(reduce){nodes.forEach(function(n){n.classList.add('in');});return;}
+    if(supportsView)return; /* CSS handles it */
+    if(!('IntersectionObserver' in window)){nodes.forEach(function(n){n.classList.add('in');});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.16,rootMargin:'0px 0px -7% 0px'});
+    nodes.forEach(function(n){io.observe(n);});
+  })();
+</script>
+
+<script>
+  (function(){
+    var P=[
+      {k:'midnight',n:'Midnight',d:'Navy + Gold',c:['#0d1230','#e7c66b','#9bb4e8']},
+      {k:'olive',n:'Olive Manuscript',d:'Deep Olive + Sage',c:['#1d2416','#cdb968','#8a946f']},
+      {k:'cream',n:'Cream & Sage',d:'Off-white + Sage',c:['#f6f1e1','#c1851f','#4f7e6e']},
+      {k:'mocha',n:'Mocha Warmth',d:'Mocha + Tan',c:['#362116','#d8ad7c','#b06a45']},
+      {k:'aubergine',n:'Aubergine Nights',d:'Plum + Lilac',c:['#1f0f24','#e3c071','#c79bd6']},
+      {k:'geometric',n:'Geometric',d:'Teal + Gold',c:['#072d2b','#e7c66b','#46b89a']},
+      {k:'interfaith',n:'Interfaith',d:'Dusty Rose',c:['#e7d3c8','#9c5c41','#7d4631']},
+      {k:'minimal',n:'Minimal Mihrab',d:'Bone + Emerald',c:['#f4f1ea','#0c5440','#bfa15a']}
+    ];
+    var root=document.documentElement, KEY='txd-palette';
+    var NATIVE=root.getAttribute('data-palette')||'minimal';
+    var valid=function(k){return P.some(function(p){return p.k===k})};
+    var wraps=[].slice.call(document.querySelectorAll('[data-txd-pal]'));
+    function label(k){var p=P.filter(function(x){return x.k===k})[0]||P[0];return p.n}
+    function render(cur){wraps.forEach(function(w){
+      var nm=w.querySelector('.txd-pal-name'); if(nm) nm.textContent=label(cur);
+      var menu=w.querySelector('.txd-pal-menu');
+      if(menu && !menu.dataset.built){P.forEach(function(p){
+        var b=document.createElement('button'); b.type='button'; b.className='txd-pal-opt';
+        b.setAttribute('role','option'); b.dataset.pal=p.k;
+        b.innerHTML='<span class="sw" style="--a:'+p.c[0]+';--b:'+p.c[1]+';--c:'+p.c[2]+'"></span><span class="nm">'+p.n+'<small>'+p.d+'</small></span>';
+        b.addEventListener('click',function(){set(p.k,true);close();}); menu.appendChild(b);
+      }); menu.dataset.built='1';}
+      [].slice.call(w.querySelectorAll('.txd-pal-opt')).forEach(function(o){o.setAttribute('aria-selected',o.dataset.pal===cur?'true':'false');});
+    });}
+    function set(k,persist){if(!valid(k))k=NATIVE; root.setAttribute('data-palette',k);
+      if(persist){try{localStorage.setItem(KEY,k)}catch(e){}} render(k);}
+    function openW(w){w.classList.add('open');var b=w.querySelector('.txd-pal-btn');if(b)b.setAttribute('aria-expanded','true')}
+    function close(){wraps.forEach(function(w){w.classList.remove('open');var b=w.querySelector('.txd-pal-btn');if(b)b.setAttribute('aria-expanded','false')})}
+    wraps.forEach(function(w){var btn=w.querySelector('.txd-pal-btn');
+      if(btn)btn.addEventListener('click',function(e){e.stopPropagation();var o=w.classList.contains('open');close();if(!o)openW(w);});});
+    document.addEventListener('click',function(e){if(!e.target.closest('[data-txd-pal]'))close()});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+    window.addEventListener('message',function(e){var d=e&&e.data;if(d&&d.txdPalette){set(d.txdPalette,false)}});
+    var params=new URLSearchParams(location.search), q=params.get('palette'), initial;
+    if(q==='native'){initial=NATIVE} else if(q&&valid(q)){initial=q}
+    else{var st;try{st=localStorage.getItem(KEY)}catch(e){} initial=(st&&valid(st))?st:NATIVE}
+    set(initial,false);
+  })();
+</script>
+</body>
+</html>
